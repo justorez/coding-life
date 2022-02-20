@@ -1,0 +1,31 @@
+// rem + @media 适配不同尺寸的移动端设备
+// 注意：less 4.0+ 除法不加括号不会被计算
+
+// 常见设备的像素宽度
+@deviceWidths: 320px, 360px, 375px, 400px, 414px, 480px, 750px;
+.html-font-size(@design-font-size, @design-width) {
+    html {
+        font-size: @design-font-size;
+    }
+    each(@deviceWidths, {
+        @deviceWidth: @value; // 返回列表指定位置的值（起始位置 1）
+        @font-size-value: (@deviceWidth / @design-width * @design-font-size);
+        @font-size: round(@font-size-value, 2);
+        @media only screen and (min-width: @deviceWidth) {
+            html {
+                font-size: @font-size;
+            }
+        }
+    })
+}
+
+// px 转 rem
+.px2rem(@name, @px, @design-font-size) {
+    @{name}: 1rem * round((@px / @design-font-size), 2);
+}
+
+.px2rem(@name, @px) {
+    .px2rem(@name, @px, @design-font-size);
+}
+
+.html-font-size(16px, 375px);
