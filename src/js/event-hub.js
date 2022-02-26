@@ -70,5 +70,3 @@ function test() {
     eventHub.emit('login', 'I am leo', 18)
 }
 test()
-
-module.exports = EventHub
