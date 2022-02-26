@@ -1,0 +1,31 @@
+<script src="./sleep.js"></script>
+<script>
+    async function fn1() {
+        console.log('async1 a')
+        await sleep(500)
+        console.log('async1 b')
+        return 'async1 c'
+    }
+
+    async function fn2() {
+        console.log('async2 a')
+        // 如果不是一个 Promise，
+        // await 会把该值转换为已正常处理的 Promise，然后等待其处理结果
+        await 'nothing'
+        console.log('async2 b')
+    }
+
+    async function fn3() {
+        console.log('async3 a')
+        await // 什么都没有，等同于一般函数
+        console.log('async3 b')
+    }
+
+    fn1().then(console.log)
+    fn2()
+    fn3()
+    console.log('sync')
+
+    // 简单理解：只有 await 后有东西时，后续代码会被封装为一个微任务，
+    // 当一个任务退出且执行上下文为空的时候，微任务队列中的每一个微任务会依次被执行
+</script>

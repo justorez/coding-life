@@ -1,8 +1,7 @@
-import sleep from "./sleep.js"
+const sleep = require('./sleep')
 
 /**
- * 简易调度器
- * 限制同时在执行中的异步操作的最大的数量
+ * 限制最大并发数的调度器
  */
 class Scheduler {
     /**
@@ -35,16 +34,9 @@ class Scheduler {
      */
     add(task) {
         this.queue.push(task)
-        const next = async () => {
-            // 因为 activeCount 是异步更新，所以需要等待下一轮微任务被执行时，
-            // 再去比较 activeCount 和 concurrency，以保证 activeCount 是最新值
-            await Promise.resolve()
-
-            if (this.pendingCount > 0 && this.activeCount < this.concurrency) {
-                this.run()
-            }
+        if (this.pendingCount > 0 && this.activeCount < this.concurrency) {
+            this.run()
         }
-        next()
     }
    
     async run() {

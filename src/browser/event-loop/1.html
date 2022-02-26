@@ -1,0 +1,37 @@
+<script>
+    console.log('script start')
+
+    setTimeout(() => {
+        console.log('setTimeout')
+    }, 1 * 2000)
+
+    Promise.resolve()
+        .then(function () {
+            console.log('promise1')
+        })
+        .then(function () {
+            console.log('promise2')
+        })
+
+    async function foo() {
+        await bar()
+        console.log('async foo')
+    }
+    function bar() {
+        console.log('async bar')
+    }
+    foo()
+
+    async function errFn() {
+        try {
+            await Promise.reject('error!!!')
+        } catch (e) {
+            console.error(e)
+        }
+        console.log('async errFn')
+        return Promise.resolve('async errFn success')
+    }
+    errFn().then((res) => console.log(res))
+
+    console.log('script end')
+</script>

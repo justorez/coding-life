@@ -1,0 +1,32 @@
+<script>
+    if (typeof window.queueMicrotask !== 'function') {
+        window.queueMicrotask = function (callback) {
+            Promise.resolve()
+                .then(callback)
+                .catch((e) =>
+                    setTimeout(() => {
+                        throw e
+                    })
+                )
+        }
+    }
+
+    setTimeout(() => console.log('setTimeout'))
+    queueMicrotask(() => {
+        console.log('microtask 1')
+        queueMicrotask(() => {
+            console.log('microtask 3')
+        })
+    })
+    Promise.resolve()
+        .then(() => console.log('microtask 2'))
+        .then(() => console.log('microtask 4'))
+    console.log('script')
+
+    // script
+    // microtask 1
+    // microtask 2
+    // microtask 3
+    // microtask 4
+    // setTimeout
+</script>

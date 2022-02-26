@@ -3,7 +3,8 @@
 ## Browser
 
 - [new 操作符模拟实现](./src/browser/fake-new.html)
-- [原型链](./src/browser/prototype-chain.html)
+- [原型链](./src/browser/prototype-chain/index.html)
+- [事件循环](./src/browser/event-loop/readme.md)
 
 ## JavaScript
 
