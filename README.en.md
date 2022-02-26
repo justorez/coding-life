@@ -1,1 +1,1 @@
-> Make Trash
+> Making Trash!

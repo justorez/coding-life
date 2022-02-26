@@ -3,6 +3,10 @@
         this.name = name
         this.age = age
     }
+    // 为什么常常这样声明类方法？
+    // Person.prototype.fn = () => {}
+    // 之所以不把 fn 放在 Person 里定义，
+    // 是为了避免每次调用构造器都重新赋值一遍 fn，节省开销
 
     function print(head) {
         let cursor = head
