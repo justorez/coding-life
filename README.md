@@ -2,15 +2,17 @@
 
 ## Browser
 
-- [new 操作符模拟实现](./src/browser/fake-new.html)
 - [原型链](./src/browser/prototype-chain/index.html)
 - [事件循环](./src/browser/event-loop/readme.md)
 - [生成器+Promise 模拟 async/await](./src/browser/generator/index.html)
 
 ## JavaScript
 
+- [new 操作符模拟实现](./src/browser/fake-new.js)
+- [深拷贝](./src/js/deep-clone.js)
+- [各种常见值的类型判断](./src/js/types.js)
 - [异步延迟函数](./src/js/sleep.js)
-- [发布订阅事件中心](./src/js/event-hub.js)
+- [事件总线（发布订阅）](./src/js/event-emitter.js)
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [限制最大并发数的调度器](./src/js/concurrency-limit.js)
 
