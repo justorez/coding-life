@@ -15,6 +15,7 @@
 - [事件总线（发布订阅）](./src/js/event-emitter.js)
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [限制最大并发数的调度器](./src/js/concurrency-limit.js)
+- [字符串模板](./src/js/template.js)
 
 ## Style
 
