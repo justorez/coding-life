@@ -1,4 +1,4 @@
-const co = require('../../src/browser/generator/co')
+const co = require('../../src/js/generator/co')
 
 function fn(nums) {
     return new Promise((resolve) => {

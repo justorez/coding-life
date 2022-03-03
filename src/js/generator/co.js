@@ -65,7 +65,7 @@ function co(gen) {
                     + `but the following object was passed: "${String(ret.value)}"`)
             )
         }
-    });
+    })
 }
 
 co.wrap = function (fn) {

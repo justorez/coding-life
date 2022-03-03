@@ -1,19 +1,27 @@
-const getType = (val) => Object.prototype.toString.call(val)
+const typeOf = (val) => Object.prototype.toString.call(val).slice(8, -1)
 
 function isNull(val) {
-    return getType(val) === '[object Null]'
+    return typeOf(val) === 'Null'
 }
 
 function isUndefined(val) {
-    return getType(val) === '[object Undefined]'
+    return typeOf(val) === 'Undefined'
 }
 
 function isObject(val) {
-    return getType(val) === '[object Object]'
+    return typeOf(val) === 'Object'
 }
 
 function isString(val) {
-    return getType(val) === '[object String]'
+    return typeOf(val) === 'String'
+}
+
+function isBoolean(val) {
+    return typeOf(val) === 'Boolean'
+}
+
+function isFunction(val) {
+    return typeOf(val) === 'Function'
 }
 
 function isArray(val) {
@@ -21,31 +29,47 @@ function isArray(val) {
 }
 
 function isMap(val) {
-    return getType(val) === '[object Map]'
+    return typeOf(val) === 'Map'
 }
 
 function isSet(val) {
-    return getType(val) === '[object Set]'
+    return typeOf(val) === 'Set'
 }
 
 function isRegExp(val) {
-    return getType(val) === '[object RegExp]'
+    return typeOf(val) === 'RegExp'
 }
 
 function isDate(val) {
-    return getType(val) === '[object Date]'
+    return typeOf(val) === 'Date'
 }
 
 function isPromise(val) {
-    return getType(val) === '[object Promise]'
+    return typeOf(val) === 'Promise'
 }
 
 function isGenerator(val) {
-    return getType(val) === '[object Generator]'
+    return typeOf(val) === 'Generator'
 }
 
 function isGeneratorFunction(val) {
-    return getType(val) === '[object GeneratorFunction]'
+    return typeOf(val) === 'GeneratorFunction'
+}
+
+function isBrowserEnv() {
+    try {
+        return typeOf(window) === 'Window'
+    } catch (error) {
+        return false
+    }
+}
+
+function isNodeEnv() {
+    try {
+        return typeOf(process) === 'Process'
+    } catch (error) {
+        return false
+    }
 }
 
 module.exports = {
@@ -57,8 +81,12 @@ module.exports = {
     isObject,
     isRegExp,
     isString,
+    isBoolean,
     isPromise,
+    isFunction,
     isUndefined,
     isGenerator,
-    isGeneratorFunction
+    isGeneratorFunction,
+    isBrowserEnv,
+    isNodeEnv
 }
