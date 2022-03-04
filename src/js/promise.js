@@ -2,21 +2,21 @@
  * 实现 Promises/A+ 规范
  * 参考文章：https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g
  */
-const { isFunction, isObject, isBrowserEnv, isNodeEnv } = require('./types')
+const { isFunction, isThenable, isPromise, isBrowserEnv, isNodeEnv } = require('./types')
 
 const PENDING = 'pending'
 const FULFILLED = 'fulfilled'
 const REJECTED = 'rejected'
 
 const microtask = setTimeout
-if (isBrowserEnv()) {
-    microtask = queueMicrotask
-} else if (isNodeEnv()) {
-    microtask = process.nextTick
-}
+// if (isBrowserEnv()) {
+//     microtask = queueMicrotask
+// } else if (isNodeEnv()) {
+//     microtask = process.nextTick
+// }
 
 class JPromise {
-    constructor(fn) {
+    constructor(executor) {
         this.state = PENDING
         this.result = null
         this.callbacks = []
@@ -38,7 +38,7 @@ class JPromise {
         }
 
         try {
-            fn(resolve, reject)
+            executor(resolve, reject)
         } catch (error) {
             reject(error)
         }
@@ -113,10 +113,10 @@ function transition(promise, state, result) {
 function resolvePromise(promise, result, resolve, reject) {
     if (result === promise) {
         let reason = new TypeError('Can not fulfill promise with itself')
-        reject(reason)
+        return reject(reason)
     }
 
-    if (isPromise(result)) {
+    if (isJPromise(result)) {
         return result.then(resolve, reject)
     }
 
@@ -160,12 +160,8 @@ function handleCallbacks(callbacks, state, result) {
     }
 }
 
-function isPromise(val) {
-    return val instanceof JPromise
-}
-
-function isThenable(val) {
-    return (isObject(val) || isFunction(val)) && isFunction(val.then)
+function isJPromise(val) {
+    return (val instanceof JPromise) || isPromise(val)
 }
 
 module.exports = JPromise

@@ -48,6 +48,14 @@ function isPromise(val) {
     return typeOf(val) === 'Promise'
 }
 
+function isThenable(val) {
+    return (
+        val !== null &&
+        (typeof val === 'object' || typeof val === 'function') &&
+        typeof val.then === 'function'
+    )
+}
+
 function isGenerator(val) {
     return typeOf(val) === 'Generator'
 }
@@ -83,6 +91,7 @@ module.exports = {
     isString,
     isBoolean,
     isPromise,
+    isThenable,
     isFunction,
     isUndefined,
     isGenerator,
