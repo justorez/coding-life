@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest test",
     "test:coverage": "jest test --coverage",
-    "test:promise": "promises-aplus-tests src/js/promise.js"
+    "test:promise": "promises-aplus-tests src/js/promise/adapter.js"
   },
   "repository": {
     "type": "git",

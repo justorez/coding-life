@@ -49,11 +49,8 @@ function isPromise(val) {
 }
 
 function isThenable(val) {
-    return (
-        val !== null &&
-        (typeof val === 'object' || typeof val === 'function') &&
-        typeof val.then === 'function'
-    )
+    return (isObject(val) || isFunction(val)) &&
+        isFunction(val.then)
 }
 
 function isGenerator(val) {
