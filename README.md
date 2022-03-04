@@ -16,6 +16,7 @@
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [限制最大并发数的调度器](./src/js/concurrency-limit.js)
 - [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
+- [Promises/A+ 规范实现](./src/js/promise/index.js)
 
 ## Style
 
