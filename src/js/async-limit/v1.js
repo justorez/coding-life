@@ -1,5 +1,3 @@
-const sleep = require('./sleep')
-
 /**
  * 限制最大并发数的调度器
  */
@@ -65,6 +63,7 @@ class Scheduler {
     }
 }
 
+const sleep = require('../sleep')
 function test() {
     const scheduler = new Scheduler(5)
     for (let i = 1; i <= 10; i++) {
