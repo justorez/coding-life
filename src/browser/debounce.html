@@ -1,0 +1,23 @@
+<style>
+    .counter {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        background-color: #efefef;
+        border-radius: 5px;
+    }
+</style>
+<div class="counter"></div>
+
+<script src="../js/debounce.js"></script>
+<script>
+    let count = 1
+    let counterEl = document.querySelector('.counter')
+
+    function plus() {
+        counterEl.innerHTML = count++
+    }
+    const debPlus = debounce(plus, 500, false)
+
+    counterEl.onmousemove = debPlus
+</script>
