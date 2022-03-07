@@ -7,18 +7,20 @@
 
 ## JavaScript
 
+- [类型判断](./src/js/types.js)
 - [new 操作符模拟实现](./src/browser/fake-new.js)
+- [instanceof 模拟实现](./src/js/instance-of.js)
 - [深拷贝](./src/js/deep-clone.js)
-- [各种常见值的类型判断](./src/js/types.js)
+- [防抖](./src/js/debounce.js)
+- [节流](./src/js/throttle.js)
+- [Promises/A+ 规范实现](./src/js/promise/index.js)
+- [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
+- [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [字符串模板](./src/js/template.js)
 - [异步延迟函数](./src/js/sleep.js)
 - [事件总线（发布订阅）](./src/js/event-emitter.js)
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [并发数控制的异步调度器](./src/js/concurrency-limit/v1.js)
-- [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
-- [Promises/A+ 规范实现](./src/js/promise/index.js)
-- [防抖](./src/js/debounce.js)
-- [节流](./src/js/throttle.js)
 
 ## Style
 
