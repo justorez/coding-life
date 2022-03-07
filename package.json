@@ -4,6 +4,7 @@
   "description": "Make Trash",
   "main": "index.js",
   "scripts": {
+    "dev:browser": "http-server src -p 2333",
     "test": "jest test",
     "test:coverage": "jest test --coverage",
     "test:promise": "promises-aplus-tests src/js/promise/adapter.js"
@@ -22,9 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.4.1",
-    "jest": "^27.5.1"
-  },
-  "dependencies": {
+    "http-server": "^14.1.0",
+    "jest": "^27.5.1",
     "promises-aplus-tests": "^2.1.2"
   }
 }
