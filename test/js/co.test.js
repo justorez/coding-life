@@ -15,9 +15,11 @@ function* gen() {
     return num3
 }
 
-test('将生成器函数转换为 promise', () => {
-    const coRes = co(gen)
-    const type = Object.prototype.toString.call(coRes)
-    expect(type).toContain('Promise')
-    return expect(coRes).resolves.toBe(8)
+describe('generator + promise 异步流程控制', () => {
+    test('co function 基本使用', () => {
+        const coRes = co(gen)
+        const type = Object.prototype.toString.call(coRes)
+        expect(type).toContain('Promise')
+        return expect(coRes).resolves.toBe(8)
+    })
 })
