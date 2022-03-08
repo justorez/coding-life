@@ -11,6 +11,8 @@ describe('call、apply、bind 模拟实现', () => {
         }
 
         expect(bar.fakeCall(foo)).toBe(1)
+        expect(bar.fakeCall('xxx')).toBeUndefined()
+        expect(bar.fakeCall(null)).toBeUndefined()
     })
 
     test('apply test', () => {

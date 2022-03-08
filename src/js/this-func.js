@@ -1,3 +1,15 @@
+function GlobalObject() {
+    try {
+        return window
+    } catch (error) {
+        return global
+    }
+}
+
+function isObject(val) {
+    return val && typeof val === 'object'
+}
+
 /**
  * 改变了 this 指向，让新的对象可以执⾏该函数。
  * 那么思路可以变成给新的对象添加⼀个函数，然后在执⾏完以后删除
@@ -5,7 +17,7 @@
  * @returns 
  */
 Function.prototype.fakeCall = function (context, ...args) {
-    context = typeof context === 'object' ? context : window
+    context = isObject(context)  ? context : GlobalObject()
     context.fn = this
     let result = context.fn(...args)
     delete context.fn
@@ -13,7 +25,7 @@ Function.prototype.fakeCall = function (context, ...args) {
 }
 
 Function.prototype.fakeApply = function (context, args) {
-    context = typeof context === 'object' ? context : window
+    context = isObject(context) ? context : GlobalObject()
     context.fn = this
 
     let result = args
