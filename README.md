@@ -14,6 +14,7 @@
 - [防抖](./src/js/debounce.js)
 - [节流](./src/js/throttle.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
+- [简易生成器模拟实现](./src/js/generator/index.js)
 - [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
 - [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [字符串模板](./src/js/template.js)
