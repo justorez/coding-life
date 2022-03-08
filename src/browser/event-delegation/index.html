@@ -1,0 +1,33 @@
+<style>
+    .list {
+        width: 150px;
+        padding: 30px;
+        border: 1px solid #000;
+        background-color: #efefef;
+        border-radius: 5px;
+    }
+    .list li {
+        margin-bottom: 10px;
+        background-color: skyblue;
+        cursor: pointer;
+    }
+    .list li span {
+        background-color: pink;
+    }
+</style>
+
+<ul class="list">
+    <li>aaa</li>
+    <li>
+        <span>bbb</span>
+    </li>
+    <li>ccc</li>
+</ul>
+
+<script src="./index.js"></script>
+<script>
+    delegate(document.querySelector('.list'), 'click', 'li', (_, el) => {
+        console.log(el)
+        alert(el.innerText)
+    })
+</script>

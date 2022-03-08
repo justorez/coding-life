@@ -4,6 +4,7 @@
 
 - [原型链](./src/browser/prototype-chain/index.html)
 - [事件循环](./src/browser/event-loop/readme.md)
+- [事件委托](./src/browser/event-delegation/readme.md)
 
 ## JavaScript
 
@@ -13,10 +14,11 @@
 - [深拷贝](./src/js/deep-clone.js)
 - [防抖](./src/js/debounce.js)
 - [节流](./src/js/throttle.js)
+- [call、apply、bind 模拟实现](./src/js/this-func.js)
+- [数组常用方法实现](./src/js/array.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
 - [简易生成器模拟实现](./src/js/generator/index.js)
 - [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
-- [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [字符串模板](./src/js/template.js)
 - [异步延迟函数](./src/js/sleep.js)
 - [事件总线（发布订阅）](./src/js/event-emitter.js)
