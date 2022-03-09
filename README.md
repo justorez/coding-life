@@ -5,6 +5,7 @@
 - [原型链](./src/browser/prototype-chain/index.html)
 - [事件循环](./src/browser/event-loop/readme.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
+- [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 
 ## JavaScript
 
