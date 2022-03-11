@@ -1,5 +1,3 @@
-> 杂七杂八
-
 ## Browser
 
 - [原型链](./src/browser/prototype-chain/index.html)
@@ -32,7 +30,13 @@
 
 ## Vue
 
+- [Vue3 运行原理](./src/vue/v3/index.md)
 - [指令：限制输入框长度，中文字符占2位](./src/vue/directive/maxlength.js)
+
+## 安全
+
+- [XSS 跨站脚本](./src/security/xss.md)
+- [CSRF 跨站请求伪造](./src/security/csrf.md)
 
 ## 推荐阅读
 

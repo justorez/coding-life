@@ -1,7 +1,7 @@
 {
   "name": "coding-life",
   "version": "1.0.0",
-  "description": "Make Trash",
+  "description": "fucking life",
   "main": "index.js",
   "scripts": {
     "dev:browser": "http-server src -p 2333",
