@@ -8,7 +8,7 @@
 ## JavaScript
 
 - [类型判断](./src/js/types.js)
-- [new 操作符模拟实现](./src/browser/fake-new.js)
+- [new 模拟实现](./src/browser/fake-new.js)
 - [instanceof 模拟实现](./src/js/instance-of.js)
 - [深拷贝](./src/js/deep-clone.js)
 - [防抖](./src/js/debounce.js)
@@ -31,6 +31,8 @@
 ## Vue
 
 - [Vue3 运行原理](./src/vue/v3/index.md)
+- [Vue2 迷你实现](https://github.com/vue-hotel/mini-vue-2)
+- [Vue3 迷你实现](https://github.com/cuixiaorui/mini-vue)
 - [指令：限制输入框长度，中文字符占2位](./src/vue/directive/maxlength.js)
 
 ## 安全
@@ -44,4 +46,6 @@
 - [前端工程师自检清单](https://juejin.cn/post/6844903830887366670#heading-1)
 - [一个不错的前端面试题开源项目](https://mp.weixin.qq.com/s/h2M2RCNNL2cnC0VskXz7JQ)
 - [labuladong 的算法小抄](https://labuladong.gitee.io/algo/)
-- [算法面试通关 40 讲](https://time.geekbang.org/course/intro/100019701?tab=catalog)
+- [尤雨溪讲解 Vue2 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
+    - [课程讲义](https://vue-course-doc.vercel.app)
+- [玩转 Vue 3 全家桶](http://gk.link/a/11f03)

@@ -19,6 +19,9 @@ function isUndefined(val) {
 }
 
 function isObject(val) {
+    return val !== null && typeof val === 'object'
+}
+function isPlainObject(val) {
     return typeOf(val) === 'Object'
 }
 
@@ -100,6 +103,7 @@ module.exports = {
     isArray,
     isBigInt,
     isObject,
+    isPlainObject,
     isRegExp,
     isString,
     isBoolean,
