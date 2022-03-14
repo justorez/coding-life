@@ -6,6 +6,7 @@
 - [闭包](./src/browser/scope/closure.md)
 - [this](./src/browser/this/readme.md)
 - [事件循环](./src/browser/event-loop/readme.md)
+- [setTimeout 实现原理](./src/browser/event-loop/setTimeout.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 
