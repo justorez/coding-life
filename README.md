@@ -1,6 +1,10 @@
 ## Browser
 
 - [原型链](./src/browser/prototype-chain/index.html)
+- [块级作用域](./src/browser/scope/block.md)
+- [作用域链](./src/browser/scope/chain.md)
+- [闭包](./src/browser/scope/chain.md)
+- [this](./src/browser/this/readme.md)
 - [事件循环](./src/browser/event-loop/readme.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
@@ -45,6 +49,7 @@
 - [前端知识体系整理](https://jsgodroad.com/interview)
 - [前端工程师自检清单](https://juejin.cn/post/6844903830887366670#heading-1)
 - [一个不错的前端面试题开源项目](https://mp.weixin.qq.com/s/h2M2RCNNL2cnC0VskXz7JQ)
+- [浏览器工作原理与实践](http://gk.link/a/11f8f)
 - [labuladong 的算法小抄](https://labuladong.gitee.io/algo/)
 - [尤雨溪讲解 Vue2 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
     - [课程讲义](https://vue-course-doc.vercel.app)
