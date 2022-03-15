@@ -2,7 +2,7 @@
 <script>
     async function fn1() {
         console.log('async1 a')
-        await sleep(500)
+        await sleep(0)
         console.log('async1 b')
         return 'async1 c'
     }
@@ -21,9 +21,19 @@
         console.log('async3 b')
     }
 
+    function bar() {
+        console.log('bar')
+    }
+    async function fn4() {
+        console.log('async4 a')
+        await bar() // 执行 bar，将非 promise 返回值转换成 promise
+        console.log('async4 b')
+    }
+
     fn1().then(console.log)
     fn2()
     fn3()
+    fn4()
     console.log('sync')
 
     // 简单理解：只有 await 后有东西时，后续代码可看作一个微任务，类似 Promise.then(...)

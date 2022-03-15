@@ -49,6 +49,22 @@ XMLHttpRequest 运行机制
 - queueMicrotask
 - process.nextTick（Node）
 
+## Async/Await
+
+```js
+async function foo() {
+    console.log(1)
+    let a = await 100
+    console.log(a)
+    console.log(2)
+}
+console.log(0)
+foo()
+console.log(3)
+```
+![async/await 协程执行机制](./img/async-await.webp)
+
+
 ## 引用
 
 - [并发模型与事件循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF)
