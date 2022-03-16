@@ -9,6 +9,7 @@
 - [setTimeout 实现原理](./src/browser/event-loop/setTimeout.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
+- [性能优化](./src/browser/optimization/readme.md)
 
 ## JavaScript
 
