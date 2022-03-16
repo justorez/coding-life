@@ -12,7 +12,8 @@
 ### 减少关键资源个数
 
 1. 将 js 和 css 改成内联的形式；
-2. 如果 js 没有 DOM 或者 CSSOM 操作，为 script 标签设置 async 或 defer 属性。
+2. 如果 js 没有 DOM 或者 CSSOM 操作，为 script 标签设置 async 或 defer 属性；
+3. 拆分 CSS，通过 link 标签的媒体查询属性，针对不同设备细分加载的 CSS。
 
 ### 降低关键资源大小
 
