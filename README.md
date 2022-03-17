@@ -6,7 +6,7 @@
 - [闭包](./src/browser/scope/closure.md)
 - [this](./src/browser/this/readme.md)
 - [事件循环](./src/browser/event-loop/readme.md)
-- [setTimeout 实现原理](./src/browser/event-loop/setTimeout.md)
+- [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 - [性能优化](./src/browser/optimization/readme.md)
@@ -14,7 +14,8 @@
 ## JavaScript
 
 - [类型判断](./src/js/types.js)
-- [new 模拟实现](./src/browser/fake-new.js)
+- [new 模拟实现](./src/js/fake-new.js)
+- [继承](./src/js/extend.js)
 - [instanceof 模拟实现](./src/js/instance-of.js)
 - [深拷贝](./src/js/deep-clone.js)
 - [防抖](./src/js/debounce.js)
