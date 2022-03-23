@@ -24,6 +24,7 @@
 - [节流](./src/js/throttle.js)
 - [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [数组常用方法实现](./src/js/array.js)
+- [函数柯里化](./src/js/curry.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
 - [简易生成器模拟实现](./src/js/generator/index.js)
 - [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
