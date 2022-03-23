@@ -1,4 +1,4 @@
-const deepClone = require('../../src/js/deep-clone')
+const deepClone = require('../deep-clone')
 
 describe('深拷贝', () => {
     test('deepClone 基本使用', () => {

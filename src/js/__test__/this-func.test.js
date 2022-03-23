@@ -1,4 +1,4 @@
-require('../../src/js/this-func')
+require('../this-func')
 
 describe('call、apply、bind 模拟实现', () => {
     test('call test', () => {

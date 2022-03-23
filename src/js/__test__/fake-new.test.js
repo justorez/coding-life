@@ -1,4 +1,4 @@
-const fakeNew = require('../../src/js/fake-new')
+const fakeNew = require('../fake-new')
 
 describe('new 操作符模拟实现', () => {
     test('fakeNew 基本使用', () => {
