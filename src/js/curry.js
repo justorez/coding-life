@@ -24,7 +24,7 @@ function curry(fn, ...args) {
     return function (...fnArgs) {
         let _args = [...args, ...fnArgs]
         if (_args.length < length) {
-            return curry2.call(this, fn, ..._args)
+            return curry.call(this, fn, ..._args)
         } else {
             return fn.apply(this, _args)
         }

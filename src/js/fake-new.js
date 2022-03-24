@@ -1,7 +1,5 @@
-module.exports = function () {
-    let obj = new Object()
-    let Constructor = [].shift.call(arguments)
-    obj.__proto__ = Constructor.prototype
-    let ret = Constructor.apply(obj, arguments)
+module.exports = function (Constructor, ...args) {
+    let obj = Object.create(Constructor.prototype)
+    let ret = Constructor.apply(obj, args)
     return typeof ret === 'object' ? ret : obj
 }

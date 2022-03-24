@@ -10,9 +10,13 @@ function byPrototype() {
     function Child(name) {
         this.name = name
     }
+
+    // constructor 属性表示原型对象与构造函数之间的关联关系，修改原型时记得同时修改
     Child.prototype = new Parent()
+    Child.prototype.constructor = Child
 
     let child1 = new Child('xx')
+    console.log(child1)
     console.log(child1.name) // xx
 
     child1.colors.push('white')
@@ -41,6 +45,7 @@ function byConstructor() {
     }
 
     let child1 = new Child('xx')
+    console.log(child1)
     child1.colors.push('white')
     console.log(child1.name) // xx
 
@@ -70,6 +75,7 @@ function compose() {
         this.age = age
     }
     Child.prototype = new Parent()
+    Child.prototype.constructor = Child
 
     let child1 = new Child('tom', 18)
     child1.colors.push('white')
@@ -100,12 +106,9 @@ function parasiticCompostion() {
         this.age = age
     }
 
-    // 关键一步：空对象做中转
-    let F = function() {}
-    F.prototype = Parent.prototype
-    let f = new F()
-    f.constructor = Child
-    Child.prototype = f
+    // 关键一步：构造新对象指向父类原型
+    Child.prototype = Object.create(Parent.prototype)
+    Child.prototype.constructor = Child
 
     let child = new Child('justorez', 18)
     child.go()
@@ -122,9 +125,8 @@ function __object(o) {
     return new F()
 }
 function prototype(Child, Parent) {
-    let prototype = __object(Parent.prototype)
-    prototype.constructor = Child
-    Child.prototype = prototype
+    Child.prototype = Object.create(Parent.prototype) // 和 __object() 功能相同
+    Child.prototype.constructor = Child
 }
 
 
