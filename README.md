@@ -54,11 +54,11 @@
 
 - [前端知识体系整理](https://jsgodroad.com/interview)
 - [前端工程师自检清单](https://juejin.cn/post/6844903830887366670#heading-1)
-- [一个不错的前端面试题开源项目](https://mp.weixin.qq.com/s/h2M2RCNNL2cnC0VskXz7JQ)
+- [字节前端面试手册](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?from=from_copylink)
 - [浏览器工作原理与实践](http://gk.link/a/11f8f)
 - [labuladong 的算法小抄](https://labuladong.gitee.io/algo/)
 - [尤雨溪讲解 Vue 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
     - [课程讲义](https://vue-course-doc.vercel.app)
 - [玩转 Vue 3 全家桶](http://gk.link/a/11f03)
 - [2021前端岗面试整理](https://juejin.cn/post/6991724298197008421)
-- [字节前端面试手册](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?from=from_copylink)
+- [Front-End-Interview-Notebook](https://github.com/CavsZhouyou/Front-End-Interview-Notebook)
