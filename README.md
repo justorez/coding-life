@@ -1,10 +1,5 @@
 ## Browser
 
-- [原型链](./src/browser/prototype-chain/readme.md)
-- [块级作用域](./src/browser/scope/block.md)
-- [作用域链](./src/browser/scope/chain.md)
-- [闭包](./src/browser/scope/closure.md)
-- [this](./src/browser/this/readme.md)
 - [事件循环](./src/browser/event-loop/readme.md)
 - [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
@@ -15,14 +10,19 @@
 
 ## JavaScript
 
+- [原型链](./src/js/prototype-chain/readme.md)
+- [块级作用域](./src/js/scope/block.md)
+- [作用域链](./src/js/scope/chain.md)
+- [闭包](./src/js/scope/closure.md)
+- [this](./src/js/this/readme.md)
 - [类型判断](./src/js/types.js)
-- [new 模拟实现](./src/js/fake-new.js)
 - [继承](./src/js/extend.js)
+- [new 模拟实现](./src/js/fake-new.js)
 - [instanceof 模拟实现](./src/js/instance-of.js)
+- [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [深拷贝](./src/js/deep-clone.js)
 - [防抖](./src/js/debounce.js)
 - [节流](./src/js/throttle.js)
-- [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [数组常用方法实现](./src/js/array.js)
 - [函数柯里化](./src/js/curry.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)

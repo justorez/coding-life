@@ -31,6 +31,12 @@ function flatten2(arr) {
     return arr
 }
 
+/**
+ * 注意：map、forEach 这些方法是不可枚举的，
+ * 即 for...in 循环是拿不到的，所以如果写 polyfill 的话，
+ * 不要覆盖 Array.prototype，而是用 Reflect.defineProperty 设置不可枚举
+ */
+
 Array.prototype.fakeForEach = function(callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
@@ -124,11 +130,6 @@ Array.prototype.fakeReduce = function(callback, initialValue) {
     return acc
 }
 
-/**
- * 注意：map、forEach 这些方法是不可枚举的，
- * 即 for...in 循环是拿不到的，所以如果写 polyfill 的话，
- * 不要覆盖 Array.prototype，而是用 Object.defineProperty
- */
 
 module.exports = {
     unique,
