@@ -65,8 +65,9 @@ console.log(3)
 ![async/await 协程执行机制](./img/async-await.webp)
 
 
-## 引用
+## 推荐阅读
 
 - [并发模型与事件循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF)
 - [深入：微任务与Javascript运行时环境](https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)
 - [通过 queueMicrotask() 使用微任务](https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_DOM_API/Microtask_guide)
+- [Node.js 事件循环](https://learnku.com/articles/38802)

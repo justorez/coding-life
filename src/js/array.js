@@ -100,7 +100,7 @@ Array.prototype.fakeReduce = function(callback, initialValue) {
 
     const O = Object(this)
     const len = O.length >>> 0 // 无符号右移 0 位：保证转换后的值为正整数
-    let k = 0 // 游标
+    let index = 0 // 游标
     let acc   // 累加器
     
     if (arguments.length > 1) {
@@ -109,22 +109,22 @@ Array.prototype.fakeReduce = function(callback, initialValue) {
         // 如果没有提供 initialValue，
         // 那么 accumulator 取数组中的第一个值，
         // currentValue 取数组中的第二个值。
-        while (k < len && !(k in O)) {
-            k++
+        while (index < len && !(index in O)) {
+            index++
         }
 
         // if len is 0 and iniitalValue is not present
-        if (k >= len) {
+        if (index >= len) {
             throw new TypeError( 'Reduce of empty array with no initial value' );
         }
-        acc = O[k++]
+        acc = O[index++]
     }
 
-    while (k < len) {
-        if (k in O) {
-            acc = callback(acc, O[k], k, O)
+    while (index < len) {
+        if (index in O) {
+            acc = callback(acc, O[index], index, O)
         }
-        k++
+        index++
     }
 
     return acc

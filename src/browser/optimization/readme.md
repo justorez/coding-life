@@ -56,3 +56,6 @@
 
 尽可能优化存储结构，避免小颗粒对象的产生。
 
+## 推荐阅读
+
+- [35 条前端性能优化军规](https://learnku.com/docs/f2e-performance-rules)
