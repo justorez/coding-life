@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JS 阻塞 DOM 解析</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+            }
+        </style>
+        <script src="/js/block.js"></script>
+        <!-- <script>
+            const old = Date.now()
+            while (Date.now() - old < 5000) {}
+        </script> -->
+    </head>
+    <body>
+        <div></div>
+        <p>
+            JS 阻塞 DOM 解析很好理解，因为 JS 可以操作 DOM，而浏览器又无法得知 JS 会如何去操作，
+            故当遇到 script 时，DOM 解析被暂停，JS 执行完毕后，继续 DOM 解析。
+        </p>
+        <p>
+            一个容易晕的点：通过 Performance 发现，内联脚本的计算和 parseHTML 是「并行」的，
+            是不是内联脚本不阻塞 DOM 解析啊？并不是。
+            通过卡线程的方法测试可知，parseHTML 的时间会随着内联脚本的计算时间增大而增大，
+            故内联脚本计算不是并行，而是被算在了整体 parseHTML 的时间里，同样在阻塞后面 DOM 的解析。
+        </p>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>空 &lt;script&gt; 不会触发页面渲染</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <script src="/js/sleep1000-empty.js"></script>
+        <br/>
+        <div></div>
+        <script></script>
+        <p>
+            空 script 标签不会触发页面渲染，不过一旦指定 src，即使脚本为空也会触发页面渲染。
+        </p>
+    </body>
+</html>
+
+

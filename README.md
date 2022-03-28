@@ -7,6 +7,7 @@
 - [性能优化](./src/browser/optimization/readme.md)
 - [async 和 defer](./src/browser/optimization/async-vs-defer.md)
 - [输入 URL 后发生了什么](./src/browser/input-url/readme.md)
+- [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/how-js-and-css-block-dom/readme.md)
 
 ## JavaScript
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS 不阻塞 DOM 解析</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+            }
+        </style>
+        <link rel="stylesheet" href="/css/sleep3000-common.css" />
+        <script defer src="/js/log.js"></script>
+    </head>
+    <body>
+        <div></div>
+        <p>
+            首先打印出 div 这个 DOM 节点，过 3s 左右之后才渲染出一个浅蓝色的 div。
+            这就证明 DOM 在 CSS 下载解析之前就完成了解析。
+        </p>
+    </body>
+</html>

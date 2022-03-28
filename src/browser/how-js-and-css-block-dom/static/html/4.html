@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>&lt;script&gt; 会触发页面渲染</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <script src="/js/sleep3000-log.js"></script>
+        <!-- 第一次触发渲染 -->
+        <style>
+            div {
+                background: lightgrey;
+            }
+        </style>
+        <script src="/js/sleep5000-log.js"></script>
+        <!-- 第二次触发渲染 -->
+        <link rel="stylesheet" href="/css/common.css">
+        <p>浅绿 → 浅灰 → 浅蓝</p>
+        <p>
+            原因（个人理解，有待考证）：浏览器无法得知脚本是否操作了 DOM，所以每次脚本执行完成，
+            都要重新执行渲染流水线。
+        </p>
+        <p>
+            注意一点：因为浏览器有预解析机制，所以在 DOM 解析之前或同时，资源文件就会开始下载，并且是并行的，
+            不过由于 JS 的单线程设计，脚本执行肯定是串行的。
+        </p>
+    </body>
+</html>
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS 阻塞 DOM 渲染</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+            }
+        </style>
+        <link rel="stylesheet" href="/css/sleep3000-common.css"/>
+        <script src="/js/log.js"></script>
+    </head>
+    <body>
+        <div></div>
+        <p>
+            浏览器转圈 3s，但此过程中不会打印任何东西，之后呈现出一个浅蓝色的 div，再打印出 null。
+            这是因为 JS 阻塞了 DOM 解析，又由于 JS 可以读取修改元素样式，所以只要 CSS 后又出现了 JS，
+            JS 都会等待 CSS 下载解析完成后才执行。
+        </p>
+        <p>
+            把这种情况看作 CSS 阻塞 DOM 解析，也说得过去，但要弄清本质是 JS 的锅。
+        </p>
+        <p>
+            故当 &lt;script&gt; 和 &lt;link&gt; 同时在头部时，无关样式的 &lt;script&gt; 应放在 &lt;link&gt; 之前，
+            这样 CSS 不会阻塞 JS 的执行，继而不会长时间阻塞 DOM 的解析。
+        </p>
+    </body>
+</html>
