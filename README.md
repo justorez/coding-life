@@ -59,7 +59,6 @@
 - [浏览器工作原理与实践](http://gk.link/a/11f8f)
 - [labuladong 的算法小抄](https://labuladong.gitee.io/algo/)
 - [尤雨溪讲解 Vue 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
-    - [课程讲义](https://vue-course-doc.vercel.app)
 - [玩转 Vue 3 全家桶](http://gk.link/a/11f03)
 - [2021前端岗面试整理](https://juejin.cn/post/6991724298197008421)
 - [Front-End-Interview-Notebook](https://github.com/CavsZhouyou/Front-End-Interview-Notebook)
