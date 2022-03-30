@@ -1,0 +1,30 @@
+<body>
+    <div id="app">
+        <button @click="run">开始测试</button>
+        <ul>
+            <li v-for="item in list" :key="item">{{ item }}</li>
+        </ul>
+    </div>
+</body>
+
+<script type="module">
+import { createApp } from 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.esm-browser.js'
+
+createApp({
+    data() {
+        return {
+            list: []
+        }
+    },
+    methods: {
+        run() {
+            this.list = []
+            this.list.push('1')
+            this.$nextTick(function getNewEl() {
+                const el = document.querySelector('li')
+                console.log(el)
+            })
+        }
+    }
+}).mount('#app')
+</script>

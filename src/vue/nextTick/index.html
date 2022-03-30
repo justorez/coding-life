@@ -1,0 +1,14 @@
+<body>
+    <ul id="list"></ul>
+</body>
+
+<script>
+    const el = document.querySelector('#list')
+    const itemEl = document.createElement('li')
+    itemEl.innerText = '1'
+    el.appendChild(itemEl)
+    Promise.resolve().then(() => {
+        let el = document.querySelector('li')
+        // console.log(el.getBoundingClientRect()) // 会触发强制渲染
+    })
+</script>

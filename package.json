@@ -4,7 +4,7 @@
   "description": "fucking life",
   "main": "index.js",
   "scripts": {
-    "dev:browser": "http-server src -p 2333",
+    "serve": "http-server src -p 2333",
     "test": "jest ./src",
     "test:coverage": "jest ./src --coverage",
     "test:promise": "promises-aplus-tests src/js/promise/adapter.js"

@@ -42,9 +42,10 @@
 
 ## Vue
 
-- [Vue3 运行原理](./src/vue/v3/index.md)
+- [Vue3 运行机制](./src/vue/v3/index.md)
 - [Vue2 迷你实现](https://github.com/vue-hotel/mini-vue-2)
 - [Vue3 迷你实现](https://github.com/cuixiaorui/mini-vue)
+- [nextTick 原理](./src/vue/nextTick/readme.md)
 - [指令：限制输入框长度，中文字符占2位](./src/vue/directive/maxlength.js)
 
 ## 安全
