@@ -89,36 +89,6 @@ CSS 文本转换为 styleSheets（`document.styleSheets`）。
 
 当页面生成完成，渲染进程会发送消息给浏览器进程，浏览器进程收到消息后，停止标签图标上的加载动画。
 
-## FAQ
-
-### 1、重排：更新了元素的几何属性
-
-![](./img/reflow.webp)
-
-重排需要更新完整的渲染流水线，故开销最大。
-
-### 2、重绘：更新了元素的绘制属性
-
-![](./img/repaint.webp)
-
-无需布局和分层，执行效率略高于重排。
-
-### 3、直接合成
-
-![](./img/compose.webp)
-
-直接在合成线程上执行，不占用主线程资源，故效率最高。
-
-### 4、如何减少重排重绘？
-
-1. 使用 class 集中定义样式，而不是频繁操作 style；
-2. 避免使用 table 布局；
-3. 批量 DOM 操作，如 [DocumentFragment](https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment)；
-4. debounce resize 事件；
-5. DOM 属性读写分离。读取/修改操作放在一起执行，不要取一下值，改一下值；
-6. 设置 [will-change](https://developer.mozilla.org/zh-CN/docs/Web/CSS/will-change) 预先创建单独图层。正确做法应为动画开始前设置，结束后移除；
-7. 动画中设置 `transform`、`opacity`、`filter` 等会为元素单独创建一层。`translate3d` 无论是否在动画中，均会单独创建一层。
-
 ## 总结流程
 
 1. 用户输入 url 并回车。
