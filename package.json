@@ -7,7 +7,8 @@
     "serve": "http-server src -p 2333",
     "test": "jest ./src",
     "test:coverage": "jest ./src --coverage",
-    "test:promise": "promises-aplus-tests src/js/promise/adapter.js"
+    "test:promise": "promises-aplus-tests src/js/promise/adapter.js",
+    "sync": "\"script/sync.bat\""
   },
   "repository": {
     "type": "git",
