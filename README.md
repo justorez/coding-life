@@ -9,6 +9,7 @@
 - [async 和 defer](./src/browser/optimization/async-vs-defer.md)
 - [性能优化](./src/browser/optimization/readme.md)
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
+- [JSONP](./src/browser/jsonp/client.html)
 
 ## JavaScript
 

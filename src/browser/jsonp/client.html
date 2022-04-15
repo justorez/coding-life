@@ -1,0 +1,25 @@
+<body>
+    <h1></h1>
+    <button class="btn-run">run</button>
+</body>
+<script>
+    const el = document.querySelector('h1')
+
+    function getData(callback, onError) {
+        const script = document.createElement('script')
+        script.src = `http://localhost:2333?callback=${callback}`
+        script.onerror = onError
+        document.body.appendChild(script)
+    }
+
+    function fetchInfo(info) {
+        el.innerText = info.username
+    }
+    
+    document.querySelector('.btn-run').onclick = () => {
+        el.innerText = '加载中...'
+        getData('fetchInfo', (err) => {
+            el.innerText = '请求失败！'
+        })
+    }
+</script>
