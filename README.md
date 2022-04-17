@@ -50,6 +50,10 @@
 - [指令：限制输入框长度，中文字符占 2 位](./src/vue/directive/maxlength.js)
 - [指令：文本行数超限，展开和收起](./src/vue/directive/moreline.js)
 
+## 网络
+
+- [HTTP 缓存](./src/network/cache/readme.md)
+
 ## 安全
 
 - [XSS 跨站脚本](./src/security/xss.md)
@@ -60,9 +64,9 @@
 - [前端知识体系整理](https://jsgodroad.com/interview)
 - [前端工程师自检清单](https://juejin.cn/post/6844903830887366670#heading-1)
 - [字节前端面试手册](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?from=from_copylink)
-- [浏览器工作原理与实践](http://gk.link/a/11f8f)
+- [浏览器工作原理与实践](https://time.geekbang.org/column/intro/100033601?code=ioec5oi7MyP4QLb8ZUmXV9OiXdifKAeos3f2AKXPNIo%3D&page=A)
 - [labuladong 的算法小抄](https://labuladong.gitee.io/algo/)
 - [尤雨溪讲解 Vue 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
-- [玩转 Vue 3 全家桶](http://gk.link/a/11f03)
+- [玩转 Vue 3 全家桶](https://time.geekbang.org/column/intro/100094401?code=p5I8okGnRHfR67OkuyktunHxGUUgxaVlm02vdhIdVa4%3D&source=app_share&page=A)
 - [2021前端岗面试整理](https://juejin.cn/post/6991724298197008421)
-- [Front-End-Interview-Notebook](https://github.com/CavsZhouyou/Front-End-Interview-Notebook)
+- [剑指前端 Offer](https://interview-manual.gitee.io/awesome-interview)
