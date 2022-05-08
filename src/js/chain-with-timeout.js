@@ -1,7 +1,7 @@
 /**
  * 实现一个可以 timeout 的链式操作对象
- * u.console('breakfast').setTimeout(3000)
- *  .console('lunch').setTimeout(3000)
+ * u.console('breakfast').timeout(3000)
+ *  .console('lunch').timeout(3000)
  *  .console('dinner')
  */
 class U {
@@ -30,7 +30,7 @@ class U {
         return this
     }
 
-    setTimeout(delay) {
+    timeout(delay) {
         const task = () => {
             setTimeout(() => {
                 this.next()
@@ -44,9 +44,9 @@ class U {
 function test() {
     const u = new U()
     u.console('breakfast')
-        .setTimeout(3000)
+        .timeout(3000)
         .console('lunch')
-        .setTimeout(3000)
+        .timeout(3000)
         .console('dinner')
 }
 test()
