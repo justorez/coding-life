@@ -1,7 +1,17 @@
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no"
+    />
+</head>
+
 <style>
     body {
+        font-size: 14px;
         margin: 0;
-        padding: 20px;
+        padding: 10px;
     }
     .box {
         margin-bottom: 20px;
@@ -12,18 +22,31 @@
     input {
         min-width: 300px;
     }
-    .box-text {
-        width: 500px;
+
+    .box-scroll {
+        padding: 10px;
+        height: 300px;
+        border: 1px solid #efefef;
+        background-color: #efefef;
+        overflow-y: auto;
+    }
+    .box-scroll .page {
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 10px;
+    }
+    .box-scroll .page:last-child {
+        margin-bottom: 0;
     }
 </style>
 
 <body>
     <div id="app">
         <div class="box">
-            <input 
-                type="text" 
-                v-model="inputVal" 
-                v-maxlength="maxlen" 
+            <input
+                type="text"
+                v-model="inputVal"
+                v-maxlength="maxlen"
                 :placeholder="`最大字符数 ${maxlen}，中文字符算 2 个`"
             />
         </div>
@@ -32,26 +55,61 @@
             <span class="tmp" v-moreline="2">
                 JavaScript 编程语言允许你在 Web 页面上实现复杂的功能。
                 如果你看到一个网页不仅仅显示静态的信息，而是显示依时间更新的内容，或者交互式地图，
-                或者 2D/3D 动画图像，或者滚动的视频播放器，等等——你基本可以确定，这需要 JavaScript 的参与。
+                或者 2D/3D
+                动画图像，或者滚动的视频播放器，等等——你基本可以确定，这需要
+                JavaScript 的参与。
             </span>
+        </div>
+
+        <div class="box box-scroll">
+            <div class="content" v-zoom>
+                <div
+                    class="page"
+                    v-for="i in 5"
+                    :key="i"
+                    :style="{color: randomColor() }"
+                >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </div>
+            </div>
         </div>
     </div>
 </body>
 
+<script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.14.6/vconsole.min.js"></script>
 <script type="module">
-import { createApp } from 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.esm-browser.js'
-import vMaxlength from './maxlength.js'
-import vMoreline from './moreline.js'
+    import { createApp } from 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.esm-browser.js'
+    import vMaxlength from './maxlength.js'
+    import vMoreline from './moreline.js'
+    import vZoom from './zoom.js'
 
-createApp({
-    data() {
-        return {
-            inputVal: '',
-            maxlen: 5
+    new window.VConsole()
+
+    const app = createApp({
+        data() {
+            return {
+                inputVal: '',
+                maxlen: 5
+            }
+        },
+        methods: {
+            randomColor() {
+                var r = Math.floor(Math.random() * 256)
+                var g = Math.floor(Math.random() * 256)
+                var b = Math.floor(Math.random() * 256)
+                return `rgb(${r},${g},${b})`
+            }
         }
-    }
-})
-.use(vMaxlength)
-.use(vMoreline)
-.mount('#app')
+    })
+    app.use(vMaxlength)
+    app.use(vMoreline)
+    app.use(vZoom)
+    app.mount('#app')
 </script>

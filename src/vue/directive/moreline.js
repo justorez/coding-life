@@ -75,7 +75,7 @@ function getRowCount2(el) {
         lastBottom = rect.bottom
         row++
     }
-    console.log(rects.length, row)
+    // console.log(rects.length, row)
     return row
 }
 

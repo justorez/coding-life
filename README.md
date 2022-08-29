@@ -49,6 +49,7 @@
 - [nextTick 原理](./src/vue/nextTick/readme.md)
 - [指令：限制输入框长度，中文字符占 2 位](./src/vue/directive/maxlength.js)
 - [指令：文本行数超限，展开和收起](./src/vue/directive/moreline.js)
+- [指令：双指放大，单指拖动](./src/vue/directive/zoom.js)
 
 ## 网络
 
