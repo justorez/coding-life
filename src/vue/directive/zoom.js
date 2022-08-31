@@ -1,5 +1,6 @@
 const directive = {
-    mounted(el) {
+    mounted(el, binding) {
+        const props = binding.value || {}
         const parent = el.parentElement || document.body
         const parentRect = parent.getBoundingClientRect()
         const parentStyle = getComputedStyle(parent)
@@ -22,8 +23,8 @@ const directive = {
             expired = true,
             moving = false,
             zooming = false,
-            minZoom = 0.9,
-            maxZoom = 1.5
+            minZoom = props.minZoom || 0.9,
+            maxZoom = props.maxZoom || 1.5
         el.addEventListener('touchstart', onTouchStart)
         el.addEventListener('touchmove', onTouchMove)
         el.addEventListener('touchend', onTouchEnd)
@@ -60,6 +61,11 @@ const directive = {
                 maxMoveY.max = topGap + parentPadding.top
                 maxMoveY.min = -(rect.height - topGap - parentRect.height + parentPadding.top)
                 expired = false
+
+                console.log('rect:', JSON.stringify(rect))
+                console.log('parentRect:', JSON.stringify(parentRect))
+                console.log('maxMoveY.min: ', maxMoveY.min)
+                console.log('maxMoveY.max: ', maxMoveY.max)
             }
         }
         
