@@ -39,7 +39,7 @@
 
 ## Style
 
-- [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem.less)
+- [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 
 ## Vue
 
