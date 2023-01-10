@@ -59,6 +59,28 @@
     .box-footer {
         border-top: 1px solid #ccc;
     }
+
+    .box-imgs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 400px;
+        border: 1px solid #efefef;
+        background-color: #efefef;
+        overflow-y: auto;
+    }
+    .box-imgs img {
+        width: 60%;
+        margin: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0px 5px 10px gray;
+    }
+    img.loading {
+        height: 200px;
+    }
+    img.loading::before {
+        content: "加载中";
+    }
 </style>
 
 <body>
@@ -105,15 +127,21 @@
             </div>
             <div class="box-footer"></div>
         </div>
+
+        <div class="box box-imgs">
+            <img v-for="item in imgList" :data-src="item" v-lazyload alt="">
+        </div>
     </div>
 </body>
 
 <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.14.6/vconsole.min.js"></script>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/Mock.js/1.0.0/mock-min.js"></script> -->
 <script type="module">
     import { createApp } from 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.esm-browser.js'
     import vMaxlength from './maxlength.js'
     import vMoreline from './moreline.js'
     import vZoom from './zoom.js'
+    import vLazyload from './lazyload.js'
 
     new window.VConsole()
 
@@ -121,7 +149,18 @@
         data() {
             return {
                 inputVal: '',
-                maxlen: 5
+                maxlen: 5,
+                imgList: [
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test1.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test2.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test3.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test4.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test5.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test6.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test7.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test8.jpg',
+                    'http://hilongjw.github.io/vue-lazyload/dist/avatar/test9.jpg',
+                ]
             }
         },
         methods: {
@@ -136,5 +175,6 @@
     app.use(vMaxlength)
     app.use(vMoreline)
     app.use(vZoom)
+    app.use(vLazyload)
     app.mount('#app')
 </script>
