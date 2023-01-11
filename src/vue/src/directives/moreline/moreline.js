@@ -40,6 +40,9 @@ const directive = {
         }
         el.innerText = newContent
         el.appendChild(btn)
+    },
+    install(app) {
+        app.directive('moreline', directive)
     }
 }
 
@@ -79,8 +82,4 @@ function getRowCount2(el) {
     return row
 }
 
-export default {
-    install(app) {
-        app.directive('moreline', directive)
-    }
-}
+export default directive

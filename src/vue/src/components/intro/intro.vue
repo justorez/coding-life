@@ -1,20 +1,19 @@
-const intro = {
-    template: `
-        <teleport to="body">
-            <div 
-                class="intro-overlay" 
-                :style="overlayStyle"
-                @click="close"
-            ></div>
-            <div 
-                class="intro-helper-layer" 
-                :style="helperLayerStyle"
-                @click="handleClickItem"
-            >
-                <div class="intro-tooltip" :style="tooltipStyle"></div>
-            </div>
-        </teleport>
-    `,
+<template>
+    <teleport to="body">
+        <div class="intro-overlay" :style="overlayStyle" @click="close"></div>
+        <div
+            class="intro-helper-layer"
+            :style="helperLayerStyle"
+            @click="handleClickItem"
+        >
+            <div class="intro-tooltip" :style="tooltipStyle"></div>
+        </div>
+    </teleport>
+</template>
+
+<script>
+export default {
+    name: 'intro',
     props: {
         message: String,
         selector: String
@@ -48,13 +47,11 @@ const intro = {
                 width: `${this.react.width}px`,
                 height: `${this.react.height}px`,
                 top: `${this.react.top}px`,
-                left: `${this.react.left}px`,
+                left: `${this.react.left}px`
             }
         },
         tooltipStyle() {
-            return {
-
-            }
+            return {}
         }
     },
     watch: {
@@ -81,9 +78,4 @@ const intro = {
         }
     }
 }
-
-export default {
-    install(app) {
-        app.component('intro', intro)
-    }
-}
+</script>

@@ -43,14 +43,15 @@
 
 ## Vue
 
-- [Vue3 运行机制](./src/vue/v3/index.md)
+- [Vue3 运行机制](./src/vue/docs/v3/index.md)
 - [Vue2 迷你实现](https://github.com/vue-hotel/mini-vue-2)
 - [Vue3 迷你实现](https://github.com/cuixiaorui/mini-vue)
-- [nextTick 原理](./src/vue/nextTick/readme.md)
-- [指令：限制输入框长度，中文字符占 2 位](./src/vue/directive/maxlength.js)
-- [指令：文本行数超限，展开和收起](./src/vue/directive/moreline.js)
-- [指令：双指放大，单指拖动](./src/vue/directive/zoom.js)
-- [指令：图片懒加载](./src/vue/directive/lazyload.js)
+- [nextTick 原理](./src/vue/docs/nextTick/readme.md)
+- [组件：引导页](./src/vue/src/components/intro/intro.js)
+- [指令：限制输入框长度，中文字符占 2 位](./src/vue/src/directives/maxlength.js)
+- [指令：文本行数超限，展开和收起](./src/vue/src/directives/moreline.js)
+- [指令：双指放大，单指拖动](./src/vue/src/directives/zoom.js)
+- [指令：图片懒加载](./src/vue/src/directives/lazyload.js)
 
 ## Node.js
 

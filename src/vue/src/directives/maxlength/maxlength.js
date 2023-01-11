@@ -34,6 +34,9 @@ const directive = {
                 el.dispatchEvent(new UIEvent('input'))
             }
         })
+    },
+    install(app) {
+        app.directive('maxlength', directive)
     }
 }
 
@@ -57,8 +60,4 @@ function getEndIndex(str, maxlen) {
     return end < 0 ? 0 : end
 }
 
-export default {
-    install(app) {
-        app.directive('maxlength', directive)
-    }
-}
+export default directive

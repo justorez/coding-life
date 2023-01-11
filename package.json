@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "http-server src -p 2333 -c-1",
+    "dev:vue": "pnpm --filter=vue run dev",
     "test": "jest ./src",
     "test:coverage": "jest ./src --coverage",
     "test:promise": "promises-aplus-tests src/js/promise/adapter.js",

@@ -151,6 +151,9 @@ const directive = {
                 ].join(' ')
             })
         }
+    },
+    install(app) {
+        app.directive('zoom', directive)
     }
 }
 
@@ -180,9 +183,4 @@ function preventDefault(event, isStopPropagation) {
     }
 }
 
-
-export default {
-    install(app) {
-        app.directive('zoom', directive)
-    }
-}
+export default directive
