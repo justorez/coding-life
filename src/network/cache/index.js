@@ -57,13 +57,13 @@ app.use(async (ctx) => {
         // 计算资源内容的 hash 值
         const hash = crypto.createHash('md5')
         hash.update(fileBuffer)
-        const etag = `"${hash.digest('hex')}"`
+        const etag = `W/"${hash.digest('hex')}"`
         ctx.set('Cache-Control', 'no-cache')
         // 对比 hash 值
         if (ifNoneMatch === etag) {
             ctx.status = 304
         } else {
-            ctx.set('etag', etag)
+            ctx.set('ETag', etag)
             ctx.body = fileBuffer
         }
     }
