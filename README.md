@@ -1,3 +1,20 @@
+## Usage
+
+```sh
+# 安装依赖
+pnpm i
+
+# 预览静态 HTML 示例
+pnpm start
+
+# 预览 vue 相关示例
+pnpm start:vue
+
+# 启动 HTTP 缓存示例
+pnpm start:cache
+
+```
+
 ## Browser
 
 - [事件循环](./src/browser/event-loop/readme.md)
@@ -66,6 +83,7 @@
 
 - [XSS 跨站脚本](./src/security/xss.md)
 - [CSRF 跨站请求伪造](./src/security/csrf.md)
+- [前端安全编码规范](https://segmentfault.com/a/1190000037657222)
 
 ## 推荐阅读
 
