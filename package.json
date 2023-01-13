@@ -4,7 +4,8 @@
   "description": "fucking life",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server src -p 2333 -c-1",
+    "preinstall": "npx only-allow pnpm",
+    "start": "http-server src -p 2333 -c-1",
     "start:vue": "pnpm --filter=vue run dev",
     "start:cache": "pnpm --filter=http-cache run dev",
     "test": "jest ./src",

@@ -48,6 +48,7 @@
 - [Vue3 迷你实现](https://github.com/cuixiaorui/mini-vue)
 - [nextTick 原理](./src/vue/docs/nextTick/readme.md)
 - [组件：引导页](./src/vue/src/components/intro/intro.js)
+- [组件：虚拟列表](./src/vue/src/components/virtualList/demo.vue)
 - [指令：限制输入框长度，中文字符占 2 位](./src/vue/src/directives/maxlength.js)
 - [指令：文本行数超限，展开和收起](./src/vue/src/directives/moreline.js)
 - [指令：双指放大，单指拖动](./src/vue/src/directives/zoom.js)

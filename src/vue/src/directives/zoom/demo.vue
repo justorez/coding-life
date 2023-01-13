@@ -7,7 +7,7 @@
                     class="page"
                     v-for="i in 5"
                     :key="i"
-                    :style="{ color: randomColor() }"
+                    :style="{ color: utils.randomColor() }"
                 >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -29,14 +29,6 @@ import zoom from './zoom'
 export default {
     directives: {
         zoom
-    },
-    methods: {
-        randomColor() {
-            var r = Math.floor(Math.random() * 256)
-            var g = Math.floor(Math.random() * 256)
-            var b = Math.floor(Math.random() * 256)
-            return `rgb(${r},${g},${b})`
-        }
     }
 }
 </script>

@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "faker": "4",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },

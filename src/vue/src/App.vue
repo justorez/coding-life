@@ -19,6 +19,8 @@ import { RouterLink, RouterView } from 'vue-router'
                 <RouterLink to="/moreline">文本展开收起</RouterLink>
                 <RouterLink to="/zoom">缩放拖动</RouterLink>
                 <RouterLink to="/lazyload">图片懒加载</RouterLink>
+                <RouterLink to="/virtualList/fixed">虚拟列表-固定高度</RouterLink>
+                <RouterLink to="/virtualList/dynamic">虚拟列表-动态高度</RouterLink>
             </nav>
         </div>
     </header>
