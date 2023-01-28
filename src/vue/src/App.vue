@@ -25,6 +25,7 @@ import { RouterLink, RouterView } from 'vue-router'
         </div>
     </header>
 
+    <!-- 可设置 key=$route.fullPath 阻止动态路由的组件复用 -->
     <RouterView />
 </template>
 
