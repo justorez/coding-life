@@ -7,7 +7,7 @@
     "preinstall": "npx only-allow pnpm",
     "start": "http-server src -p 2333 -c-1",
     "start:dom": "pnpm --filter=how-js-and-css-block-dom run dev",
-    "start:jsonp": "opener src/browser/jsonp/client.html && node src/browser/jsonp/server.js",
+    "start:jsonp": "opener src/browser/jsonp/client.html && nodemon src/browser/jsonp/server.js",
     "start:vue": "pnpm --filter=vue run dev",
     "start:cache": "pnpm --filter=http-cache run dev",
     "test": "jest ./src",
@@ -31,6 +31,7 @@
     "@types/jest": "^27.4.1",
     "http-server": "^14.1.0",
     "jest": "^27.5.1",
+    "nodemon": "^2.0.20",
     "opener": "^1.5.2",
     "promises-aplus-tests": "^2.1.2"
   }

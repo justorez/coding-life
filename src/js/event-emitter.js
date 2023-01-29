@@ -36,7 +36,7 @@ class EventEmitter  {
      * @param {function} fn 回调函数
      */
     once(name, fn) {
-        fn.__once = true
+        fn._once = true
         this.on(name, fn)
     }
 
@@ -50,6 +50,7 @@ class EventEmitter  {
         const tasks = this.cache[name]
         if (tasks && index >= 0) {
             tasks.splice(index, 1)
+            tasks.length === 0 && delete this.cache[name]
         }
     }
 
@@ -59,16 +60,16 @@ class EventEmitter  {
      * @param  {...any} args 其他参数
      */
     emit(name, ...args) {
-        this.__emit(name, ...args)
-        this.__emit('*', ...args)
+        this._emit(name, ...args)
+        this._emit('*', ...args)
     }
 
-    __emit(name, ...args) {
+     _emit(name, ...args) {
         if (this.cache[name]) {
             const tasks = this.cache[name].slice()
             for (const fn of tasks) {
                 fn(...args)
-                fn.__once && this.off(name, fn)
+                fn._once && this.off(name, fn)
             }
         }
     }

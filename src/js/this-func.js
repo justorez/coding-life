@@ -45,7 +45,7 @@ Function.prototype.fakeBind = function (context, ...args) {
         throw new TypeError('Function.prototype.bind called on incompatible ' + target)
     }
 
-    let self = this
+    let self = this // 原函数
     let fBound = function(...bindArgs) {
         return self.apply(this instanceof fBound ? this : context, args.concat(bindArgs))
     }

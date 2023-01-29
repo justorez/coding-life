@@ -1,4 +1,4 @@
-const fs = require('fs/promises')
+const fs = require('fs')
 const path = require('path')
 const Koa = require('koa')
 const static = require('koa-static')
@@ -23,14 +23,14 @@ app.use(async (ctx) => {
         url = url.replace(/sleep\d+-/, '')
         time = _timeArr[1]
     }
-    const res = await fs.readFile(path.join(__dirname, 'static', url))
     if (/css/.test(url)) {
         ctx.response.set('Content-Type', 'text/css')
     }
     if (time) {
         await sleep(time)
     }
-    ctx.body = res
+    // ctx.body = fs.readFileSync(path.join(__dirname, 'static', url))
+    ctx.body = fs.createReadStream(path.join(__dirname, 'static', url))
 })
 
 app.listen(3000, () => {

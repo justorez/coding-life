@@ -21,11 +21,14 @@
             JS 都会等待 CSS 下载解析完成后才执行。
         </p>
         <p>
-            把这种情况看作 CSS 阻塞 DOM 解析，也说得过去，但要弄清本质是 JS 的锅。
+            把这种情况看作 CSS 阻塞“DOM 解析”，也说得过去，但要弄清本质是 JS 的锅。
         </p>
         <p>
             故当 &lt;script&gt; 和 &lt;link&gt; 同时在头部时，无关样式的 &lt;script&gt; 应放在 &lt;link&gt; 之前，
             这样 CSS 不会阻塞 JS 的执行，继而不会长时间阻塞 DOM 的解析。
+        </p>
+        <p>
+            最后记住一点：无论是否存在 JS，CSS 都会阻塞 DOM 渲染。
         </p>
     </body>
 </html>
