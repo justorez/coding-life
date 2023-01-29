@@ -7,7 +7,10 @@ pnpm i
 # 预览静态 HTML 示例
 pnpm start
 
-# 预览 DOM 阻塞示例
+# 启动 JSONP 示例
+pnpm start:jsonp
+
+# 启动 DOM 阻塞示例
 pnpm start:dom
 
 # 预览 vue 相关示例

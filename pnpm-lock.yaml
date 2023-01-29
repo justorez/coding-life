@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 importers:
 
@@ -7,11 +7,13 @@ importers:
       '@types/jest': ^27.4.1
       http-server: ^14.1.0
       jest: ^27.5.1
+      opener: ^1.5.2
       promises-aplus-tests: ^2.1.2
     devDependencies:
       '@types/jest': 27.4.1
       http-server: 14.1.0
       jest: 27.5.1
+      opener: 1.5.2
       promises-aplus-tests: 2.1.2
 
   src/browser/how-js-and-css-block-dom:
@@ -1416,16 +1418,10 @@ packages:
       whatwg-url: 8.7.0
     dev: true
 
-  /debug/2.2.0_supports-color@1.2.0:
+  /debug/2.2.0:
     resolution: {integrity: sha512-X0rGvJcskG1c3TgSCPqHJ0XJgwlcvOC7elJ5Y0hYuKBZoVqWpAMfLOeIh2UI/DCQ5ruodIjvsugZtjUYUw2pUw==}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
     dependencies:
       ms: 0.7.1
-      supports-color: 1.2.0
     dev: true
 
   /debug/2.6.9:
@@ -1441,11 +1437,6 @@ packages:
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/debug/-/debug-3.2.7.tgz}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
     dependencies:
       ms: 2.1.2
     dev: true
@@ -1998,7 +1989,6 @@ packages:
       url-join: 4.0.1
     transitivePeerDependencies:
       - debug
-      - supports-color
     dev: true
 
   /https-proxy-agent/5.0.0:
@@ -3044,7 +3034,7 @@ packages:
     hasBin: true
     dependencies:
       commander: 2.3.0
-      debug: 2.2.0_supports-color@1.2.0
+      debug: 2.2.0
       diff: 1.4.0
       escape-string-regexp: 1.0.2
       glob: 3.2.11
@@ -3262,8 +3252,6 @@ packages:
       async: 2.6.3
       debug: 3.2.7
       mkdirp: 0.5.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /postcss/8.4.21:
