@@ -6,6 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "http-server src -p 2333 -c-1",
+    "start:dom": "pnpm --filter=how-js-and-css-block-dom run dev",
     "start:vue": "pnpm --filter=vue run dev",
     "start:cache": "pnpm --filter=http-cache run dev",
     "test": "jest ./src",

@@ -7,12 +7,14 @@ pnpm i
 # 预览静态 HTML 示例
 pnpm start
 
+# 预览 DOM 阻塞示例
+pnpm start:dom
+
 # 预览 vue 相关示例
 pnpm start:vue
 
 # 启动 HTTP 缓存示例
 pnpm start:cache
-
 ```
 
 ## Browser
