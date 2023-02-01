@@ -28,8 +28,6 @@ pnpm start:cache
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 - [输入 URL 后发生了什么](./src/browser/input-url/readme.md)
 - [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/how-js-and-css-block-dom/readme.md)
-- [async 和 defer](./src/browser/optimization/async-vs-defer.md)
-- [性能优化](./src/browser/optimization/readme.md)
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
 - [JSONP](./src/browser/jsonp/client.html)
 
@@ -51,11 +49,11 @@ pnpm start:cache
 - [数组常用方法实现](./src/js/array.js)
 - [函数柯里化](./src/js/curry.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
-- [简易生成器模拟实现](./src/js/generator/index.js)
 - [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
-- [字符串模板](./src/js/template.js)
+- [简易生成器模拟实现](./src/js/generator/index.js)
 - [异步延迟函数](./src/js/sleep.js)
 - [事件总线（发布订阅）](./src/js/event-emitter.js)
+- [字符串模板](./src/js/template.js)
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [并发数控制的异步调度器](./src/js/concurrency-limit/v1.js)
 
@@ -63,6 +61,10 @@ pnpm start:cache
 
 - [控制元素的显示和隐藏](./src/style/show-or-hide.html)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
+
+## 性能优化
+- [简述](./src/performance/readme.md)
+- [async 和 defer](./src/performance/async-vs-defer.md)
 
 ## Vue
 
