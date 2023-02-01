@@ -1,31 +1,35 @@
 /**
  * 数组去重
- * @param {array} arr 
+ * @param {array} arr
  * @returns new array
  */
 function unique(arr) {
     return arr.filter((item, index, array) => array.indexOf(item) === index)
 }
 function unique2(arr) {
-    return [ ...new Set(arr) ]
+    return [...new Set(arr)]
+}
+function unique3(arr) {
+    const seen = new Map()
+    return arr.filter((a) => !seen.has(a) && seen.set(a, 1))
 }
 
 /**
  * 数组扁平化
  * @param {array} arr
- * @returns new array 
+ * @returns new array
  */
 function flatten(arr) {
     let result = []
     for (let i = 0; i < arr.length; i++) {
-        result = Array.isArray(arr[i]) 
+        result = Array.isArray(arr[i])
             ? result.concat(flatten(arr[i]))
             : result.concat(arr[i])
     }
     return result
 }
 function flatten2(arr) {
-    while(arr.some(x => Array.isArray(x))) {
+    while (arr.some((x) => Array.isArray(x))) {
         arr = [].concat(...arr)
     }
     return arr
@@ -37,7 +41,7 @@ function flatten2(arr) {
  * 不要覆盖 Array.prototype，而是用 Reflect.defineProperty 设置不可枚举
  */
 
-Array.prototype.fakeForEach = function(callback, thisArg) {
+Array.prototype.fakeForEach = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -48,7 +52,7 @@ Array.prototype.fakeForEach = function(callback, thisArg) {
     }
 }
 
-Array.prototype.fakeMap = function(callback, thisArg) {
+Array.prototype.fakeMap = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -61,7 +65,7 @@ Array.prototype.fakeMap = function(callback, thisArg) {
     return res
 }
 
-Array.prototype.fakeFilter = function(callback, thisArg) {
+Array.prototype.fakeFilter = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -76,7 +80,7 @@ Array.prototype.fakeFilter = function(callback, thisArg) {
     return res
 }
 
-Array.prototype.fakeSome = function(callback, thisArg) {
+Array.prototype.fakeSome = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -90,19 +94,19 @@ Array.prototype.fakeSome = function(callback, thisArg) {
     return false
 }
 
-Array.prototype.fakeReduce = function(callback, initialValue) {
+Array.prototype.fakeReduce = function (callback, initialValue) {
     if (this == null) {
         throw new TypeError('this is null or not defined')
     }
-    if (typeof callback !== "function") {
+    if (typeof callback !== 'function') {
         throw new TypeError(callback + ' is not a function')
     }
 
     const O = Object(this)
     const len = O.length >>> 0 // 无符号右移 0 位：保证转换后的值为正整数
     let index = 0 // 游标
-    let acc   // 累加器
-    
+    let acc // 累加器
+
     if (arguments.length > 1) {
         acc = initialValue
     } else {
@@ -115,7 +119,7 @@ Array.prototype.fakeReduce = function(callback, initialValue) {
 
         // if len is 0 and iniitalValue is not present
         if (index >= len) {
-            throw new TypeError( 'Reduce of empty array with no initial value' );
+            throw new TypeError('Reduce of empty array with no initial value')
         }
         acc = O[index++]
     }
@@ -130,6 +134,33 @@ Array.prototype.fakeReduce = function(callback, initialValue) {
     return acc
 }
 
+// 使用 Infinity，可展开任意深度的嵌套数组
+Array.prototype.fakeFlat = function (depth = 1) {
+    if (!Number(depth) || Number(depth) <= 0) {
+        return this
+    }
+    let arr = this.concat()
+    return arr.reduce((pre, cur) => {
+        // reduce 会跳过空位
+        return pre.concat(Array.isArray(cur) ? cur.fakeFlat(depth - 1) : cur)
+    }, [])
+}
+Array.prototype.fakeFlat2 = function (depth = 1) {
+    if (!Number(depth) || Number(depth) < 0) {
+        return this
+    }
+    let arr = this.filter(x => x) // 获得调用 fakeFlat 函数的数组，顺便跳过空位
+    while (depth > 0) {
+        if (arr.some((x) => Array.isArray(x))) {
+            // arr = [].concat.apply([], arr) // 数组中还有数组元素的话并且 depth > 0，继续展开一层数组
+            arr = [].concat(...arr)
+        } else {
+            break // 数组中没有数组元素并且不管 depth 是否依旧大于 0，停止循环。
+        }
+        depth--
+    }
+    return arr
+}
 
 module.exports = {
     unique,

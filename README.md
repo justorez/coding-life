@@ -56,6 +56,8 @@ pnpm start:cache
 - [字符串模板](./src/js/template.js)
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [并发数控制的异步调度器](./src/js/concurrency-limit/v1.js)
+- [trim 模拟实现](./src/js/trim.js)
+- [大数加法](./src/js/big-add.js)
 
 ## Style
 
