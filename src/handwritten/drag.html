@@ -1,0 +1,54 @@
+<div id="box" title="双击复原"></div>
+<script>
+    let dragging = false
+    let pos = null
+    const el = document.querySelector('#box')
+    const originalTransform = el.style.transform
+
+    el.addEventListener('mousedown', (e) => {
+        dragging = true
+        if (!pos) {
+            const rect = el.getBoundingClientRect()
+            pos = {
+                x: e.clientX,
+                y: e.clientY,
+                left: rect.left,
+                top: rect.top
+            }
+        }
+    })
+    document.addEventListener('mousemove', (e) => {
+        if (!dragging) return
+        const translateX = e.clientX - pos.x
+        const translateY = e.clientY - pos.y
+        const left = translateX + pos.left
+        const top = translateY + pos.top
+        if (left >= 0 && left <= window.innerWidth) {
+            pos.translateX = translateX
+        }
+        if (top >= 0 && top <= window.innerHeight) {
+            pos.translateY = translateY
+        }
+        el.style.transform = `translate3d(${pos.translateX}px,${pos.translateY}px,0)`
+    })
+    document.addEventListener('mouseup', () => {
+        dragging = false
+    })
+
+    el.addEventListener('dblclick', () => {
+        el.classList.add('restore')
+        el.style.transform = originalTransform
+        setTimeout(() => el.classList.remove('restore'), 550)
+    })
+</script>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        border-radius: 10px;
+    }
+    .restore {
+        transition: all .5s ease-in-out;
+    }
+</style>

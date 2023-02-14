@@ -1,4 +1,4 @@
-const { isObject, isDate, isRegExp, isArray } = require('./types')
+const { isObject, isDate, isRegExp, isArray } = require('../js/types')
 
 function deepClone(target, map = new WeakMap()) {
     if (map.get(target)) {

@@ -23,9 +23,4 @@ function bigAdd(x, y) {
     return carry ? '1' + res : res
 }
 
-const s1 = bigAdd('9007199254740991', '1234567899999999999')
-const s2 = 9007199254740991n + 1234567899999999999n
-
-console.log(s1)
-console.log(s2)
-console.log(s1 === s2.toString())
+module.exports = bigAdd

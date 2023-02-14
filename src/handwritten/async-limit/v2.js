@@ -50,7 +50,7 @@ class Scheduler {
     }
 }
 
-const sleep = require('../sleep')
+const sleep = require('../../js/sleep')
 function test() {
     const scheduler = new Scheduler(5)
     for (let i = 1; i <= 10; i++) {

@@ -40,24 +40,28 @@ pnpm start:cache
 - [this](./src/js/this/readme.md)
 - [类型判断](./src/js/types.js)
 - [继承](./src/js/extend.js)
+- [数组常用方法实现](./src/js/array.js)
+- [Promises/A+ 规范实现](./src/js/promise/index.js)
+- [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
+- [简易生成器模拟实现](./src/js/generator/index.js)
+- [异步延迟函数](./src/js/sleep.js)
+
+## 手写题
+
 - [new 模拟实现](./src/js/fake-new.js)
 - [instanceof 模拟实现](./src/js/instance-of.js)
 - [call、apply、bind 模拟实现](./src/js/this-func.js)
 - [深拷贝](./src/js/deep-clone.js)
 - [防抖](./src/js/debounce.js)
 - [节流](./src/js/throttle.js)
-- [数组常用方法实现](./src/js/array.js)
 - [函数柯里化](./src/js/curry.js)
-- [Promises/A+ 规范实现](./src/js/promise/index.js)
-- [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
-- [简易生成器模拟实现](./src/js/generator/index.js)
-- [异步延迟函数](./src/js/sleep.js)
 - [事件总线（发布订阅）](./src/js/event-emitter.js)
 - [字符串模板](./src/js/template.js)
 - [可延迟执行的链式操作](./src/js/chain-with-timeout.js)
 - [并发数控制的异步调度器](./src/js/concurrency-limit/v1.js)
 - [trim 模拟实现](./src/js/trim.js)
 - [大数加法](./src/js/big-add.js)
+- [可拖拽元素](./src/handwritten/drag.html)
 
 ## Style
 
