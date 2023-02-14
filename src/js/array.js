@@ -2,16 +2,24 @@
  * 数组去重
  * @param {array} arr
  * @returns new array
+ * @link https://github.com/mqyqingfeng/Blog/issues/27
  */
 function unique(arr) {
-    return arr.filter((item, index, array) => array.indexOf(item) === index)
-}
-function unique2(arr) {
     return [...new Set(arr)]
 }
-function unique3(arr) {
+function unique2(arr) {
     const seen = new Map()
     return arr.filter((a) => !seen.has(a) && seen.set(a, 1))
+}
+function unique3(arr) {
+    return arr.filter((item, index, array) => array.indexOf(item) === index)
+}
+function unique4(array) {
+    var obj = {}
+    return array.filter((item) => {
+        const key = typeof item + JSON.stringify(item)
+        return obj.hasOwnProperty(key) ? false : (obj[key] = true)
+    })
 }
 
 /**
@@ -149,7 +157,7 @@ Array.prototype.fakeFlat2 = function (depth = 1) {
     if (!Number(depth) || Number(depth) < 0) {
         return this
     }
-    let arr = this.filter(x => x) // 获得调用 fakeFlat 函数的数组，顺便跳过空位
+    let arr = this.filter((x) => x) // 获得调用 fakeFlat 函数的数组，顺便跳过空位
     while (depth > 0) {
         if (arr.some((x) => Array.isArray(x))) {
             // arr = [].concat.apply([], arr) // 数组中还有数组元素的话并且 depth > 0，继续展开一层数组
