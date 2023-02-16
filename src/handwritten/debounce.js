@@ -47,3 +47,14 @@ function debounce(func, wait, immediate) {
 
     return debounced
 }
+
+// 简易版
+function simple(func, wait) {
+    let timer
+    return function(...args) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            func.apply(this, args)
+        }, wait)
+    }
+}

@@ -66,3 +66,16 @@ function throttle(func, wait, options) {
 
     return throttled
 }
+
+// 简易版
+function simple(func, wait) {
+    let flag
+    return function (...args) {
+        if (flag) return
+        flag = true
+        setTimeout(() => {
+            flag = false
+            func.apply(this, args)
+        }, wait)
+    }
+}
