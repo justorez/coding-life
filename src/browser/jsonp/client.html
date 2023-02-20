@@ -5,21 +5,31 @@
 <script>
     const el = document.querySelector('h1')
 
-    function getData(callback, onError) {
-        const script = document.createElement('script')
-        script.src = `http://localhost:2333?callback=${callback}`
-        script.onerror = onError
-        document.body.appendChild(script)
+    function jsonp(url, params = {}) {
+        return new Promise((resolve, reject) => {
+            const baseURL = 'http://localhost:2333'
+            const script = document.createElement('script')
+            const cbKey = `__jsonp_${Math.random().toString().substr(2, 8)}`
+            window[cbKey] = (res) => {
+                delete window[cbKey]
+                script.remove()
+                return resolve(res)
+            }
+            script.id = cbKey
+            script.src = `${baseURL}/${url}?callback=${cbKey}&&params=${JSON.stringify(params)}`
+            script.onerror = reject
+            document.body.appendChild(script)
+        })
     }
 
-    function fetchInfo(info) {
-        el.innerText = info.username
-    }
-    
     document.querySelector('.btn-run').onclick = () => {
         el.innerText = '加载中...'
-        getData('fetchInfo', (err) => {
-            el.innerText = '请求失败！'
-        })
+        jsonp('', { age: 20 })
+            .then(res => {
+                el.innerText = res.username + ' ' + res.age
+            })
+            .catch(() => {
+                el.innerText = '请求失败！'
+            })
     }
 </script>

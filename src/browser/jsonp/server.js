@@ -1,13 +1,17 @@
 const http = require('http')
 
+const random = (min, max) => {
+    return min + Math.round(Math.random() * (max - min))
+}
 const server = http.createServer((req, res) => {
-    const url = new URL(req.url, `http://${req.headers.host}`)
-    const callback = url.searchParams.get('callback')
+    const { searchParams } = new URL(req.url, `http://${req.headers.host}`)
+    const callback = searchParams.get('callback')
+    const params = JSON.parse(searchParams.get('params'))
     const info = JSON.stringify({
         username: 'leo',
-        age: 18
+        age: params.age + 1
     })
-    res.statusCode = 200
+    res.statusCode = random(0, 1) ? 200 : 500
     res.setHeader('Content-Type', 'application/json')
     res.end(`${callback}(${info})`)
 })
