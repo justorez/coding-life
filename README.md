@@ -59,11 +59,16 @@ pnpm start:cache
 - [LRU 缓存](./src/handwritten/LRU/v2.js)
 - [事件总线（发布订阅）](./src/handwritten/event-emitter.js)
 - [字符串模板](./src/handwritten/template.js)
-- [可延迟执行的链式操作](./src/handwritten/chain-with-timeout.js)
+- [可延迟执行的链式操作](./src/handwritten/lazy-man.js)
 - [并发数限制](./src/handwritten/async-limit/v1.js)
 - [trim 模拟实现](./src/handwritten/trim.js)
 - [大数加法](./src/handwritten/big-add.js)
 - [可拖拽元素](./src/handwritten/drag.html)
+- [简易虚拟 DOM](./src/handwritten/vnode.html)
+- [检测循环引用](./src/handwritten/has-cycle.js)
+- [对象扁平化](./src/handwritten/flatten.js)
+- [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
+- [add(1)(2)(3)()=6](./src/handwritten/magic-add.js)
 
 ## Style
 

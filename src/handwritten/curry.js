@@ -22,11 +22,11 @@
 function curry(fn, ...args) {
     const length = fn.length
     return function (...fnArgs) {
-        let _args = [...args, ...fnArgs]
-        if (_args.length < length) {
-            return curry.call(this, fn, ..._args)
+        let allArgs = [...args, ...fnArgs]
+        if (allArgs.length < length) {
+            return curry.call(this, fn, ...allArgs)
         } else {
-            return fn.apply(this, _args)
+            return fn.apply(this, allArgs)
         }
     }
 }

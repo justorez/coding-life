@@ -1,18 +1,10 @@
 const compose = require('../compose')
 
 test('compose test', () => {
-    function fn1(x) {
-        return x + 1
-    }
-    function fn2(x) {
-        return x + 2
-    }
-    function fn3(x) {
-        return x + 3
-    }
-    function fn4(x) {
-        return x + 4
-    }
+    const fn1 = x => x + 1
+    const fn2 = x => x + 2
+    const fn3 = x => x + 3
+    const fn4 = x => x + 4
 
     const c1 = compose(fn1, fn2, fn3, fn4)
     expect(c1(1)).toBe(11)
