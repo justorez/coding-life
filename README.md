@@ -78,6 +78,7 @@ pnpm start:cache
 ## 性能优化
 - [简述](./src/performance/readme.md)
 - [async 和 defer](./src/performance/async-vs-defer.md)
+- [**前端优化之旅**](https://www.alienzhou.com/projects/fe-performance-journey/)
 
 ## Vue
 

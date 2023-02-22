@@ -74,6 +74,14 @@ function withAvatarURL(InnerComponent) {
 const SmartAvatar = withAvatarURL(Avatar)
 ```
 
+## FAQ
+
+### 1. `v-if` 和 `v-for` 同时在一个节点
+
+在 2 中 `v-for` 优先级更高，而 3 中 `v-if` 优先级更高。
+- [Vue2 v-for with v-if](https://v2.cn.vuejs.org/v2/guide/list.html#v-for-%E4%B8%8E-v-if-%E4%B8%80%E5%90%8C%E4%BD%BF%E7%94%A8)
+- [Vue3 v-for with v-if](https://cn.vuejs.org/guide/essentials/list.html#v-for-with-v-if)
+
 ## 推荐阅读
 
 - [Virtual DOM is Pure overhead](https://www.cnblogs.com/qianduanziyu/p/virtual-dom-is-pure-overhead.html)
