@@ -1,11 +1,3 @@
-function GlobalObject() {
-    try {
-        return window
-    } catch (error) {
-        return global
-    }
-}
-
 function isObject(val) {
     return val && typeof val === 'object'
 }
@@ -17,21 +9,19 @@ function isObject(val) {
  * @returns 
  */
 Function.prototype.fakeCall = function (context, ...args) {
-    context = isObject(context)  ? context : GlobalObject()
+    context = isObject(context)  ? context : globalThis
     context.fn = this
-    let result = context.fn(...args)
+    const result = context.fn(...args)
     delete context.fn
     return result
 }
 
 Function.prototype.fakeApply = function (context, args) {
-    context = isObject(context) ? context : GlobalObject()
+    context = isObject(context) ? context : globalThis
     context.fn = this
-
-    let result = args
+    const result = args
         ? context.fn(...args)
         : context.fn()
-    
     delete context.fn
     return result
 }

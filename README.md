@@ -69,6 +69,7 @@ pnpm start:cache
 - [对象扁平化](./src/handwritten/flatten.js)
 - [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
 - [add(1)(2)(3)()=6](./src/handwritten/magic-add.js)
+- [乱序函数](./src/handwritten/shuffle.js)
 
 ## Style
 
