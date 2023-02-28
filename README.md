@@ -30,6 +30,7 @@ pnpm start:cache
 - [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/how-js-and-css-block-dom/readme.md)
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
 - [JSONP](./src/browser/jsonp/client.html)
+- [Web Components](./src/browser/web-components/index.html)
 
 ## JavaScript
 
@@ -110,12 +111,13 @@ pnpm start:cache
 
 ## 推荐阅读
 
-- [前端知识体系整理](https://jsgodroad.com/interview)
+- [前端知识路线图](https://roadmap.sh/frontend)
 - [前端工程师自检清单](https://juejin.cn/post/6844903830887366670#heading-1)
 - [字节前端面试手册](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?from=from_copylink)
+- [剑指前端 Offer](https://interview-manual.gitee.io/awesome-interview)
 - [浏览器工作原理与实践](https://time.geekbang.org/column/intro/100033601?code=ioec5oi7MyP4QLb8ZUmXV9OiXdifKAeos3f2AKXPNIo%3D&page=A)
 - [labuladong 的算法小抄](https://labuladong.gitee.io/algo/)
 - [尤雨溪讲解 Vue 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
 - [玩转 Vue 3 全家桶](https://time.geekbang.org/column/intro/100094401?code=p5I8okGnRHfR67OkuyktunHxGUUgxaVlm02vdhIdVa4%3D&source=app_share&page=A)
 - [2021前端岗面试整理](https://juejin.cn/post/6991724298197008421)
-- [剑指前端 Offer](https://interview-manual.gitee.io/awesome-interview)
+
