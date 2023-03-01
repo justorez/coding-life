@@ -5,39 +5,44 @@ function isObject(val) {
 /**
  * 改变了 this 指向，让新的对象可以执⾏该函数。
  * 那么思路可以变成给新的对象添加⼀个函数，然后在执⾏完以后删除
- * @param {*} context 
- * @returns 
+ * @param {*} context
+ * @returns
  */
 Function.prototype.fakeCall = function (context, ...args) {
-    context = isObject(context)  ? context : globalThis
-    context.fn = this
-    const result = context.fn(...args)
-    delete context.fn
+    context = isObject(context) ? context : globalThis
+    const func = Symbol('func')
+    context[func] = this
+    const result = context[func](...args)
+    delete context[func]
     return result
 }
 
 Function.prototype.fakeApply = function (context, args) {
     context = isObject(context) ? context : globalThis
-    context.fn = this
-    const result = args
-        ? context.fn(...args)
-        : context.fn()
-    delete context.fn
+    const func = Symbol('fn')
+    context[func] = this
+    const result = args ? context[func](...args) : context[func]()
+    delete context[func]
     return result
 }
 
 /**
  * 如果 bind 得到的函数用作构造函数（new BindFunc），则 bind 不生效
- * @param {*} context 
+ * @param {*} context
  */
 Function.prototype.fakeBind = function (context, ...args) {
     if (typeof this !== 'function') {
-        throw new TypeError('Function.prototype.bind called on incompatible ' + target)
+        throw new TypeError(
+            'Function.prototype.bind called on incompatible ' + target
+        )
     }
 
     let self = this // 原函数
-    let fBound = function(...bindArgs) {
-        return self.apply(this instanceof fBound ? this : context, args.concat(bindArgs))
+    let fBound = function (...bindArgs) {
+        return self.apply(
+            this instanceof fBound ? this : context,
+            args.concat(bindArgs)
+        )
     }
 
     // 修改返回函数的 prototype 为绑定函数的 prototype，实例就可以继承绑定函数的原型中的值
