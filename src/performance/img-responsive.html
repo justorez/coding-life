@@ -1,0 +1,44 @@
+<!-- img srcset sizes 只响应一次
+    比如以视口 300px 加载网页，根据 sizes 规则匹配 400px 的图片，srcset 没有 400w，
+    那么加载第一个大于 400w 的，即 480w 的图片生效。
+    当视口大于 500px 时（不包括等于），将加载 960w 的源，此时再去变化视口，图片不再改变。
+-->
+<img 
+    srcset="https://cdn.pixabay.com/photo/2023/02/02/13/27/cat-7762887_960_720.jpg 480w, 
+            https://cdn.pixabay.com/photo/2023/01/21/13/39/night-sky-7733876_960_720.jpg 960w"
+    sizes="(max-width: 500px) 400px, 960px" 
+    src=""
+/>
+
+<!-- https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+    响应式图片和上面不同的是：图片随着视口的变化而变化。
+-->
+<picture>
+    <source
+        srcset="https://cdn.pixabay.com/photo/2023/01/21/13/39/night-sky-7733876_960_720.jpg"
+        media="(min-width: 700px)"
+    />
+    <source
+        srcset="https://cdn.pixabay.com/photo/2023/02/02/13/27/cat-7762887_960_720.jpg"
+        media="(max-width: 500px)"
+    />
+    <img
+        class="gap"
+        src="https://cdn.pixabay.com/photo/2023/02/05/17/25/leaves-7770035_960_720.jpg"
+        alt="default"
+    />
+</picture>
+
+
+<style>
+    body {
+        margin: 0;
+    }
+    .gap {
+        margin-top: 10px;
+    }
+
+    img {
+        width: 100%;
+    }
+</style>

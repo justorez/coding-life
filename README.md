@@ -82,6 +82,8 @@ pnpm start:cache
 - [简述](./src/performance/readme.md)
 - [async 和 defer](./src/performance/async-vs-defer.md)
 - [**前端优化之旅**](https://www.alienzhou.com/projects/fe-performance-journey/)
+- [原生支持的图片延迟加载](./src/performance/img-lazy.html)
+- [响应式图片](./src/performance/img-responsive.html)
 
 ## Vue
 
