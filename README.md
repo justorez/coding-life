@@ -71,6 +71,7 @@ pnpm start:cache
 - [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
 - [add(1)(2)(3)()=6](./src/handwritten/magic-add.js)
 - [乱序函数](./src/handwritten/shuffle.js)
+- [将列表还原成树](./src/handwritten/list2tree.js)
 
 ## Style
 
