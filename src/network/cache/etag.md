@@ -60,143 +60,94 @@ ETag由服务器端生成，发送给客户端，客户端再次访问时通过�
 // https://github.com/koajs/ETag/blob/master/index.js
 
 // 核心代码：生成ETag的函数（下面会具体分析）
-
 const calculate = require('ETag')
 
 // koa中间件，对ctx进行了处理
-
 module.exports = function ETag (options) {
-
   return async function ETag (ctx, next) {
-
     await next()
-
     const entity = await getResponseEntity(ctx) // 获取body内容
-
     setETag(ctx, entity, options) // 生成ETag【重点】
-
   }
-
 }
 
 async function getResponseEntity (ctx) {
-
-  // dosomething,最终返回body：return body
-
+  // do something...
+  // return body
 }
 
 function setETag (ctx, entity, options) {
-
   if (!entity) return
-
   ctx.response.ETag = calculate(entity, options) // 生成ETag
-
 }
 ```
 
 ```javascript
-https://github.com/jshttp/ETag/blob/master/index.js
+// https://github.com/jshttp/ETag/blob/master/index.js
 
 // 核心代码：生成ETag的函数（承接上面）
-
 module.exports = ETag
 
 var crypto = require('crypto')
-
 var Stats = require('fs').Stats
-
 var toString = Object.prototype.toString
 
 /** 为非Stats类型创建ETag */
-
 function entitytag (entity) {
-
   if (entity.length === 0) {
-
     // fast-path empty
-
     return '"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk"'
-
   }
 
   // compute hash of entity
-
   var hash = crypto.createHash('sha1').update(entity, 'utf8')
-
       .digest('base64').substring(0, 27)
 
   // compute length of entity
-
   var len = typeof entity === 'string'
-
     ? Buffer.byteLength(entity, 'utf8')
-
     : entity.length
 
   // 重点：长度(16进制)+hash(entity)值
-
   return '"' + len.toString(16) + '-' + hash + '"'
-
 }
 
 /** 生成ETag */
-
 function ETag (entity, options) {
-
   // support fs.Stats object
-
   var isStats = isstats(entity)
-
   var weak = options && typeof options.weak === 'boolean' ? options.weak : isStats   
 
   // generate entity tag
-
   var tag = isStats ? stattag(entity) : entitytag(entity)
 
   // 弱ETag 比 强ETag 多了个 W/
-
   return weak ? 'W/' + tag : tag
-
 }
 
 /** 确定对象是否是 Stats 类型 */
 
 function isstats (obj) {
-
   // genuine fs.Stats
-
   if (typeof Stats === 'function' && obj instanceof Stats) {
-
     return true
-
   }
 
   // quack quack
-
   return obj && typeof obj === 'object' &&
-
     'ctime' in obj && toString.call(obj.ctime) === '[object Date]' &&
-
     'mtime' in obj && toString.call(obj.mtime) === '[object Date]' &&
-
     'ino' in obj && typeof obj.ino === 'number' &&
-
     'size' in obj && typeof obj.size === 'number'
-
 }
 
 /** 为 Stats 类型创建ETag */
-
 function stattag (stat) {
-
   var mtime = stat.mtime.getTime().toString(16)
-
   var size = stat.size.toString(16)
 
   // 重点：文件大小的16进制+修改时间
-
   return '"' + size + '-' + mtime + '"'
-
 }
 ```
 
@@ -232,7 +183,6 @@ module.exports = function conditional () {
 // https://github.com/koajs/koa/blob/master/lib/request.js
 
 // ctx中fresh属性如下
-
 const fresh = require('fresh') // 真正判断的函数
 
 get fresh () {
@@ -244,9 +194,7 @@ get fresh () {
 
     // 2xx or 304 as per rfc2616 14.26
     if ((s >= 200 && s < 300) || s === 304) {
-
       return fresh(this.header, this.response.header) // 重点
-
     }
 
     return false
@@ -259,95 +207,63 @@ ctx.fresh 属性的核心内容是引入了第三方库（fresh）来判断资�
 // https://github.com/jshttp/fresh/blob/master/index.js
 
 // fresh 核心代码如下
-
 module.exports = fresh
 
 function fresh (reqHeaders, resHeaders) {
-
   // fields
-
   var modifiedSince = reqHeaders['if-modified-since']
-
   var noneMatch = reqHeaders['If-None-Match']
 
   // unconditional request
-
   if(!modifiedSince && !noneMatch) {
-
     return false
-
   }
 
   // Always return stale when Cache-Control: no-cache
-
   // to support end-to-end reload requests
-
   // https://tools.ietf.org/html/rfc2616#section-14.9.4
-
   var cacheControl = reqHeaders['cache-control']
 
   if (cacheControl && CACHE_CONTROL_NO_CACHE_REGEXP.test(cacheControl)) {
-
     return false
-
   }
 
   // If-None-Match
-
   if (noneMatch && noneMatch !== '*') {
-
     var ETag = resHeaders['ETag']
 
     if (!ETag) {
-
       return false
-
     }
 
     var ETagStale = true
-
     var matches = parseTokenList(noneMatch)
 
     for (var i = 0; i < matches.length; i++) {
-
       var match = matches[i]
 
       if (match === ETag || match === 'W/' + ETag || 'W/' + match === ETag) {
-
         ETagStale = false
-
         break
-
       }
-
     }
 
     if (ETagStale) {
-
       return false
-
     }
-
   }
 
   // if-modified-since
-
   if (modifiedSince) {
-
     var lastModified = resHeaders['last-modified']
-
     var modifiedStale = !lastModified || !(parseHttpDate(lastModified) <= parseHttpDate(modifiedSince))
 
     if (modifiedStale) {
-
       return false
-
     }
-
   }
 
   return true
-
 }
 
 ```

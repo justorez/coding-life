@@ -33,34 +33,33 @@ app.use(async (ctx) => {
         // 设置 Expires 响应头
         // const time = new Date(Date.now() + 30000).toUTCString()
         // ctx.set('Expires', time)
-
         // 设置 Cache-Control 响应头，单位：秒
         // ctx.set('Cache-Control', 'max-age=30')
-
         // ctx.body = fileBuffer // 设置传输
 
-
-        /** 协商缓存 */
-        // const ifModifiedSince = ctx.request.header['if-modified-since']
+        /** 协商缓存 last-modified */
+        // const modifiedSince = ctx.request.header['if-modified-since']
         // const fileStat = await getFileStat(filePath)
         // ctx.set('Cache-Control', 'no-cache')
         // // 比对时间，mtime 为文件最后修改时间
-        // if (ifModifiedSince === fileStat.mtime.toUTCString()) {
+        // if (modifiedSince === fileStat.mtime.toUTCString()) {
         //     ctx.status = 304
         // } else {
         //     ctx.set('Last-Modified', fileStat.mtime.toUTCString())
         //     ctx.body = fileBuffer
         // }
 
-        const ifNoneMatch = ctx.request.header['if-none-match']
-        console.log('if-none-match', ifNoneMatch)
+        // no-cache 指令不会阻止响应的存储，而是阻止在没有重新验证的情况下重用响应
+        // 如果你不希望将响应存储在任何缓存中，请使用 no-store
+        ctx.set('Cache-Control', 'no-cache')
+        const noneMatch = ctx.request.header['if-none-match']
         // 计算资源内容的 hash 值
         const hash = crypto.createHash('md5')
         hash.update(fileBuffer)
-        const etag = `W/"${hash.digest('hex')}"`
-        ctx.set('Cache-Control', 'no-cache')
+        const etag = `"${hash.digest('hex')}"`
+        console.log(`[${url}]`, '[if-none-match etag]', noneMatch, etag)
         // 对比 hash 值
-        if (ifNoneMatch === etag) {
+        if (noneMatch === etag || noneMatch === `W/${etag}` || `W/${noneMatch}` === etag) {
             ctx.status = 304
         } else {
             ctx.set('ETag', etag)

@@ -7,7 +7,11 @@
  * @param  {...any} args 
  */
 module.exports = function (Constructor, ...args) {
+    // let obj = {}
+    // obj.__proto__ = Constructor.prototype
+    // 或者
+    // Reflect.setPrototypeOf(obj, Constructor.prototype)
     let obj = Object.create(Constructor.prototype)
     let ret = Constructor.apply(obj, args)
-    return typeof ret === 'object' ? ret : obj
+    return typeof ret === 'object' && ret !== null ? ret : obj
 }
