@@ -27,14 +27,12 @@ class JPromise {
         // 保证 resolve/reject 只有一次调用有效
         let ignore = false
         let resolve = (value) => {
-            if (ignore)
-                return
+            if (ignore) return
             ignore = true
             resolvePromise(this, value, onFulfilled, onRejected)
         }
         let reject = (reason) => {
-            if (ignore)
-                return
+            if (ignore) return
             ignore = true
             onRejected(reason)
         }
@@ -64,8 +62,9 @@ class JPromise {
             if (this.state === PENDING) {
                 this.callbacks.push(callback)
             } else {
-                // 直到执行上下文栈只包含平台代码之前，onFulfilled 或 onRejected 不能被调用。
-                // 故此处只能用 setTimeout/nextTick 等方法间接模拟实现
+                // onFulfilled or onRejected must not be called 
+                // until the execution context stack contains only platform code.
+                // 此处只能用 setTimeout/nextTick 等方法间接模拟实现
                 runAsync(() => handleCallback(callback, this.state, this.result))
             }
         })
@@ -144,15 +143,13 @@ function handleCallback(callback, state, result) {
 }
 
 /**
- * 在 pending 状态，promise 可以切换到 fulfilled 或 rejected。
+ * - `pending` 状态，可以过渡到 `fulfilled` 或 `rejected`。
+ * - `fulfilled` 状态，不能过渡到其它状态，必须有个不可变的 `value`。
+ * - `rejected` 状态，不能过渡到其它状态，必须有个不可变的 `reason`。
  * 
- * 在 fulfilled 状态，不能迁移到其它状态，必须有个不可变的 value。
- * 
- * 在 rejected 状态，不能迁移到其它状态，必须有个不可变的 reason。
  * @param {JPromise} promise 
  * @param {PENDING|FULFILLED|REJECTED} state 
- * @param {*} result fulfilled 下的 value 或 rejected 下的 reason
- * @returns 
+ * @param {*} result `fulfilled` 下的 `value` 或 `rejected` 下的 `reason`
  */
 function transition(promise, state, result) {
     if (promise.state === state ||
@@ -167,7 +164,7 @@ function transition(promise, state, result) {
 
 function resolvePromise(promise, result, resolve, reject) {
     if (result === promise) {
-        let reason = new TypeError('Can not fulfill promise with itself')
+        let reason = new TypeError(`Cannot fulfill promise with itself`)
         return reject(reason)
     }
 
