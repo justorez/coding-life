@@ -1,17 +1,18 @@
 /**
  * 判断对象的原型链是不是能找到类型的 prototype
  * instanceof 针对基本类型都是 false；
- * 使用 Object.getPrototypeOf 可以让基本类型的判断为 true
+ * 使用 Object.getPrototypeOf 可以让基本类型的判断为 true；
+ * Reflect.getPrototypeOf 参数必须是对象
  * @param {*} instance 
- * @param {*} type 
+ * @param {*} Type 
  */
-function instanceOf(instance, type) {
+function instanceOf(instance, Type) {
     if (typeof instance !== 'object') {
         return false
     }
 
-    instance = instance.__proto__
-    const prototype = type.prototype
+    instance = Reflect.getPrototypeOf(instance) // instance.__proto__
+    const prototype = Type.prototype
 
     while(true) {
         if (instance === null) {
@@ -21,7 +22,7 @@ function instanceOf(instance, type) {
         if (instance === prototype) {
             return true
         }
-        instance = instance.__proto__
+        instance = Reflect.getPrototypeOf(instance) // instance.__proto__
     }
 }
 

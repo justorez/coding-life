@@ -70,8 +70,10 @@ pnpm start:cache
 - [对象扁平化](./src/handwritten/flatten.js)
 - [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
 - [add(1)(2)(3)()=6](./src/handwritten/magic-add.js)
-- [乱序函数](./src/handwritten/shuffle.js)
 - [将列表还原成树](./src/handwritten/list2tree.js)
+- [二叉树最大深度](https://www.nowcoder.com/practice/8a2b2bf6c19b4f23a9bdb9b233eefa73?tpId=295)
+- [合并两个有序数组](https://www.nowcoder.com/practice/89865d4375634fc484f3a24b7fe65665?tpId=295)
+- [打乱数组](./src/handwritten/shuffle.js)
 
 ## Style
 
@@ -98,6 +100,10 @@ pnpm start:cache
 - [指令：双指放大，单指拖动](./src/vue/src/directives/zoom.js)
 - [指令：图片懒加载](./src/vue/src/directives/lazyload.js)
 
+## 工程化
+
+- [babel-loader 缓存原理](./src/node/babel/cache.md)
+
 ## Node.js
 
 - [事件循环](./src/node/event-loop/main.js)
@@ -105,6 +111,8 @@ pnpm start:cache
 ## 网络
 
 - [HTTP 缓存](./src/network/cache/readme.md)
+- [301 和 302 的区别](https://zhuanlan.zhihu.com/p/93031392)
+- [GET 可以有 body 吗？](https://zhuanlan.zhihu.com/p/456921996)
 
 ## 安全
 
