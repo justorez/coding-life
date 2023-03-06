@@ -51,15 +51,15 @@ class LRUCache {
             const oldHead = this.list.next
 
             this.list.next = node
-            node.prev = this.list
             node.next = oldHead
             oldHead.prev = node
+            node.prev = this.list
 
             this.data.set(key, node)
 
             if (this.data.size > this.capacity) {
+                // remove tail node
                 const tail = this.tail.prev
-
                 this.data.delete(tail.key)
                 this.tail.prev = tail.prev
                 tail.prev.next = this.tail
@@ -74,6 +74,7 @@ class LRUCache {
     visit(key) {
         if (this.data.has(key)) {
             const node = this.data.get(key)
+            // remove node from list
             node.prev.next = node.next
             node.next.prev = node.prev
 
@@ -81,8 +82,8 @@ class LRUCache {
             const oldHead = this.list.next
             this.list.next = node
             node.next = oldHead
-            node.prev = this.list
             oldHead.prev = node
+            node.prev = this.list
         }
     }
 }

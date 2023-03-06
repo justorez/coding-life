@@ -1,5 +1,5 @@
-// const LRUCache = require('../LRU/v1')
-const LRUCache = require('../LRU/v2')
+const LRUCache = require('../LRU/v1')
+// const LRUCache = require('../LRU/v2')
 
 test('LRU 缓存测试', () => {
     const cache = new LRUCache(2)
