@@ -4,20 +4,35 @@
  * @returns new array
  * @link https://github.com/mqyqingfeng/Blog/issues/27
  */
+const arr = [
+    /a/, /a/, /b/, 
+    "1", "1", "2", 
+    1, 1, 2, NaN, NaN, 
+    null, null, 
+    undefined, undefined, 
+    new Date('2023/3/6'), new Date('2023/3/6'),
+    { a: 1 }, { a: 1 }
+]
+
+// RegExp、object、Date 无效
 function unique(arr) {
     return [...new Set(arr)]
 }
+// 和方法一完全一致
 function unique2(arr) {
     const seen = new Map()
-    return arr.filter((a) => !seen.has(a) && seen.set(a, 1))
+    return arr.filter((item) => !seen.has(a) && seen.set(item, 1))
 }
+// RegExp、object、Date 无效，NaN 被全部移除
 function unique3(arr) {
     return arr.filter((item, index, array) => array.indexOf(item) === index)
 }
+// 均可去重
 function unique4(array) {
     var obj = {}
     return array.filter((item) => {
-        const key = typeof item + JSON.stringify(item)
+        const key = Object.prototype.toString.call(item) +
+            (item instanceof RegExp ? item.toString() : JSON.stringify(item))
         return obj.hasOwnProperty(key) ? false : (obj[key] = true)
     })
 }
