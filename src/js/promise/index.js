@@ -82,25 +82,58 @@ class JPromise {
         return new JPromise((_, reject) => reject(reason))
     }
 
+    /**
+     * 所有 promise 都 resolve，则 resolve 结果数组；
+     * 任一个 promise reject，则 reject 第一个错误。
+     * @param {Promise[]} promises
+     */
     static all(promises = []) {
         return new JPromise((resolve, reject) => {
             let count = 0
             let values = new Array(promises.length)
-            let collectValue = index => value => {
+            const collect = index => value => {
                 values[index] = value
                 count += 1
                 count === promises.length && resolve(values)
             }
             promises.forEach((promise, i) => {
                 if (isPromise(promise)) {
-                    promise.then(collectValue(i), reject)
+                    promise.then(collect(i), reject)
                 } else {
-                    collectValue(i)(promise)
+                    collect(i)(promise)
                 }	
             })
         })
     }
 
+    /**
+     * 所有 promise resolve/reject，返回的 promise resolve 结果数组
+     * @param {Promise[]} promises
+     */
+    static allSettled(promises = []) {
+        return new JPromise(resolve => {
+            let count = 0
+            let values = new Array(promises.length)
+            const collect = (index, status) => value => {
+                const prop = status === 'fulfilled' ? 'value' : 'reason'
+                values[index] = { status, [prop]: value }
+                count += 1
+                count === promises.length && resolve(values)
+            }
+            promises.forEach((promise, i) => {
+                if (isPromise(promise)) {
+                    promise.then(collect(i, 'fulfilled'), collect(i, 'rejected'))
+                } else {
+                    collect(i, 'fulfilled')(promise)
+                }	
+            })
+        })
+    }
+
+    /**
+     * 任一个 promise resolve/reject，返回的 promise resolve/reject。
+     * @param {Promise[]} promises
+     */
     static race(promises = []) {
         return new JPromise((resolve, reject) =>
             promises.forEach(promise => {
@@ -111,6 +144,31 @@ class JPromise {
                 }
             })
         )
+    }
+
+    /**
+     * 任一个 promise resolve，返回的 promise resolve；
+     * 所有 promise reject，返回的 promise reject AggregateError。
+     * @param {Promise[]} promises
+     */
+    static any(promises = []) {
+        return new JPromise((resolve, reject) => {
+            let count = 0
+            let reasons = new Array(promises.length)
+            const collect = index => reason => {
+                reasons[index] = reason
+                ++count === promises.length && reject(
+                    new AggregateError(reasons, 'All promises were rejected')
+                )
+            }
+            promises.forEach((promise, i) => {
+                if (isPromise(promise)) {
+                    promise.then(resolve, collect(i))
+                } else {
+                    resolve(promise)
+                }	
+            })
+        })
     }
 }
 
