@@ -1,13 +1,13 @@
 const compose = require('../compose')
 
-describe('函数组合', () => {
-    test('函数组合功能测试', () => {
+describe('compose 函数', () => {
+    test('功能测试', () => {
         const fn1 = x => x + 1
         const fn2 = x => x + 2
         const fn3 = x => x + 3
         const fn4 = x => x + 4
     
-        const c1 = compose(fn1, fn2, fn3, fn4)
+        const c1 = compose(fn4, fn3, fn2, fn1)
         const c2 = compose(fn2)
         const c3 = compose()
     
@@ -17,7 +17,7 @@ describe('函数组合', () => {
         expect(c3(1)).toBe(1)
     })
 
-    test('函数组合 this', () => {
+    test('this 测试', () => {
         function fn1(v) {
             return v + this.val
         }
@@ -26,7 +26,7 @@ describe('函数组合', () => {
         }
     
         const obj = {
-            fn: compose(fn1, fn2),
+            fn: compose(fn2, fn1),
             val: 'Tim'
         }
         expect(obj.fn('Hello! ')).toEqual('Hello! Tim.')

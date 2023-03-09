@@ -59,6 +59,12 @@ function flatten2(arr) {
 }
 
 /**
+ * 概念补充：高阶函数
+ * 高阶函数是对其他函数进行操作的函数，可以将它们作为参数或返回它们；
+ * 简单来说，高阶函数是一个函数，它接收函数作为参数或将函数作为输出返回
+ */
+
+/**
  * 注意：map、forEach 这些方法是不可枚举的，
  * 即 for...in 循环是拿不到的，所以如果写 polyfill 的话，
  * 不要覆盖 Array.prototype，而是用 Reflect.defineProperty 设置不可枚举

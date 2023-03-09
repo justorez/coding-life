@@ -11,14 +11,16 @@
 // }
 
 /**
- * 如果实现从右到左执行，可使用 `reduceRight` 或 `fns.reverse`
+ * 从右到左执行，`reduceRight` 或 `fns.reverse`。
+ * pipe 和 compose 类似，只不过从左往右执行。
  * @param  {...Function} fns 
+ * @link [Pointfree 编程风格指南](https://www.ruanyifeng.com/blog/2017/03/pointfree.html)
  */
 function compose(...fns) {
     if (fns.length === 0) return (arg) => arg
     if (fns.length === 1) return fns[0]
     return function (arg) {
-        return fns.reduce((val, f) => f.call(this, val), arg)
+        return fns.reduceRight((val, f) => f.call(this, val), arg)
     }
 }
 
