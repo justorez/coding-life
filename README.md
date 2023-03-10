@@ -120,6 +120,11 @@ pnpm start:cache
 - [CSRF 跨站请求伪造](./src/security/csrf.md)
 - [前端安全编码规范](https://segmentfault.com/a/1190000037657222)
 
+## 设计模式
+
+- [观察者模式](./src/design-pattern/observer.js)
+- [发布订阅模式](./src/design-pattern/pubsub.js)
+
 ## 推荐阅读
 
 - [前端知识路线图](https://roadmap.sh/frontend)
