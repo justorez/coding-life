@@ -1,0 +1,130 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>瀑布流 - JS + Position</title>
+    <link rel="stylesheet" href="assets/counter.css" />
+    <style>
+        body {
+            margin: 0;
+        }
+        .item img {
+            width: 100%;
+        }
+    </style>
+</head>
+<!-- 
+    优点
+        控制灵活，随意扩展。
+        也可以无限加载，不用过多考虑兼容问题。
+        同时可以添加诸多动画来增强用户体验。
+    缺点
+        实现相对复杂。
+        图片填充需要考虑图片加载状态。
+        性能逊色于纯css实现。 
+-->
+<div class="box">
+    <div class="item">
+        <img src="./assets/1.jpg" alt="1" />
+    </div>
+    <div class="item">
+        <img src="./assets/2.jpg" alt="2" />
+    </div>
+    <div class="item">
+        <img src="./assets/3.jpg" alt="3" />
+    </div>
+    <div class="item">
+        <img src="./assets/1.jpg" alt="1" />
+    </div>
+    <div class="item">
+        <img src="./assets/2.jpg" alt="2" />
+    </div>
+    <div class="item">
+        <img src="./assets/3.jpg" alt="3" />
+    </div>
+    <div class="item">
+        <img src="./assets/1.jpg" alt="1" />
+    </div>
+    <div class="item">
+        <img src="./assets/2.jpg" alt="2" />
+    </div>
+    <div class="item">
+        <img src="./assets/3.jpg" alt="3" />
+    </div>
+    <div class="item">
+        <img src="./assets/1.jpg" alt="1" />
+    </div>
+    <div class="item">
+        <img src="./assets/2.jpg" alt="2" />
+    </div>
+    <div class="item">
+        <img src="./assets/3.jpg" alt="3" />
+    </div>
+    <div class="item">
+        <img src="./assets/1.jpg" alt="1" />
+    </div>
+</div>
+<script>
+    class Waterfall {
+        constructor(options) {
+            this.$el = null // 父容器
+            this.count = 3 // 列数
+            this.gap = 10 // 间距
+            Object.assign(this, options)
+            this.width = 0 // 列的宽度
+            this.items = [] // 子元素集合
+            this.H = [] // 存储每列的高度方便计算
+            this.frag = null // 虚拟节点集合
+            this.init()
+        }
+        init() {
+            this.items = Array.from(this.$el.children)
+            this.reset()
+            this.render()
+        }
+        reset() {
+            this.frag = document.createDocumentFragment()
+            this.width = this.$el.clientWidth / this.count
+            this.H = new Array(this.count).fill(0)
+            this.$el.innerHTML = ''
+        }
+        calcPosition(img, item) {
+            const { width, gap, frag, H } = this
+            let tag = H.indexOf(Math.min(...H))
+            item.style.left = `${tag * (width + gap) + gap}px`
+            item.style.top = `${H[tag] + gap}px`
+            H[tag] += (img.height * width) / img.width + gap
+        }
+        render() {
+            const { width, items, frag } = this
+            for (const item of items) {
+                item.style.width = width + 'px'
+                item.style.position = 'absolute'
+                frag.appendChild(item)
+                let img = item.querySelector('img')
+                
+                this.calcPosition(img, item)
+                // if (img.complete) {
+                //     this.calcPosition(img, item)
+                // } else {
+                //     img.addEventListener('load', () => this.calcPosition(img, item))
+                // }
+            }
+            this.$el.append(frag)
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        globalThis.waterfall = new Waterfall({
+            $el: document.querySelector('.box'),
+            count: 3,
+            gap: 10
+        })
+    })
+
+    // const img = new Image()
+    // img.src = 'https://cdn.pixabay.com/photo/2023/03/08/20/52/architecture-7838713_960_720.jpg'
+    // console.log(img.width, img.height)
+    // img.onload = () => {
+    //     console.log(img.width, img.height)
+    // }
+</script>

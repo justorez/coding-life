@@ -1,0 +1,25 @@
+/* https://developer.mozilla.org/zh-CN/docs/Web/CSS/counter */
+
+.box {
+    counter-reset: count;
+}
+
+.item {
+    position: relative;
+}
+
+.item::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    counter-increment: count;
+    content: counter(count);
+    font-size: 1em;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}

@@ -80,6 +80,7 @@ pnpm start:cache
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)
 - [可拖拽元素](./src/style/drag.html)
+- [瀑布流布局](./src/style/waterfall/js.html)
 
 ## 性能优化
 - [简述](./src/performance/readme.md)
