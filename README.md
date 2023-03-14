@@ -64,7 +64,6 @@ pnpm start:cache
 - [并发数限制](./src/handwritten/async-limit/v1.js)
 - [trim 模拟实现](./src/handwritten/trim.js)
 - [大数加法](./src/handwritten/big-add.js)
-- [可拖拽元素](./src/handwritten/drag.html)
 - [简易虚拟 DOM](./src/handwritten/vnode.html)
 - [检测循环引用](./src/handwritten/has-cycle.js)
 - [对象扁平化](./src/handwritten/flatten.js)
@@ -79,6 +78,8 @@ pnpm start:cache
 
 - [控制元素的显示和隐藏](./src/style/show-or-hide.html)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
+- [高度始终为宽度的一半](./src/style/height-half-width.html)
+- [可拖拽元素](./src/style/drag.html)
 
 ## 性能优化
 - [简述](./src/performance/readme.md)
