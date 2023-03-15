@@ -1,0 +1,23 @@
+<head>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap-grid.css" rel="stylesheet">
+    <style>
+        .box {
+            font-size: 30px;
+            color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>ParseHTML → ParseStylesheet → DOMContentLoaded → ImgLoaded → load</span>
+    </div>
+    <img src="https://cdn.pixabay.com/photo/2016/04/21/22/29/portrait-1344645_960_720.jpg" alt="pro">
+</body>
+<script>
+    console.time('load')
+    console.time('DOMContentLoaded')
+    window.addEventListener('DOMContentLoaded', () => console.timeEnd('DOMContentLoaded'))
+    window.addEventListener('load', () => console.timeEnd('load'))
+</script>

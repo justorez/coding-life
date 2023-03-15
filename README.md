@@ -31,6 +31,7 @@ pnpm start:cache
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
 - [JSONP](./src/browser/jsonp/client.html)
 - [Web Components](./src/browser/web-components/index.html)
+- [DOMContentLoaded 和 load](./src/browser/DCL.html)
 
 ## JavaScript
 
