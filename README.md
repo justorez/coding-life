@@ -23,8 +23,8 @@ pnpm start:cache
 ## Browser
 
 - [事件循环](./src/browser/event-loop/readme.md)
-- [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
+- [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 - [输入 URL 后发生了什么](./src/browser/input-url/readme.md)
 - [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/how-js-and-css-block-dom/readme.md)
@@ -76,6 +76,7 @@ pnpm start:cache
 
 ## Style
 
+- [BFC（Block Formatting Context）](src/style/BFC/readme.md)
 - [控制元素的显示和隐藏](./src/style/show-or-hide.html)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)

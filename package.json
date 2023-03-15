@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "start": "http-server src -p 2333 -c-1",
+    "start": "http-server src -p 2333",
     "start:dom": "pnpm --filter=how-js-and-css-block-dom run dev",
     "start:jsonp": "opener src/browser/jsonp/client.html && nodemon src/browser/jsonp/server.js",
     "start:vue": "pnpm --filter=vue run dev",

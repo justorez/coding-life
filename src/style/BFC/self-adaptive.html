@@ -1,0 +1,19 @@
+<head>
+    <title>右侧自适应</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<div class="box h200 b2">
+    <div class="w100 h100 bg-blue"></div>
+    <!-- Tips: 设置浮动后，div 会被浮动元素覆盖，而文本却不会，因为 float 当初设计就是为了使文本围绕在浮动对象周围。 -->
+    <div class="bg-pink">
+        我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容
+    </div>
+</div>
+<style>
+    .box div:first-child {
+        float: left;
+    }
+    .box div:last-child {
+        overflow: hidden;
+    }
+</style>

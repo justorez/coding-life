@@ -1,0 +1,20 @@
+<head>
+    <title>子元素浮动 - 高度撑开</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="box w500 b2">
+    <div class="left w200 h200 bg-blue"></div>
+    <div class="right w200 h200 bg-pink"></div>
+</div>
+<style>
+    .box {
+        min-height: 50px;
+        overflow: hidden; /* 子元素浮动，撑开高度 */
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+</style>

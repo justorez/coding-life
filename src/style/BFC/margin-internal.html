@@ -1,0 +1,16 @@
+<head>
+    <title>margin 内部高度撑开</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="box w200 bg-pink">
+    <div class="bg-blue w100 h100"></div>
+</div>
+<style>
+    .box {
+        /* 撑开高度：添加边框或触发 BFC */
+        overflow: hidden;
+    }
+    .box div {
+        margin: 100px auto 0;
+    }
+</style>

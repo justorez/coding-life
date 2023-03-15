@@ -1,0 +1,26 @@
+<head>
+    <title>margin 上下重叠</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="box w200 h500 b2">
+    <div class="bfc">
+        <div class="bg-blue w100 h100"></div>
+    </div>
+    <div class="bg-pink w100 h100"></div>
+    <div class="bg-green w100 h100"></div>
+</div>
+<style>
+    .bfc {
+        overflow: hidden;
+    }
+    .bfc div:first-child {
+        margin-bottom: 10px;
+    }
+    .box div:nth-child(2) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .box div:nth-child(3) {
+        margin-top: 10px;
+    }
+</style>
