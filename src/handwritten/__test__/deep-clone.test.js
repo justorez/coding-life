@@ -1,13 +1,14 @@
 const deepClone = require('../deep-clone')
 
 describe('深拷贝', () => {
-    test('deepClone 基本使用', () => {
+    test('深拷贝基本类型', () => {
         expect(deepClone(123)).toBe(123)
         expect(deepClone('abc')).toBe('abc')
-        
-        let loop = {}
+    })
+
+    test('深拷贝对象类型', () => {
         let obj = {
-            loop,
+            loop: {},
             num: 123,
             str: 'abc',
             arr: [1, 2, 3, 'abc', { name: 'array' }],
@@ -18,14 +19,15 @@ describe('深拷贝', () => {
                 value: 'info of deep-clone'
             }
         }
-        loop.obj = obj
+        obj.loop.obj = obj
         let newObj = deepClone(obj)
-        // console.log(newObj)
-        expect(newObj.loop.obj).toBe(obj)
+        console.log(newObj)
+        expect(newObj.loop.obj).toBe(newObj)
+        expect(newObj.loop.obj).not.toBe(obj)
         expect(newObj).not.toBe(obj)
         expect(newObj.data).not.toBe(obj.data)
-        expect(newObj.reg).not.toBe(obj.reg)
         expect(newObj.now).not.toBe(obj.now)
+        expect(newObj.reg).not.toBe(obj.reg)
         expect(newObj).toEqual(obj)
     })
 })
