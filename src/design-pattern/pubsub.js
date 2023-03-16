@@ -92,24 +92,24 @@ class Subscriber {
 }
 
 function main() {
-    // 创建一个中介公司
+    // 创建一个任务中心
     const eventHub = new EventHub()
-    const player1 = new Subscriber(eventHub)
-    const player2 = new Subscriber(eventHub)
+    const sub1 = new Subscriber(eventHub)
+    const sub2 = new Subscriber(eventHub)
     const pub1 = new Publisher(eventHub) // 负责战斗任务
     const pub2 = new Publisher(eventHub) // 负责日常任务
 
     // 玩家一订阅战斗任务
-    player1.subscribe('warTask', (taskInfo) => {
-        console.log('player1 宗门殿发布战斗任务，任务信息:' + taskInfo)
+    sub1.subscribe('warTask', (taskInfo) => {
+        console.log('sub1 收到宗门殿发布战斗任务，任务信息:' + taskInfo)
     })
     // 玩家一订阅日常任务
-    player1.subscribe('routeTask', (taskInfo) => {
-        console.log('player1 宗门殿发布日常任务，任务信息:' + taskInfo)
+    sub1.subscribe('routeTask', (taskInfo) => {
+        console.log('sub1 收到宗门殿发布日常任务，任务信息:' + taskInfo)
     })
     // 玩家二订阅全类型任务
-    player2.subscribe('allTask', (taskInfo) => {
-        console.log('player2 宗门殿发布五星任务，任务信息:' + taskInfo)
+    sub2.subscribe('allTask', (taskInfo) => {
+        console.log('sub2 收到宗门殿发布五星任务，任务信息:' + taskInfo)
     })
 
     // 发布战斗任务

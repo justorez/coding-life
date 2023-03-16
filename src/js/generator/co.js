@@ -198,5 +198,5 @@ function isGeneratorFunction(obj) {
  * @api private
  */
 function isObject(val) {
-    return Object == val.constructor
+    return Object === val.constructor
 }

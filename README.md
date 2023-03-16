@@ -43,7 +43,7 @@ pnpm start:cache
 - [类型判断](./src/js/types.js)
 - [继承](./src/js/extend.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
-- [生成器+Promise 模拟 async/await](./src/js/generator/co.js)
+- [Generator+Promise 模拟 async/await](./src/js/generator/co.js)
 - [简易生成器模拟实现](./src/js/generator/index.js)
 - [异步延迟函数](./src/js/sleep.js)
 
