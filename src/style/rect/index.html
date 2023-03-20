@@ -1,0 +1,93 @@
+<head>
+    <title>元素的各种尺寸和偏移量</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <div id="container">
+        <p>文字内容</p>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #container {
+        position: absolute;
+        left: 200px;
+        top: 150px;
+        width: 300px;
+        height: 200px;
+        margin: 15px;
+        padding: 10px;
+        overflow: auto;
+        background-color: var(--color-gray);
+        border: 8px solid var(--color-green);
+    }
+
+    #container p {
+        width: 200px;
+        height: 500px;
+        background-color: var(--color-pink);
+    }
+</style>
+<script>
+    const p = document.querySelector('#container > p')
+    function print() {
+        const info = {
+            '元素内样式属性（不指定则为空）style.top': container.style.top,
+            '元素内样式属性（不指定则为空）style.left': container.style.left,
+            '元素内样式属性（不指定则为空）style.width': container.style.width,
+            '元素内样式属性（不指定则为空）style.height': container.style.height,
+            '可见区域上边框 clientTop == borderTop': container.clientTop,
+            '可见区域左边框 clientLeft == borderLeft': container.clientLeft,
+            '内容区域宽度 clientWidth = width + padding * 2 - scrollbarWidth': container.clientWidth,
+            '可见区域宽度 offsetWidth = width + padding * 2 + border * 2': container.offsetWidth,
+            '内容区域高度 clientHeight = height + padding * 2': container.clientHeight,
+            '可见区域高度 offsetHeight = height + padding * 2 + border * 2': container.offsetHeight,
+            '已经滚动的距离 scrollTop': container.scrollTop,
+            '已经滚动的距离 scrollLeft': container.scrollLeft,
+            '滚动对象的完整宽度 scrollWidth = clientWidth + scrollLeft': container.scrollWidth,
+            '滚动对象的完整高度 scrollHeight = clientHeight + scrollTop': container.scrollHeight,
+            '与上层或外层偏移 offsetTop = getBoundingClientRect().top': container.offsetTop,
+            '与左层或外层偏移 offsetLeft = getBoundingClientRect().left': container.offsetLeft,
+            '父元素有定位 p.offsetTop 是与父元素的上层偏移': p.offsetTop,
+            'screen.top': window.screen.top,
+            'screen.left': window.screen.left,
+            'screen.width': window.screen.width,
+            'screen.height': window.screen.height,
+            'screen.availWidth': window.screen.availWidth,
+            'screen.availHeight': window.screen.availHeight
+        }
+        for (const [k, v] of Object.entries(info)) {
+            console.log(k, '>>>', v)
+        }
+    }
+
+    function getScrollbarWidth() {
+        if (window.scrollbarWidth !== undefined) return scrollbarWidth
+
+        const outer = document.createElement('div')
+        outer.className = 'jz-scrollbar__wrap'
+        outer.style.visibility = 'hidden'
+        outer.style.width = '100px'
+        outer.style.position = 'absolute'
+        outer.style.top = '-9999px'
+        document.body.appendChild(outer)
+        const widthNoScroll = outer.offsetWidth
+
+        outer.style.overflow = 'scroll'
+        const inner = document.createElement('div')
+        inner.style.width = '100%'
+        outer.appendChild(inner)
+        const widthWithScroll = inner.offsetWidth
+        outer.remove()
+
+        window.scrollbarWidth = widthNoScroll - widthWithScroll
+        return scrollbarWidth
+    }
+
+    print()
+</script>

@@ -75,9 +75,10 @@ pnpm start:cache
 - [合并两个有序数组](https://www.nowcoder.com/practice/89865d4375634fc484f3a24b7fe65665?tpId=295)
 - [打乱数组](./src/handwritten/shuffle.js)
 
-## Style
+## HTML & Style
 
 - [BFC（Block Formatting Context）](src/style/BFC/readme.md)
+- [clientTop, clientWidth, scrollHeight, offsetTop, etc.](./src/style/rect/index.html)
 - [控制元素的显示和隐藏](./src/style/show-or-hide.html)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)
