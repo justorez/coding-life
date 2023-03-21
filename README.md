@@ -75,6 +75,7 @@ pnpm start:cache
 - [二叉树最大深度](https://www.nowcoder.com/practice/8a2b2bf6c19b4f23a9bdb9b233eefa73?tpId=295)
 - [合并两个有序数组](https://www.nowcoder.com/practice/89865d4375634fc484f3a24b7fe65665?tpId=295)
 - [打乱数组](./src/handwritten/shuffle.js)
+- [lodash.get](./src/handwritten/lodash/get.js)
 
 ## HTML & Style
 
