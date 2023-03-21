@@ -1,6 +1,6 @@
 const hasCycle = require('../has-cycle')
 
-test('检测对象是否存在循环引用', () => {
+describe('检测对象是否存在循环引用', () => {
     var x = { name: 'x' }
     var obj = {
         a: {
@@ -8,10 +8,21 @@ test('检测对象是否存在循环引用', () => {
         },
         b: 1
     }
-    expect(hasCycle(obj)).toBe(false)
-    obj.x = x
-    obj.y = x
-    expect(hasCycle(obj)).toBe(false)
-    obj.a.d = obj
-    expect(hasCycle(obj)).toBe(true)
+    
+    test('不存在循环引用', () => {
+        expect(hasCycle(obj)).toBe(false)
+    })
+
+    test('指向同一个对象并非循环引用', () => {
+        const o = { ...obj }
+        o.x = x
+        o.y = x
+        expect(hasCycle(o)).toBe(false)
+    })
+
+    test('存在循环引用', () => {
+        const o = { ...obj }
+        o.a.d = o
+        expect(hasCycle(o)).toBe(true)
+    })
 })

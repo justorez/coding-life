@@ -1,7 +1,7 @@
 /**
  * 判断对象是否有循环引用
+ * 
  * @param {Object} obj
- * @param {Array} source
  */
 function hasCycle(obj) {
     function has(o, source = []) {
