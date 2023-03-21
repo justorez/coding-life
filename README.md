@@ -49,10 +49,10 @@ pnpm start:cache
 
 ## 手写题
 
-- [new 模拟实现](./src/handwritten/fake-new.js)
-- [instanceof 模拟实现](./src/handwritten/instance-of.js)
-- [call、apply、bind 模拟实现](./src/handwritten/this-func.js)
-- [数组常用方法模拟实现](./src/handwritten/array.js)
+- [new](./src/handwritten/fake-new.js)
+- [instanceof](./src/handwritten/instance-of.js)
+- [call, apply, bind](./src/handwritten/this-func.js)
+- [数组方法：unique, map, reduce, etc.](./src/handwritten/array.js)
 - [深拷贝](./src/handwritten/deep-clone.js)
 - [防抖](./src/handwritten/debounce.js)
 - [节流](./src/handwritten/throttle.js)

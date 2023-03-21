@@ -1,64 +1,4 @@
 /**
- * 数组去重
- * @param {array} arr
- * @returns new array
- * @link https://github.com/mqyqingfeng/Blog/issues/27
- */
-const arr = [
-    /a/, /a/, /b/, 
-    "1", "1", "2", 
-    1, 1, 2, NaN, NaN, 
-    null, null, 
-    undefined, undefined, 
-    new Date('2023/3/6'), new Date('2023/3/6'),
-    { a: 1 }, { a: 1 }
-]
-
-// RegExp、object、Date 无效
-function unique(arr) {
-    return [...new Set(arr)]
-}
-// 和方法一完全一致
-function unique2(arr) {
-    const seen = new Map()
-    return arr.filter((item) => !seen.has(a) && seen.set(item, 1))
-}
-// RegExp、object、Date 无效，NaN 被全部移除
-function unique3(arr) {
-    return arr.filter((item, index, array) => array.indexOf(item) === index)
-}
-// 均可去重
-function unique4(array) {
-    var obj = {}
-    return array.filter((item) => {
-        const key = Object.prototype.toString.call(item) +
-            (item instanceof RegExp ? item.toString() : JSON.stringify(item))
-        return obj.hasOwnProperty(key) ? false : (obj[key] = true)
-    })
-}
-
-/**
- * 数组扁平化
- * @param {array} arr
- * @returns new array
- */
-function flatten(arr) {
-    let result = []
-    for (let i = 0; i < arr.length; i++) {
-        result = Array.isArray(arr[i])
-            ? result.concat(flatten(arr[i]))
-            : result.concat(arr[i])
-    }
-    return result
-}
-function flatten2(arr) {
-    while (arr.some((x) => Array.isArray(x))) {
-        arr = [].concat(...arr)
-    }
-    return arr
-}
-
-/**
  * 概念补充：高阶函数
  * 高阶函数是对其他函数进行操作的函数，可以将它们作为参数或返回它们；
  * 简单来说，高阶函数是一个函数，它接收函数作为参数或将函数作为输出返回
@@ -70,7 +10,45 @@ function flatten2(arr) {
  * 不要覆盖 Array.prototype，而是用 Reflect.defineProperty 设置不可枚举
  */
 
-Array.prototype.fakeForEach = function (callback, thisArg) {
+const arr = [
+    /a/, /a/, /b/, 
+    "1", "1", "2", 
+    1, 1, 2, NaN, NaN, 
+    null, null, 
+    undefined, undefined, 
+    new Date('2023/3/6'), new Date('2023/3/6'),
+    { a: 1 }, { a: 1 }
+]
+
+/**
+ * 数组去重：RegExp、object、Date 无效
+ * 
+ * @returns new array
+ * @link https://github.com/mqyqingfeng/Blog/issues/27
+ */
+Array.prototype.unique = function () {
+    return [...new Set(this)]
+}
+// 和方法一完全一致
+Array.prototype.unique2 = function () {
+    const seen = new Map()
+    return this.filter((item) => !seen.has(a) && seen.set(item, 1))
+}
+// RegExp、object、Date 无效，NaN 被全部移除
+Array.prototype.unique3 = function () {
+    return this.filter((item, index, array) => array.indexOf(item) === index)
+}
+// 均可去重
+Array.prototype.unique4 = function () {
+    var obj = {}
+    return this.filter((item) => {
+        const key = Object.prototype.toString.call(item) +
+            (item instanceof RegExp ? item.toString() : JSON.stringify(item))
+        return obj.hasOwnProperty(key) ? false : (obj[key] = true)
+    })
+}
+
+Array.prototype._forEach = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -81,7 +59,7 @@ Array.prototype.fakeForEach = function (callback, thisArg) {
     }
 }
 
-Array.prototype.fakeMap = function (callback, thisArg) {
+Array.prototype._map = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -94,7 +72,7 @@ Array.prototype.fakeMap = function (callback, thisArg) {
     return res
 }
 
-Array.prototype.fakeFilter = function (callback, thisArg) {
+Array.prototype._filter = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -109,7 +87,7 @@ Array.prototype.fakeFilter = function (callback, thisArg) {
     return res
 }
 
-Array.prototype.fakeSome = function (callback, thisArg) {
+Array.prototype._some = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)
     }
@@ -123,7 +101,7 @@ Array.prototype.fakeSome = function (callback, thisArg) {
     return false
 }
 
-Array.prototype.fakeReduce = function (callback, initialValue) {
+Array.prototype._reduce = function (callback, initialValue) {
     if (this == null) {
         throw new TypeError('this is null or not defined')
     }
@@ -164,34 +142,34 @@ Array.prototype.fakeReduce = function (callback, initialValue) {
 }
 
 // 使用 Infinity，可展开任意深度的嵌套数组
-Array.prototype.fakeFlat = function (depth = 1) {
+Array.prototype._flat = function (depth = 1) {
     if (!Number(depth) || Number(depth) <= 0) {
         return this
     }
     let arr = this.concat()
     return arr.reduce((pre, cur) => {
         // reduce 会跳过空位
-        return pre.concat(Array.isArray(cur) ? cur.fakeFlat(depth - 1) : cur)
+        return pre.concat(Array.isArray(cur) ? cur._flat(depth - 1) : cur)
     }, [])
 }
-Array.prototype.fakeFlat2 = function (depth = 1) {
+Array.prototype._flat2 = function (depth = 1) {
     if (!Number(depth) || Number(depth) < 0) {
         return this
     }
-    let arr = this.filter((x) => x) // 获得调用 fakeFlat 函数的数组，顺便跳过空位
+    let arr = this.filter((x) => x) // 过滤掉数组空位
     while (depth > 0) {
         if (arr.some((x) => Array.isArray(x))) {
-            // arr = [].concat.apply([], arr) // 数组中还有数组元素的话并且 depth > 0，继续展开一层数组
-            arr = [].concat(...arr)
+            arr = [].concat(...arr) // 数组中还有数组元素的话并且 depth > 0，继续展开一层数组
         } else {
-            break // 数组中没有数组元素并且不管 depth 是否依旧大于 0，停止循环。
+            break // 数组中没有数组元素，不管 depth 是否依旧大于 0，停止循环。
         }
         depth--
     }
     return arr
 }
 
-module.exports = {
-    unique,
-    flatten
+// 先 map 后 flat
+Array.prototype._flatMap = function (callback, thisArg) {
+    // const flat = (array) => array.reduce((pre, cur) => pre.concat(cur), [])
+    return this._map(callback, thisArg)._flat()
 }
