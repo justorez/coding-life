@@ -13,16 +13,15 @@ Function.prototype.fakeCall = function (context, ...args) {
     const func = Symbol('func')
     context[func] = this
     const result = context[func](...args)
-    delete context[func]
+    Reflect.deleteProperty(context, func)
     return result
 }
-
 Function.prototype.fakeApply = function (context, args) {
     context = isObject(context) ? context : globalThis
     const func = Symbol('fn')
     context[func] = this
     const result = args ? context[func](...args) : context[func]()
-    delete context[func]
+    Reflect.deleteProperty(context, func)
     return result
 }
 

@@ -54,15 +54,12 @@ const sleep = require('../../js/sleep')
 function test() {
     const scheduler = new Scheduler(5)
     for (let i = 1; i <= 10; i++) {
-        let task = async () => {
-            await sleep(i * 500)
-            return i
-        }
+        let task = () => sleep(i * 500).then(() => i)
         if (i === 5) {
             task = async () => {
                 await sleep(i * 500)
-                throw new Error('Test Case')
-            } 
+                throw new Error('Test Case ' + i)
+            }
         }
 
         scheduler.add(task)

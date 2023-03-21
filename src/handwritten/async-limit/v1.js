@@ -44,10 +44,9 @@ class Scheduler {
 
         this.activeCount++
         let { action, args, onSuccess, onError } = this.queue.shift()
-        args = Array.isArray(args) ? args : []
-        const actionFn = (async () => action(...args)) // 保证函数均为 async
+        args = [].concat(args)
         try {
-            const result = await actionFn()
+            const result = await action(...args)
             onSuccess && onSuccess(result)
         } catch (err) {
             onError && onError(err)
