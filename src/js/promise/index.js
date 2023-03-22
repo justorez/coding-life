@@ -108,6 +108,7 @@ class JPromise {
 
     /**
      * 所有 promise resolve/reject，返回的 promise resolve 结果数组
+     * 
      * @param {Promise[]} promises
      */
     static allSettled(promises = []) {
