@@ -69,13 +69,15 @@ pnpm start:cache
 - [简易虚拟 DOM](./src/handwritten/vnode.html)
 - [检测循环引用](./src/handwritten/has-cycle.js)
 - [对象扁平化](./src/handwritten/flatten.js)
-- [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
-- [add(1)(2)(3)()=6](./src/handwritten/magic-add.js)
 - [将列表还原成树](./src/handwritten/list2tree.js)
+- [打乱数组](./src/handwritten/shuffle.js)
+- [无限累加函数](./src/handwritten/sum.js)
+- [字符串压缩编码](./src/handwritten/string-compress.js)
+- [页面出现次数最多的标签](./src/handwritten/frequent-tags.js)
+- [lodash.get](./src/handwritten/lodash/get.js)
+- [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
 - [二叉树最大深度](https://www.nowcoder.com/practice/8a2b2bf6c19b4f23a9bdb9b233eefa73?tpId=295)
 - [合并两个有序数组](https://www.nowcoder.com/practice/89865d4375634fc484f3a24b7fe65665?tpId=295)
-- [打乱数组](./src/handwritten/shuffle.js)
-- [lodash.get](./src/handwritten/lodash/get.js)
 
 ## HTML & Style
 
