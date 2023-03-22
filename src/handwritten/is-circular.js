@@ -3,18 +3,18 @@
  * 
  * @param {Object} obj
  */
-function hasCycle(obj) {
-    function has(o, source = []) {
+function isCircular(obj) {
+    function is(o, source = []) {
         source = [...source, o]
         for (const k in o) {
             const item = o[k]
             if (typeof item === 'object' && item !== null) {
-                if (source.includes(item) || has(item, source)) return true
+                if (source.includes(item) || is(item, source)) return true
             }
         }
         return false
     }
-    return has(obj)
+    return is(obj)
 }
 
-module.exports = hasCycle
+module.exports = isCircular

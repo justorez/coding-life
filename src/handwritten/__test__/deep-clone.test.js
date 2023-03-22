@@ -21,7 +21,7 @@ describe('深拷贝', () => {
         }
         obj.loop.obj = obj
         let newObj = deepClone(obj)
-        console.log(newObj)
+        // console.log(newObj)
         expect(newObj.loop.obj).toBe(newObj)
         expect(newObj.loop.obj).not.toBe(obj)
         expect(newObj).not.toBe(obj)

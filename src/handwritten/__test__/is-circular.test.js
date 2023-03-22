@@ -1,4 +1,4 @@
-const hasCycle = require('../has-cycle')
+const isCircular = require('../is-circular')
 
 describe('检测对象是否存在循环引用', () => {
     var x = { name: 'x' }
@@ -10,19 +10,19 @@ describe('检测对象是否存在循环引用', () => {
     }
     
     test('不存在循环引用', () => {
-        expect(hasCycle(obj)).toBe(false)
+        expect(isCircular(obj)).toBe(false)
     })
 
     test('指向同一个对象并非循环引用', () => {
         const o = { ...obj }
         o.x = x
         o.y = x
-        expect(hasCycle(o)).toBe(false)
+        expect(isCircular(o)).toBe(false)
     })
 
     test('存在循环引用', () => {
         const o = { ...obj }
         o.a.d = o
-        expect(hasCycle(o)).toBe(true)
+        expect(isCircular(o)).toBe(true)
     })
 })
