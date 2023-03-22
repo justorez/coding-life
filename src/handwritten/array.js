@@ -11,18 +11,30 @@
  */
 
 const arr = [
-    /a/, /a/, /b/, 
-    "1", "1", "2", 
-    1, 1, 2, NaN, NaN, 
-    null, null, 
-    undefined, undefined, 
-    new Date('2023/3/6'), new Date('2023/3/6'),
-    { a: 1 }, { a: 1 }
+    /a/,
+    /a/,
+    /b/,
+    '1',
+    '1',
+    '2',
+    1,
+    1,
+    2,
+    NaN,
+    NaN,
+    null,
+    null,
+    undefined,
+    undefined,
+    new Date('2023/3/6'),
+    new Date('2023/3/6'),
+    { a: 1 },
+    { a: 1 }
 ]
 
 /**
  * 数组去重：RegExp、object、Date 无效
- * 
+ *
  * @returns new array
  * @link https://github.com/mqyqingfeng/Blog/issues/27
  */
@@ -42,7 +54,8 @@ Array.prototype.unique3 = function () {
 Array.prototype.unique4 = function () {
     var obj = {}
     return this.filter((item) => {
-        const key = Object.prototype.toString.call(item) +
+        const key =
+            Object.prototype.toString.call(item) +
             (item instanceof RegExp ? item.toString() : JSON.stringify(item))
         return obj.hasOwnProperty(key) ? false : (obj[key] = true)
     })
@@ -172,4 +185,12 @@ Array.prototype._flat2 = function (depth = 1) {
 Array.prototype._flatMap = function (callback, thisArg) {
     // const flat = (array) => array.reduce((pre, cur) => pre.concat(cur), [])
     return this._map(callback, thisArg)._flat()
+}
+
+/**
+ * 从数组中随机取一个元素
+ * Math.random() 的随机范围 [0, 1)
+ */
+Array.prototype.sample = function () {
+    return this[Math.floor(Math.random() * this.length)]
 }

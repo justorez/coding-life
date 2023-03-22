@@ -1,5 +1,5 @@
 /**
- * 实现 (a == 1 && a == 2 && a == 3) 为 true
+ * 实现 `(a == 1 && a == 2 && a == 3)` 为 `true`
  */
 
 function f1() {
@@ -14,7 +14,7 @@ function f1() {
 
 function f2() {
     let a = [1, 2, 3]
-    a.join = a.shift
+    a.join = a.shift // 数组自动类型转换是调用 join
     console.log(a == 1 && a == 2 && a == 3)
 }
 
