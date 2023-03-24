@@ -13,6 +13,7 @@
 /**
  * 从右到左执行，`reduceRight` 或 `fns.reverse`。
  * pipe 和 compose 类似，只不过从左往右执行。
+ * 
  * @param  {...Function} fns 
  * @link [Pointfree 编程风格指南](https://www.ruanyifeng.com/blog/2017/03/pointfree.html)
  */
