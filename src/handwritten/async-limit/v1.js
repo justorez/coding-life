@@ -5,14 +5,16 @@ class Scheduler {
     /**
      * @param {number} concurrency 最大并发数
      */
-    constructor(concurrency) {
-        if (concurrency && !(Number.isInteger(concurrency) && concurrency > 0)) {
+    constructor(concurrency = Infinity) {
+        const isInteger = Number.isInteger(concurrency) || concurrency === Number.POSITIVE_INFINITY
+        if (!(isInteger && concurrency > 0)) {
             throw new TypeError('concurrency 应为大于 0 的整数')
         }
 
         this.queue = []
-        this.concurrency = concurrency || Number.POSITIVE_INFINITY
+        this.concurrency = concurrency
         this.activeCount = 0 // 正在执行的任务数
+        this.runAsync = queueMicrotask || setTimeout || process.nextTick
     }
 
     /**
@@ -36,7 +38,7 @@ class Scheduler {
             this.run()
         }
     }
-   
+    
     async run() {
         if (this.pendingCount <= 0) {
             return
@@ -47,9 +49,11 @@ class Scheduler {
         args = [].concat(args)
         try {
             const result = await action(...args)
-            onSuccess && onSuccess(result)
+            // 注意：要保证成功或异步回调在微任务中执行，
+            // 否则 activeCount 值错误，并且 run（下个任务）会被阻塞
+            onSuccess && this.runAsync(() => onSuccess(result))
         } catch (err) {
-            onError && onError(err)
+            onError && this.runAsync(() => onError(err))
         } finally {
             this.activeCount--
             this.run()
@@ -57,20 +61,22 @@ class Scheduler {
     }
 
     clear() {
-        this.activeCount = 0
         this.queue = []
     }
 }
 
-const sleep = require('../sleep')
+const sleep = require('../../js/sleep')
 function test() {
-    const scheduler = new Scheduler(5)
+    const scheduler = new Scheduler(2)
     for (let i = 1; i <= 10; i++) {
         const task = {
-            action: async () => {
-                await sleep(i * 1000)
-                return i
+            action: async (i) => {
+                if (i === 5) {
+                    throw new Error('Test Case ' + i)
+                }
+                return sleep(500).then(() => i)
             },
+            args: [i],
             onSuccess: res => console.log(res, scheduler.activeCount, scheduler.pendingCount),
             onError: console.error
         }

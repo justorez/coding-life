@@ -1,7 +1,7 @@
 class Scheduler {
-    constructor(limit = 2) {
+    constructor(concurrency = Infinity) {
         this.queue = []
-        this.limit = limit
+        this.concurrency = concurrency
         this.activeCount = 0
     }
 
@@ -9,60 +9,45 @@ class Scheduler {
         return this.queue.length
     }
 
-    add(promiseCreator) {
-        if (this.activeCount < this.limit) {
-            this.activeCount++
-            return promiseCreator()
-                .then(res => {
-                    this.activeCount--
-                    this.next()
-                    return res
-                })
-        } else {
-            let resolve, reject
-            let ret = new Promise((r, j) => { 
-                resolve = r
-                reject = j
-            })
+    add(promiseCreator, ...args) {
+        return new Promise((resolve, reject) => {
             this.queue.push(() => {
-                promiseCreator()
+                Promise.resolve(promiseCreator(...args))
                     .then(res => {
-                        resolve(res)
                         this.activeCount--
+                        resolve(res)
                         this.next()
                     })
                     .catch(err => {
-                        reject(err)
                         this.activeCount--
+                        reject(err)
                         this.next()
                     })
             })
-            return ret
-        }
+            this.next()
+        })
     }
 
     next() {
-        if (this.pendingCount > 0 && this.activeCount < this.limit) {
-            let task = this.queue.shift()
+        if (this.pendingCount > 0 && this.activeCount < this.concurrency) {
             this.activeCount++
-            task()
+            this.queue.shift()()
         }
     }
 }
 
 const sleep = require('../../js/sleep')
 function test() {
-    const scheduler = new Scheduler(5)
+    const scheduler = new Scheduler(2)
     for (let i = 1; i <= 10; i++) {
-        let task = () => sleep(i * 500).then(() => i)
-        if (i === 5) {
-            task = async () => {
-                await sleep(i * 500)
+        let task = async (i) => {
+            if (i === 5) {
                 throw new Error('Test Case ' + i)
             }
+            return sleep(500).then(() => i)
         }
 
-        scheduler.add(task)
+        scheduler.add(task, i)
             .then(res => console.log(res, scheduler.activeCount, scheduler.pendingCount))
             .catch(console.error)
     }

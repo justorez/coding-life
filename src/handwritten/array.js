@@ -160,9 +160,9 @@ Array.prototype._flat = function (depth = 1) {
         return this
     }
     let arr = this.concat()
-    return arr.reduce((pre, cur) => {
+    return arr.reduce((res, cur) => {
         // reduce 会跳过空位
-        return pre.concat(Array.isArray(cur) ? cur._flat(depth - 1) : cur)
+        return res.concat(Array.isArray(cur) ? cur._flat(depth - 1) : cur)
     }, [])
 }
 Array.prototype._flat2 = function (depth = 1) {

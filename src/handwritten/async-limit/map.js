@@ -1,16 +1,18 @@
 const sleep = require('../../js/sleep')
 
 /**
- * 实现一个 `promise.map`，进行并发数控制，有以下测试用例
+ * 实现一个 `promise.map`，进行并发数控制
+ * 
+ * @param {Array} array
+ * @param {Function} mapper
+ * @param {Number} concurrency
+ * @example
  * ```js
  * Promise.map([1, 2, 3, 4, 5], (x) => Promise.resolve(x + 1));
  * Promise.map([Promise.resolve(1), Promise.resolve(2)], (x) => x + 1);
  * // 注意输出时间控制
  * Promise.map([1, 1, 1, 1, 1, 1, 1, 1], (x) => sleep(1000), { concurrency: 2 });
  * ```
- * @param {Array} array
- * @param {Function} mapper
- * @param {Number} concurrency
  */
 Promise.map = function (array, mapper, concurrency = Infinity) {
     array = Array.from(array)

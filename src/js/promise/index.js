@@ -7,9 +7,8 @@ const isFunction = (val) => typeof val === 'function'
 const isObject = (val) => Boolean(val && typeof val === 'object')
 const isThenable = (val) => (isFunction(val) || isObject(val)) && 'then' in val
 const isPromise = (val) => val instanceof JPromise
-const runAsync = isBrowserEnv()
-    ? queueMicrotask || setTimeout
-    : process.nextTick
+const runAsync =
+    queueMicrotask || isBrowserEnv() ? setTimeout : process.nextTick
 
 const PENDING = Symbol('pending')
 const FULFILLED = Symbol('fulfilled')
@@ -62,10 +61,12 @@ class JPromise {
             if (this.state === PENDING) {
                 this.callbacks.push(callback)
             } else {
-                // onFulfilled or onRejected must not be called 
+                // onFulfilled or onRejected must not be called
                 // until the execution context stack contains only platform code.
                 // 此处只能用 setTimeout/nextTick 等方法间接模拟实现
-                runAsync(() => handleCallback(callback, this.state, this.result))
+                runAsync(() =>
+                    handleCallback(callback, this.state, this.result)
+                )
             }
         })
     }
@@ -75,7 +76,7 @@ class JPromise {
     }
 
     static resolve(value) {
-        return new JPromise(resolve => resolve(value))
+        return new JPromise((resolve) => resolve(value))
     }
 
     static reject(reason) {
@@ -91,7 +92,7 @@ class JPromise {
         return new JPromise((resolve, reject) => {
             let count = 0
             let values = new Array(promises.length)
-            const collect = index => value => {
+            const collect = (index) => (value) => {
                 values[index] = value
                 count += 1
                 count === promises.length && resolve(values)
@@ -101,21 +102,21 @@ class JPromise {
                     promise.then(collect(i), reject)
                 } else {
                     collect(i)(promise)
-                }	
+                }
             })
         })
     }
 
     /**
      * 所有 promise resolve/reject，返回的 promise resolve 结果数组
-     * 
+     *
      * @param {Promise[]} promises
      */
     static allSettled(promises = []) {
-        return new JPromise(resolve => {
+        return new JPromise((resolve) => {
             let count = 0
             let values = new Array(promises.length)
-            const collect = (index, status) => value => {
+            const collect = (index, status) => (value) => {
                 const prop = status === 'fulfilled' ? 'value' : 'reason'
                 values[index] = { status, [prop]: value }
                 count += 1
@@ -123,10 +124,13 @@ class JPromise {
             }
             promises.forEach((promise, i) => {
                 if (isPromise(promise)) {
-                    promise.then(collect(i, 'fulfilled'), collect(i, 'rejected'))
+                    promise.then(
+                        collect(i, 'fulfilled'),
+                        collect(i, 'rejected')
+                    )
                 } else {
                     collect(i, 'fulfilled')(promise)
-                }	
+                }
             })
         })
     }
@@ -137,7 +141,7 @@ class JPromise {
      */
     static race(promises = []) {
         return new JPromise((resolve, reject) =>
-            promises.forEach(promise => {
+            promises.forEach((promise) => {
                 if (isPromise(promise)) {
                     promise.then(resolve, reject)
                 } else {
@@ -156,18 +160,22 @@ class JPromise {
         return new JPromise((resolve, reject) => {
             let count = 0
             let reasons = new Array(promises.length)
-            const collect = index => reason => {
+            const collect = (index) => (reason) => {
                 reasons[index] = reason
-                ++count === promises.length && reject(
-                    new AggregateError(reasons, 'All promises were rejected')
-                )
+                ++count === promises.length &&
+                    reject(
+                        new AggregateError(
+                            reasons,
+                            'All promises were rejected'
+                        )
+                    )
             }
             promises.forEach((promise, i) => {
                 if (isPromise(promise)) {
                     promise.then(resolve, collect(i))
                 } else {
                     resolve(promise)
-                }	
+                }
             })
         })
     }
@@ -191,11 +199,11 @@ function handleCallback(callback, state, result) {
 }
 
 /**
- * @param {callback[]} callbacks 
- * @param {string} state 
- * @param {*} result 
+ * @param {callback[]} callbacks
+ * @param {string} state
+ * @param {*} result
  */
- function handleCallbacks(callbacks, state, result) {
+function handleCallbacks(callbacks, state, result) {
     while (callbacks.length) {
         handleCallback(callbacks.shift(), state, result)
     }
@@ -205,14 +213,13 @@ function handleCallback(callback, state, result) {
  * - `pending` 状态，可以过渡到 `fulfilled` 或 `rejected`。
  * - `fulfilled` 状态，不能过渡到其它状态，必须有个不可变的 `value`。
  * - `rejected` 状态，不能过渡到其它状态，必须有个不可变的 `reason`。
- * 
- * @param {JPromise} promise 
- * @param {PENDING|FULFILLED|REJECTED} state 
+ *
+ * @param {JPromise} promise
+ * @param {PENDING|FULFILLED|REJECTED} state
  * @param {*} result `fulfilled` 下的 `value` 或 `rejected` 下的 `reason`
  */
 function transition(promise, state, result) {
-    if (promise.state === state ||
-        promise.state !== PENDING) {
+    if (promise.state === state || promise.state !== PENDING) {
         return
     }
     promise.state = state
@@ -244,6 +251,5 @@ function resolvePromise(promise, result, resolve, reject) {
 
     resolve(result)
 }
-
 
 module.exports = JPromise
