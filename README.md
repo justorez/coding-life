@@ -81,6 +81,7 @@ pnpm start:cache
 - [解析 URL 参数](./src/handwritten/querystring.js)
 - [异步 sum/add](./src/handwritten/sum-async.js)
 - [随机六位数字验证码：重复/不可重复](./src/handwritten/sms-code.js)
+- [驼峰和横线命名风格互转](./src/handwritten/naming-case.js)
 - [lodash.get](./src/handwritten/lodash/get.js)
 - [lodash.chunk](./src/handwritten/lodash/chunk.js)
 - [lodash.keyBy](./src/handwritten/lodash/key-by.js)
