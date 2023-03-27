@@ -3,7 +3,7 @@ function number(min, max) {
 }
 
 /**
- * 由 0-9, a-z 构成的随机字符串
+ * 由 0-9, a-z 构成的随机字符串，最多 8 位
  * 
  * @param {number} len 
  */
