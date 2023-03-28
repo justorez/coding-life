@@ -83,6 +83,7 @@ pnpm start:cache
 - [驼峰和横线命名风格互转](./src/handwritten/naming-case.js)
 - [lowerCase](./src/handwritten/lower-case.js)
 - [模板渲染](./src/handwritten/template.js)
+- [二进制和十进制互转](./src/handwritten/bin-dec.js)
 - [lodash.get](./src/handwritten/lodash/get.js)
 - [lodash.chunk](./src/handwritten/lodash/chunk.js)
 - [lodash.keyBy](./src/handwritten/lodash/key-by.js)
