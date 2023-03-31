@@ -29,9 +29,10 @@ pnpm start:cache
 - [输入 URL 后发生了什么](./src/browser/input-url/readme.md)
 - [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/how-js-and-css-block-dom/readme.md)
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
-- [JSONP](./src/browser/jsonp/client.html)
-- [Web Components](./src/browser/web-components/index.html)
 - [DOMContentLoaded 和 load](./src/browser/DCL.html)
+- [检测是否支持 Webp](./src/browser/check-webp.js)
+- [Web Components](./src/browser/web-components/index.html)
+- [JSONP](./src/browser/jsonp/client.html)
 
 ## JavaScript
 
