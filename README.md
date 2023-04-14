@@ -87,6 +87,7 @@ pnpm start:cache
 - [模板渲染](./src/handwritten/template.js)
 - [二进制和十进制互转](./src/handwritten/bin-dec.js)
 - [数值的 IEEE-754 表示](./src/handwritten/IEEE-754.js)
+- [带过期时间的 localStorage](./src/handwritten/localstorage.html)
 - [lodash.get](./src/handwritten/lodash/get.js)
 - [lodash.chunk](./src/handwritten/lodash/chunk.js)
 - [lodash.keyBy](./src/handwritten/lodash/key-by.js)
