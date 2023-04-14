@@ -24,6 +24,7 @@ pnpm start:cache
 
 - [事件循环](./src/browser/event-loop/readme.md)
 - [事件委托](./src/browser/event-delegation/readme.md)
+- [事件捕获和冒泡](./src/browser/event-delegation/bubble-capture.html)
 - [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 - [输入 URL 后发生了什么](./src/browser/input-url/readme.md)

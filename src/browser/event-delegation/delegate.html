@@ -1,0 +1,56 @@
+<ul class="list">
+    <li>aaa</li>
+    <li>
+        <span>bbb</span>
+    </li>
+    <li>ccc</li>
+</ul>
+
+<script>
+    /**
+     * 事件委托
+     * @param {HTMLElement} element 
+     * @param {String} eventType 
+     * @param {String} selector 
+     * @param {Function} callback 
+     */
+    function delegate(element, eventType, selector, callback) {
+        element.addEventListener(eventType, (event) => {
+            // Event.target 事件触发的元素
+            // Event.currentTarget 事件绑定的元素
+            let el = event.target
+            while (!el.matches(selector)) {
+                if (element === el) {
+                    el = null
+                    break
+                }
+                el = el.parentNode
+            }
+            el && callback.call(el, event, el)
+        })
+        return element
+    }
+
+    delegate(document.querySelector('.list'), 'click', 'li', (_, el) => {
+        console.log(el)
+        alert(el.innerText)
+    })
+</script>
+
+<style>
+    .list {
+        width: 150px;
+        padding: 30px;
+        border: 1px solid #000;
+        background-color: #efefef;
+        border-radius: 5px;
+    }
+    .list li {
+        margin-bottom: 10px;
+        background-color: skyblue;
+        cursor: pointer;
+    }
+    .list li span {
+        background-color: pink;
+    }
+</style>
