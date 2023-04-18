@@ -2,10 +2,15 @@ const { isObject, isDate, isRegExp, isArray } = require('../js/types')
 
 /**
  * structuredClone API 可实现深拷贝，不过支持的浏览器不多
- * @param {*} target 
+ * 
+ * @param {Object} target 
  * @link https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone
  */
 function deepClone(target, map = new WeakMap()) {
+    if (!isObject(target)) {
+        return target
+    }
+
     if (map.has(target)) {
         return map.get(target)
     }
@@ -17,18 +22,14 @@ function deepClone(target, map = new WeakMap()) {
         return new target.constructor(target)
     }
 
-    if (isObject(target)) {
-        const cloneTarget = isArray(target) ? [] : {}
-        map.set(target, cloneTarget)  // 缓存循环引用的拷贝结果
-        for (const prop in target) {
-            if (target.hasOwnProperty(prop)) {
-                cloneTarget[prop] = deepClone(target[prop], map)
-            }
+    const cloneTarget = isArray(target) ? [] : {}
+    map.set(target, cloneTarget)  // 缓存循环引用的拷贝结果
+    for (const prop in target) { // 迭代一个对象的除 Symbol 以外的可枚举属性，包括继承的可枚举属性
+        if (target.hasOwnProperty(prop)) {
+            cloneTarget[prop] = deepClone(target[prop], map)
         }
-        return cloneTarget
-    } else {
-        return target
     }
+    return cloneTarget
 }
 
 module.exports = deepClone
