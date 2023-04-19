@@ -1,0 +1,17 @@
+<img src="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigationTiming/timestamp-diagram.svg" alt="">
+<script>
+    addEventListener('load', () => {
+        const timing = performance.getEntries()[0]
+        console.log(timing)
+        console.log(
+            '白屏时间：', timing.responseEnd,
+            '首屏时间：', timing.domInteractive
+        )
+
+        // performance.timing 已废弃
+        // console.log(
+        //     '白屏时间：', performance.timing.domLoading - performance.timing.navigationStart,
+        //     '首屏时间：', performance.timing.domInteractive - performance.timing.navigationStart
+        // )
+    })
+</script>

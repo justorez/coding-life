@@ -34,6 +34,7 @@ pnpm start:cache
 - [检测是否支持 Webp](./src/browser/check-webp.js)
 - [Web Components](./src/browser/web-components/index.html)
 - [JSONP](./src/browser/jsonp/client.html)
+- [Clipboard and Selecton](./src/browser/clipboard-selection.html)
 
 ## JavaScript
 
@@ -88,6 +89,7 @@ pnpm start:cache
 - [二进制和十进制互转](./src/handwritten/bin-dec.js)
 - [数值的 IEEE-754 表示](./src/handwritten/IEEE-754.js)
 - [带过期时间的 localStorage](./src/handwritten/localstorage.html)
+- [CSS 实现一个魔方](./src/handwritten/cube.html)
 - [lodash.get](./src/handwritten/lodash/get.js)
 - [lodash.chunk](./src/handwritten/lodash/chunk.js)
 - [lodash.keyBy](./src/handwritten/lodash/key-by.js)
@@ -110,10 +112,12 @@ pnpm start:cache
 - [瀑布流布局](./src/style/waterfall/js.html)
 
 ## 性能优化
+
 - [简述](./src/performance/readme.md)
+- [性能指标计算](./src/performance/timing.html)
 - [async 和 defer](./src/performance/async-vs-defer.md)
 - [**前端优化之旅**](https://www.alienzhou.com/projects/fe-performance-journey/)
-- [原生支持的图片延迟加载](./src/performance/img-lazy.html)
+- [原生图片懒加载](./src/performance/img-lazy.html)
 - [响应式图片](./src/performance/img-responsive.html)
 
 ## Vue
