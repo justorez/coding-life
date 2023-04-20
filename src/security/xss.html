@@ -1,0 +1,16 @@
+<div class="box">
+    <div>&#x3C;h1&#x3E;HTML &#x5B9E;&#x4F53;&#x7F16;&#x7801; (HTML Entity Encode)&#x3C;/h1&#x3E;</div>
+    <div>&lt;img src=&quot;&quot;&gt;&lt;/img&gt;</div>
+</div>
+<script type="module">
+    import he from 'https://cdn.skypack.dev/he'
+
+    // 实体编码
+    let encoded = he.encode('<h1>HTML 实体编码 (HTML Entity Encode)</h1>')
+    console.log(encoded)
+
+    // 转义
+    let escaped = he.escape('<img src=""></img>')
+    console.log(escaped)
+</script>
+

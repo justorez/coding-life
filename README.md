@@ -34,7 +34,7 @@ pnpm start:cache
 - [检测是否支持 Webp](./src/browser/check-webp.js)
 - [Web Components](./src/browser/web-components/index.html)
 - [JSONP](./src/browser/jsonp/client.html)
-- [Clipboard and Selecton](./src/browser/clipboard-selection.html)
+- [Clipboard, Selecton, Copy and Paste](./src/browser/clipboard-selection.html)
 
 ## JavaScript
 
@@ -89,7 +89,6 @@ pnpm start:cache
 - [二进制和十进制互转](./src/handwritten/bin-dec.js)
 - [数值的 IEEE-754 表示](./src/handwritten/IEEE-754.js)
 - [带过期时间的 localStorage](./src/handwritten/localstorage.html)
-- [CSS 实现一个魔方](./src/handwritten/cube.html)
 - [lodash.get](./src/handwritten/lodash/get.js)
 - [lodash.chunk](./src/handwritten/lodash/chunk.js)
 - [lodash.keyBy](./src/handwritten/lodash/key-by.js)
@@ -108,8 +107,13 @@ pnpm start:cache
 - [控制元素的显示和隐藏](./src/style/show-or-hide.html)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)
-- [可拖拽元素](./src/style/drag.html)
+- [可拖拽元素](https://codepen.io/justorez/pen/eYPBdWa)
 - [瀑布流布局](./src/style/waterfall/js.html)
+- [Grid 自适应布局](./src/style/grid/auto.html)
+- [SVG Loading](https://codepen.io/justorez/pen/eYPBZrv)
+- [CSS 方格背景](https://codepen.io/justorez/pen/yLRVOqa)
+- [CSS 魔方](https://codepen.io/justorez/pen/rNqWeGj)
+- [CSS 暗黑模式](https://lea.verou.me/2021/03/inverted-lightness-variables/)
 
 ## 性能优化
 
@@ -151,6 +155,7 @@ pnpm start:cache
 
 - [XSS 跨站脚本](./src/security/xss.md)
 - [CSRF 跨站请求伪造](./src/security/csrf.md)
+- [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html)
 - [前端安全编码规范](https://segmentfault.com/a/1190000037657222)
 
 ## 设计模式

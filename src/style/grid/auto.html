@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<style>
+    body {
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+        counter-reset: count;
+    }
+
+    .item {
+        height: 300px;
+        padding: 0.5rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.25rem;
+        background-color: #f3f4f6;
+        box-shadow: 0 0 #0000,
+            0 0 #0000,
+            0 1px 3px 0 rgba(0,0,0,.1),
+            0 1px 2px -1px rgba(0,0,0,.1);
+    }
+    .item::after {
+        counter-increment: count;
+        content: counter(count);
+    }
+</style>
