@@ -34,7 +34,7 @@ pnpm start:cache
 - [检测是否支持 Webp](./src/browser/check-webp.js)
 - [Web Components](./src/browser/web-components/index.html)
 - [JSONP](./src/browser/jsonp/client.html)
-- [Clipboard, Selecton, Copy and Paste](./src/browser/clipboard-selection.html)
+- [Copy, Paste, Selection and Clipboard](https://codepen.io/justorez/pen/XWxNPwb)
 
 ## JavaScript
 
@@ -104,7 +104,7 @@ pnpm start:cache
 
 - [BFC（Block Formatting Context）](src/style/BFC/readme.md)
 - [clientTop, clientWidth, scrollHeight, offsetTop, etc](./src/style/rect/index.html)
-- [控制元素的显示和隐藏](./src/style/show-or-hide.html)
+- [控制元素的显示和隐藏](https://codepen.io/justorez/pen/XWxNPLm)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)
 - [可拖拽元素](https://codepen.io/justorez/pen/eYPBdWa)
