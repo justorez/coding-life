@@ -1,0 +1,44 @@
+<!-- 浏览器指纹（浏览器唯一标识）
+    根据 canvas 可以获取浏览器指纹信息
+    1. 绘制 canvas，获取 base64 的 dataurl
+    2. 对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息
+    
+    若在生产环境使用，可以使用 https://github.com/fingerprintjs/fingerprintjs
+-->
+<div class="box">
+    <div class="line">
+        <span>Canvas</span>
+        <h3 id="fpcanvas"></h3>
+    </div>
+    <div class="line">
+        <span>FingerprintJS</span>
+        <h3 id="fpjs"></h3>
+    </div>
+</div>
+<script type="module">
+    import FingerprintJS from 'https://openfpcdn.io/fingerprintjs/v3'
+    import SparkMD5 from 'https://cdn.skypack.dev/spark-md5'
+
+    function fpCanvas() {
+        const canvas = document.createElement('canvas')
+        const ctx = canvas.getContext('2d')
+        ctx.font = '14px Arial'
+        ctx.fillStyle = '#ccc'
+        ctx.fillText('hello, justorez', 2, 2)
+        const dataUrl = canvas.toDataURL('image/jpeg')
+        return SparkMD5.hash(dataUrl)
+    }
+
+    async function fpJs() {
+        const fp = await FingerprintJS.load()
+        const result = await fp.get()
+        return result.visitorId
+    }
+
+    async function main() {
+        document.querySelector('#fpcanvas').innerText = fpCanvas()
+        document.querySelector('#fpjs').innerText = await fpJs()
+    }
+
+    main()
+</script>

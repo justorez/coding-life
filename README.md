@@ -35,6 +35,7 @@ pnpm start:cache
 - [Web Components](./src/browser/web-components/index.html)
 - [JSONP](./src/browser/jsonp/client.html)
 - [Copy, Paste, Selection and Clipboard](https://codepen.io/justorez/pen/XWxNPwb)
+- [浏览器指纹](./src/browser/fingerprint.html)
 
 ## JavaScript
 

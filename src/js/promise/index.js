@@ -96,8 +96,7 @@ class JPromise {
             let values = new Array(promises.length)
             const collect = (index) => (value) => {
                 values[index] = value
-                count += 1
-                count === promises.length && resolve(values)
+                ++count === promises.length && resolve(values)
             }
             promises.forEach((promise, i) => {
                 if (isPromise(promise)) {
@@ -121,8 +120,7 @@ class JPromise {
             const collect = (index, status) => (value) => {
                 const prop = status === 'fulfilled' ? 'value' : 'reason'
                 values[index] = { status, [prop]: value }
-                count += 1
-                count === promises.length && resolve(values)
+                ++count === promises.length && resolve(values)
             }
             promises.forEach((promise, i) => {
                 if (isPromise(promise)) {
