@@ -23,6 +23,7 @@ pnpm start:cache
 ## Browser
 
 - [事件循环](./src/browser/event-loop/readme.md)
+- [事件循环图解](http://latentflip.com/loupe/?code=)
 - [事件委托](./src/browser/event-delegation/readme.md)
 - [事件捕获和冒泡](./src/browser/event-delegation/bubble-capture.html)
 - [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
@@ -61,6 +62,7 @@ pnpm start:cache
 - [防抖](./src/handwritten/debounce.js)
 - [节流](./src/handwritten/throttle.js)
 - [compose 函数](./src/handwritten/compose.js)
+- [async/await 简易实现](./src/handwritten/async-await.js)
 - [函数柯里化](./src/handwritten/curry.js)
 - [LRU 缓存](./src/handwritten/LRU/v2.js)
 - [事件总线（发布订阅）](./src/handwritten/event-emitter.js)
