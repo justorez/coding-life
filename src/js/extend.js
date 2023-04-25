@@ -119,13 +119,13 @@ function parasiticCompostion() {
 
 
 // 将寄生组合式继承封装一下
-function __object(o) {
+function objectCreate(o) {
     function F() {}
     F.prototype = o
     return new F()
 }
 function prototype(Child, Parent) {
-    Child.prototype = Object.create(Parent.prototype) // 和 __object() 功能相同
+    Child.prototype = Object.create(Parent.prototype) // 和 objectCreate() 功能相同
     Child.prototype.constructor = Child
 }
 
