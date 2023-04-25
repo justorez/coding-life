@@ -1,5 +1,8 @@
-<script src="./sleep.js"></script>
 <script>
+    function sleep(delay = 1000) {
+        return new Promise(resolve => setTimeout(resolve, delay))
+    }
+
     async function fn1() {
         console.log('async1 a')
         await sleep(0)

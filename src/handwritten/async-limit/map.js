@@ -1,4 +1,4 @@
-const sleep = require('../../js/sleep')
+const { sleep } = require('../../js/sleep')
 
 /**
  * 实现一个 `promise.map`，进行并发数控制
