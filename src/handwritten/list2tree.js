@@ -7,25 +7,23 @@ const list = [
     { pid: 4, id: 6, data: '4-1' }
 ]
 
-function listToTree(list, rootId = null, { idName = "id", pidName = "pid", childName = "children" } = {}) {
+function listToTree(list, rootId = null) {
     const root = []
     const record = {} // id -> children
 
-    for (const item of list) {
-        const newItem = { ...item }
-        const id = newItem[idName]
-        const parentId = newItem[pidName]
-
-        newItem[childName] = record[id] ? record[id] : (record[id] = [])
+    for (const node of list) {
+        const newNode = { ...node }
+        const { id, pid:parentId } = newNode
+        newNode.children = record[id] ? record[id] : (record[id] = [])
         
         if (parentId === rootId) {
-            root.push(newItem)
+            root.push(newNode)
         } else {
-            record[parentId] = record[parentId] || []
-            record[parentId].push(newItem)
+            record[parentId] ??= []
+            record[parentId].push(newNode)
         }
     }
-
+    console.log(record)
     return root
 }
 
