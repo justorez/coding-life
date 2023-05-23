@@ -8,17 +8,12 @@
 function fn(str) {
     let map = {}
     for (const char of str) {
-        map[char] ??= 0
-        map[char]++
+        map[char] = (map[char] || 0) + 1
     }
 
-    let minChars = [], min = Infinity, kv = Object.entries(map)
-    kv.forEach(([c, n]) => {
-        if (n <= min) min = n
-    })
-    kv.forEach(([c, n]) => {
-        if (n === min) minChars.push(c)
-    })
+    const entries = Object.entries(map)
+    const min = entries.reduce((x, y) => x[1] < y[1] ? x[1] : y[1])
+    const minChars = entries.reduce((r, [c, n]) => n === min ? r.concat(c) : r, [])
 
     let res = ''
     for (const char of str) {
@@ -26,7 +21,7 @@ function fn(str) {
             res += char
         }
     }
-    console.log(map, min, minChars)
+    // console.log(map, min, minChars)
     return res
 }
 console.log(fn('ababac'))

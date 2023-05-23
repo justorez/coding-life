@@ -97,6 +97,7 @@ pnpm start:cache
 - [不定长二维数组全排列](./src/handwritten/full-arrangement-2d.js)
 - [去除字符串中出现次数最少的字符](./src/handwritten/OJ/1.js)
 - [数字转汉字](./src/handwritten/OJ/2.js)
+- [数字千分位分隔](./src/handwritten/thousandify.js)
 - [lodash.get](./src/handwritten/lodash/get.js)
 - [lodash.chunk](./src/handwritten/lodash/chunk.js)
 - [lodash.keyBy](./src/handwritten/lodash/key-by.js)
