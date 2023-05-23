@@ -64,7 +64,7 @@ class EventEmitter  {
         this._emit('*', ...args)
     }
 
-     _emit(name, ...args) {
+    _emit(name, ...args) {
         if (this.cache[name]) {
             const tasks = this.cache[name].slice()
             for (const fn of tasks) {

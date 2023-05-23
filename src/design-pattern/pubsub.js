@@ -43,7 +43,7 @@ class EventHub {
                 cbList.splice(cbIndex, 1)
             }
         }
-        if (cbList.length === 0) {o
+        if (cbList.length === 0) {
             Reflect.deleteProperty(this.events, type)
         }
     }
