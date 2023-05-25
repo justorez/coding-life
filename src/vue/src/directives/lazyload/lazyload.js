@@ -18,6 +18,9 @@ const directive = {
             observer.observe(el) // 订阅观察当前绑定图片元素
         }
         
+        /**
+         * 其它判定方案：imgElem.getBoundingClientRect().top < document.documentElement.clientHeight
+         */
         function handleIntersect(entries, observer) {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) {
