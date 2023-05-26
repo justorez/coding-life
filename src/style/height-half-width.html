@@ -1,6 +1,5 @@
 <!-- 
     保证 inner 的高度一直其宽度的一半 
-    下面方法已过时，建议使用 aspect-ratio
     https://developer.mozilla.org/zh-CN/docs/Web/CSS/aspect-ratio
 -->
 <div class="outer">
@@ -22,7 +21,8 @@
         background-color: blueviolet;
     }
 
-    .inner {
+    /* 下面方法已过时，建议使用 aspect-ratio */
+    .inner-deprecated {
         position: relative;
         width: 100%;
         height: 0;
@@ -30,12 +30,15 @@
         background-color: palevioletred;
     }
 
+    .inner {
+        width: 100%;
+        aspect-ratio: 2;
+        background-color: palevioletred;
+    }
     .box {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        /* position: absolute; */
         width: 100%;
         height: 100%;
+        text-align: center;
     }
 </style>
