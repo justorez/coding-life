@@ -134,6 +134,18 @@ class JPromise {
             })
         })
     }
+    /**
+     * 借助 all 实现
+     * 
+     * @param {Promise[]} promises
+     */
+    static allSettled2 = (promises = []) => {
+        const onFulfilled = (value) => ({ status: "fulfilled", value })
+        const onRejected = (reason) => ({ status: "rejected", reason })
+        return Promise.all(
+            promises.map(promise => Promise.resolve(promise).then(onFulfilled, onRejected))
+        )
+    }
 
     /**
      * 任一个 promise resolve/reject，返回的 promise resolve/reject。

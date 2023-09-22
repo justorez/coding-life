@@ -72,6 +72,10 @@ Array.prototype._forEach = function (callback, thisArg) {
     }
 }
 
+/**
+ * 该实现没有兼容稀疏数组，详情查看链接
+ * @link https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections#%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84
+ */
 Array.prototype._map = function (callback, thisArg) {
     if (typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`)

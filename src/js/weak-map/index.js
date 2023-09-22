@@ -1,4 +1,4 @@
-const { isObject } = require('../types')
+const isObject = (val) => val !== null && typeof val === 'object'
 
 class WeakMap {
     constructor(entries) {
