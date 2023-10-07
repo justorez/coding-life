@@ -8,6 +8,9 @@
 
                 <input type="radio" id="dark" name="theme" value="dark" />
                 <label for="dark">Dark</label>
+
+                <input type="radio" id="invert" name="theme" value="invert" />
+                <label for="invert">Invert</label>
             </div>
         </fieldset>
     </form>
@@ -18,26 +21,19 @@
 </div>
 
 <script>
-    const map = {
-        light: 'dark',
-        dark: 'light'
-    }
+    const themes = ['light', 'dark', 'invert']
     document.querySelectorAll('input[name="theme"]').forEach(radio => {
         radio.onchange = function() {
             if (this.checked) {
                 const html = document.documentElement
+                html.classList.remove(...themes)
                 html.classList.add(this.value)
-                html.classList.remove(map[this.value])
             }
         }
     })
 </script>
 
 <style>
-    :root {
-        --mode: 'unknown';
-    }
-
     /* 依赖系统设置：浅色和深色模式切换 */
     @media (prefers-color-scheme: light) {
         :root {
@@ -71,6 +67,12 @@
         --btn-color: #213547;
         --bg: #1a1a1a;
     }
+
+    /* 利用颜色反转实现深色模式 */
+    .invert .main {
+        filter: invert(1) hue-rotate(180deg);
+    }
+
     .site {
         width: 500px;
         font-size: 16px;
@@ -82,6 +84,7 @@
         border: 1px dashed #000;
         border-radius: 5px;
         background-color: var(--bg);
+        transition: color 1s, background-color 1s;
     }
     .main button {
         appearance: none;
