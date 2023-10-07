@@ -1,9 +1,11 @@
 <!-- 浏览器指纹（浏览器唯一标识）
-    根据 canvas 可以获取浏览器指纹信息
+    原理：不同设备在利用 canvas 绘制图像时存在细微差异，
+    差异来源于：不同的浏览器、操作系统、显卡驱动和硬件配置等。
     1. 绘制 canvas，获取 base64 的 dataurl
     2. 对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息
     
     若在生产环境使用，可以使用 https://github.com/fingerprintjs/fingerprintjs
+    测试网站：https://browserleaks.com/canvas
 -->
 <div class="box">
     <div class="line">
@@ -20,18 +22,23 @@
     import SparkMD5 from 'https://cdn.skypack.dev/spark-md5'
 
     function fpCanvas() {
+        console.time('fpCanvas')
         const canvas = document.createElement('canvas')
         const ctx = canvas.getContext('2d')
         ctx.font = '14px Arial'
         ctx.fillStyle = '#ccc'
         ctx.fillText('hello, justorez', 2, 2)
         const dataUrl = canvas.toDataURL('image/jpeg')
-        return SparkMD5.hash(dataUrl)
+        const fp = SparkMD5.hash(dataUrl)
+        console.timeEnd('fpCanvas')
+        return fp
     }
 
     async function fpJs() {
+        console.time('fpJs')
         const fp = await FingerprintJS.load()
         const result = await fp.get()
+        console.timeEnd('fpJs')
         return result.visitorId
     }
 

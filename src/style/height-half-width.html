@@ -4,7 +4,7 @@
 -->
 <div class="outer">
     <div class="inner">
-        <div class="box">hello</div>
+        <div class="box">我的高度一直是宽度的一半</div>
     </div>
 </div>
 <style>
@@ -21,7 +21,7 @@
         background-color: blueviolet;
     }
 
-    /* 下面方法已过时，建议使用 aspect-ratio */
+    /* 该方法已过时，建议使用 aspect-ratio */
     .inner-deprecated {
         position: relative;
         width: 100%;
@@ -32,7 +32,7 @@
 
     .inner {
         width: 100%;
-        aspect-ratio: 2;
+        aspect-ratio: 2; /* width / height */
         background-color: palevioletred;
     }
     .box {

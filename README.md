@@ -118,6 +118,7 @@ pnpm start:cache
 
 - [BFC（Block Formatting Context）](src/style/BFC/readme.md)
 - [clientTop, clientWidth, scrollHeight, offsetTop, etc](./src/style/rect/index.html)
+- [层叠上下文](./src/style/z-index.html)
 - [控制元素的显示和隐藏](https://codepen.io/justorez/pen/XWxNPLm)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)
@@ -128,6 +129,7 @@ pnpm start:cache
 - [CSS 方格背景](https://codepen.io/justorez/pen/yLRVOqa)
 - [CSS 魔方](https://codepen.io/justorez/pen/rNqWeGj)
 - [CSS 暗黑模式](https://lea.verou.me/2021/03/inverted-lightness-variables/)
+- [CSS 主题切换](./src/style/theme-switch.html)
 
 ## 性能优化
 
