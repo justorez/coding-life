@@ -4,6 +4,35 @@
  * @param {number} top
  */
 function getMaxFreguentTag(top = 1) {
+    const tags = [...document.querySelectorAll('*')]
+        .map(el => el.tagName)
+        .reduce((res, tag) => {
+            res[tag] = res[tag] ? res[tag] + 1 : 1
+            return res
+        }, {})
+    
+    // 利用数组把标签排序
+    const sortedTags = []
+    for (const [k, v] of Object.entries(tags)) {
+        sortedTags[v] ||= []
+        sortedTags[v].push(k)
+    }
+
+    // 数组末尾 top 个非空元素，即所要的结果
+    const res = []
+    const len = Math.min(top, sortedTags.length)
+    for (let i = 0; i < len;) {
+        const tag = sortedTags.pop()
+        if (tag) {
+            res.push(...tag) // 包含同频次标签
+            i++
+        }
+    }
+    return res
+}
+
+// 借助辅助函数 saveMax 实现
+function getMaxFreguentTag(top = 1) {
     const tags = [...document.querySelectorAll('*')].reduce((res, tag) => {
         const name = tag.localName // tagName
         res[name] = res[name] ? res[name] + 1 : 1
