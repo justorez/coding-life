@@ -1,0 +1,15 @@
+<h2></h2>
+<button onclick="send()">send Request</button>
+<script>
+    function send() {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', 'http://localhost:9999/api/list', true)
+        xhr.onreadystatechange = function (e) {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                const el = document.querySelector('h2')
+                el.innerText = xhr.responseText
+            }
+        }
+        xhr.send()
+    }
+</script>

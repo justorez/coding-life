@@ -1,0 +1,14 @@
+{
+  "name": "jsonp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client:": "opener client.html",
+    "server": "nodemon server.js",
+    "dev": "run-p client server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

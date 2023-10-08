@@ -35,7 +35,8 @@ pnpm start:cache
 - [DOMContentLoaded 和 load](./src/browser/DCL.html)
 - [检测是否支持 Webp](./src/browser/check-webp.js)
 - [Web Components](./src/browser/web-components/index.html)
-- [JSONP](./src/browser/jsonp/client.html)
+- [JSONP](./src/browser/cross-origin/jsonp/client.html)
+- [反向代理](./src/browser/cross-origin/reverse-proxy/conf/nginx.conf)
 - [Copy, Paste, Selection and Clipboard](https://codepen.io/justorez/pen/XWxNPwb)
 - [浏览器指纹](./src/browser/fingerprint.html)
 

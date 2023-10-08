@@ -1,0 +1,16 @@
+{
+  "name": "reverse-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "nginx": "start nginx",
+    "client": "opener http://localhost:9999/client.html",
+    "server": "nodemon server.js",
+    "dev": "run-p nginx client server",
+    "stop": "pnpm exec ./nginx -s stop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

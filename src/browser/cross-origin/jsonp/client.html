@@ -10,10 +10,10 @@
             const baseURL = 'http://localhost:2333'
             const script = document.createElement('script')
             const cbKey = `__jsonp_${Math.random().toString().substr(2, 8)}`
-            window[cbKey] = (res) => {
-                delete window[cbKey]
+            window[cbKey] = (response) => {
+                Reflect.deleteProperty(window, cbKey)
                 script.remove()
-                return resolve(res)
+                return resolve(response)
             }
             script.id = cbKey
             script.src = `${baseURL}/${url}?callback=${cbKey}&&params=${JSON.stringify(params)}`
