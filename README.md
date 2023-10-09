@@ -30,7 +30,7 @@ pnpm start:cache
 - [setTimeout 的最小时延](https://q.shanyue.tech/fe/js/708.html)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
 - [输入 URL 后发生了什么](./src/browser/input-url/readme.md)
-- [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/how-js-and-css-block-dom/readme.md)
+- [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/dom-blocking/readme.md)
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
 - [DOMContentLoaded 和 load](./src/browser/DCL.html)
 - [检测是否支持 Webp](./src/browser/check-webp.js)

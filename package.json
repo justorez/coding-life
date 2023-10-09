@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "http-server src -p 2333 -c-1 -o",
-    "start:dom": "pnpm --filter=how-js-and-css-block-dom dev",
+    "start:dom": "pnpm --filter=dom-blocking dev",
     "start:jsonp": "pnpm --filter=jsonp dev",
     "start:proxy": "pnpm --filter=reverse-proxy dev",
     "stop:proxy": "pnpm --filter=reverse-proxy stop",
