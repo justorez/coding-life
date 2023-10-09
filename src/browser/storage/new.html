@@ -1,0 +1,11 @@
+<div></div>
+<script>
+    function showText(...args) {
+        const el = document.createElement('h2')
+        el.innerText = args.join(' ')
+        document.body.append(el)
+    }
+
+    showText('sessionStorage', JSON.stringify(sessionStorage))
+    showText('localStorage:', JSON.stringify(localStorage))
+</script>

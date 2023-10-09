@@ -37,7 +37,8 @@ pnpm start:cache
 - [Web Components](./src/browser/web-components/index.html)
 - [JSONP](./src/browser/cross-origin/jsonp/client.html)
 - [反向代理](./src/browser/cross-origin/reverse-proxy/conf/nginx.conf)
-- [Copy, Paste, Selection and Clipboard](https://codepen.io/justorez/pen/XWxNPwb)
+- [Copy, Paste, Selection, Clipboard](https://codepen.io/justorez/pen/XWxNPwb)
+- [DOM 绘制成图片](./src/browser/dom-to-img/index.html)
 - [浏览器指纹](./src/browser/fingerprint.html)
 
 ## JavaScript

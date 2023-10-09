@@ -1,0 +1,32 @@
+<!-- 
+    SessionStorage:
+    1. 页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。
+    2. 在新标签或窗口打开一个页面时会复制顶级浏览会话的上下文作为新会话的上下文。
+    3. 打开多个相同的 URL 的 Tabs 页面，会创建各自的 sessionStorage。
+    4. 关闭对应浏览器标签或窗口，会清除对应的 sessionStorage。
+
+    无论数据存储在 localStorage 还是 sessionStorage ，它们都特定于页面的协议。
+-->
+<a href="./index.html">self</a>
+<a href="./index.html" target="_parent">parent</a>
+<a href="./index.html" target="_blank">新标签页打开</a>
+<script>
+    function showText(...args) {
+        const el = document.createElement('h2')
+        el.innerText = args.join(' ')
+        document.body.append(el)
+    }
+
+    const time = () => new Date().toLocaleTimeString()
+    const TOKEN_KEY = 'token'
+
+    let token = sessionStorage.getItem(TOKEN_KEY)
+    showText('sessionStorage:', JSON.stringify(sessionStorage))
+    if (!token) {
+        token = Math.random().toString(16).substr(2)
+        sessionStorage.setItem(TOKEN_KEY, token)
+    }
+
+    showText('localStorage:', JSON.stringify(localStorage))
+    !localStorage.getItem(TOKEN_KEY) && localStorage.setItem(TOKEN_KEY, token)
+</script>
