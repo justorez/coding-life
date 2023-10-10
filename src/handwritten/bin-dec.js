@@ -50,15 +50,6 @@ function decToBin(num) {
     return `${int || 0}${fraction ? '.' + fraction : ''}`
 }
 
-function test(dec) {
-    let bin = decToBin(dec)
-    let _dec = binToDec(bin)
-    console.log(dec, bin, _dec)
-}
-test(0.1)
-test(3)
-test(13.5)
-
 module.exports = {
     binToDec,
     decToBin
