@@ -54,6 +54,7 @@ pnpm start:cache
 - [Generator+Promise 模拟 async/await](./src/js/generator/co.js)
 - [简易生成器模拟实现](./src/js/generator/index.js)
 - [异步延迟函数](./src/js/sleep.js)
+- [Intl.Segmenter](./src/js/intl/split-emoji.js)
 
 ## 手写题
 
