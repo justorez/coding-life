@@ -51,6 +51,7 @@ pnpm start:cache
 - [类型判断](./src/js/types.js)
 - [继承](./src/js/extend.js)
 - [Number 最大数、最大安全整数、EPSILON](./src/js/number.md)
+- [解决 0.1 + 0.2 不等于 0.3](./src/js/float.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
 - [Generator+Promise 模拟 async/await](./src/js/generator/co.js)
 - [简易生成器模拟实现](./src/js/generator/index.js)
