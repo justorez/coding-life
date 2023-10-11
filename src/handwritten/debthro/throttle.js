@@ -17,7 +17,6 @@ function throttle(func, wait, options) {
 
     // 定时器回调函数
     let later = function() {
-        // 如果设置了 leading，就将 previous 设为 0
         previous = !leading ? 0 : Date.now()
         timer = null
         result = func.apply(context, args)

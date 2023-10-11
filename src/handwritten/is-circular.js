@@ -1,6 +1,5 @@
 /**
  * 判断对象是否有循环引用
- * 
  * @param {Object} obj
  */
 function isCircular(obj) {

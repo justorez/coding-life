@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="style.css">
+<div class="counter"></div>
+<script src="./debounce.js"></script>
+<script>
+    let count = 1
+    let counterEl = document.querySelector('.counter')
+    const plus = () => counterEl.innerHTML = count++
+    counterEl.onmousemove = debounce(plus, 500, false)
+</script>

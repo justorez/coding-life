@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="style.css">
+<div class="counter"></div>
+<script src="./throttle.js"></script>
+<script>
+    let count = 1
+    let counterEl = document.querySelector('.counter')
+    const plus = () => counterEl.innerHTML = count++
+    counterEl.onmousemove = throttle(plus, 1500, {
+        leading: false
+    })
+</script>

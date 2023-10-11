@@ -2,7 +2,7 @@ const fakeNew = require('../fake-new')
 
 describe('new 操作符模拟实现', () => {
     test('fakeNew 基本使用', () => {
-        let Person = function(name) {
+        const Person = function(name) {
             this.name = name
             this.hi = function() {
                 return `Hi!${this.name}`
