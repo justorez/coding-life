@@ -1,4 +1,4 @@
 module.exports = {
-    testMatch: ['**/__test__/*.test.js'],
+    testMatch: ['**/*.test.js'],
     coverageReporters: ['lcov', 'text']
 }

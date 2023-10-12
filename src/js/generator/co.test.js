@@ -1,4 +1,4 @@
-const co = require('../generator/co')
+const co = require('./co')
 
 function fn(nums) {
     return new Promise((resolve) => {
