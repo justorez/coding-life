@@ -1,5 +1,6 @@
 /**
  * 判断对象的原型链是不是能找到类型的 prototype
+ * 
  * instanceof 针对基本类型都是 false；
  * 使用 Object.getPrototypeOf 可以让基本类型的判断为 true；
  * Reflect.getPrototypeOf 参数必须是对象

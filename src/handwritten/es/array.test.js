@@ -18,12 +18,6 @@ describe('数组方法模拟实现', () => {
         expect(arr2._flat(2)).toEqual([1, 2, 3, 4, 5, 6])
         expect(arr3._flat(Infinity))
             .toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-        
-        expect(arr1._flat2()).toEqual([1, 2, 4, 5])
-        expect(arr2._flat2()).toEqual([1, 2, 3, 4, [5, 6]])
-        expect(arr2._flat2(2)).toEqual([1, 2, 3, 4, 5, 6])
-        expect(arr3._flat2(Infinity))
-            .toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     })
 
     test('_flatMap', () => {

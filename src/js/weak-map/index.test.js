@@ -7,7 +7,7 @@ describe('My WeakMap', () => {
         map.set(o, 20)
         
         expect(map.toString()).toBe('[object WeakMap]')
-        expect(() => map.set('xxx')).toThrowError('Invalid')
+        expect(() => map.set('xxx')).toThrow(TypeError)
         expect(map.has(o)).toBe(true)
         expect(map.has(1)).toBe(false)
         expect(map.get(o)).toBe(20)

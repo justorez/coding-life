@@ -1,4 +1,4 @@
-const instanceOf = require('../instance-of')
+const instanceOf = require('./instanceof')
 
 describe('instanceof 模拟实现', () => {
     test('instanceOf 基本使用', () => {

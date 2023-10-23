@@ -118,58 +118,7 @@ Array.prototype._some = function (callback, thisArg) {
     return false
 }
 
-Array.prototype._reduce = function (callback, initialValue) {
-    if (this == null) {
-        throw new TypeError('this is null or not defined')
-    }
-    if (typeof callback !== 'function') {
-        throw new TypeError(callback + ' is not a function')
-    }
-
-    const O = Object(this)
-    const len = O.length >>> 0 // 无符号右移 0 位：保证转换后的值为正整数
-    let index = 0 // 游标
-    let acc // 累加器
-
-    if (arguments.length > 1) {
-        acc = initialValue
-    } else {
-        // 如果没有提供 initialValue，
-        // 那么 accumulator 取数组中的第一个值，
-        // currentValue 取数组中的第二个值。
-        while (index < len && !(index in O)) {
-            index++
-        }
-
-        // if len is 0 and iniitalValue is not present
-        if (index >= len) {
-            throw new TypeError('Reduce of empty array with no initial value')
-        }
-        acc = O[index++]
-    }
-
-    while (index < len) {
-        if (index in O) {
-            acc = callback(acc, O[index], index, O)
-        }
-        index++
-    }
-
-    return acc
-}
-
-// 使用 Infinity，可展开任意深度的嵌套数组
 Array.prototype._flat = function (depth = 1) {
-    if (!Number(depth) || Number(depth) <= 0) {
-        return this
-    }
-    let arr = this.concat()
-    return arr.reduce((res, cur) => {
-        // reduce 会跳过空位
-        return res.concat(Array.isArray(cur) ? cur._flat(depth - 1) : cur)
-    }, [])
-}
-Array.prototype._flat2 = function (depth = 1) {
     if (!Number(depth) || Number(depth) < 0) {
         return this
     }
