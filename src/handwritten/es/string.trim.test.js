@@ -1,4 +1,4 @@
-require('../trim')
+require('./string.trim')
 
 describe('trim 模拟实现', () => {
     const testFn = (fn) => {

@@ -1,4 +1,4 @@
-require('../array')
+require('./array')
 
 describe('数组方法模拟实现', () => {
     test('_forEach', () => {

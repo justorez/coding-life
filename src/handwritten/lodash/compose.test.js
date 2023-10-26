@@ -1,4 +1,4 @@
-const compose = require('../compose')
+const compose = require('./compose')
 
 describe('compose 函数', () => {
     test('功能测试', () => {
