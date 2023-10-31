@@ -4,14 +4,14 @@
  * @param  {...number[]} arrays
  * @example
  * ```js
- * //=> [2]
  * intersection([2, 1], [2, 3])
+ * // => [2]
  * 
- * //=> [1, 2]
  * intersection([1, 2, 2], [1, 2, 2])
+ * // => [1, 2]
  * 
- * //=> [1, 2]
  * intersection([1, 2, 2], [1, 2, 2], [1, 2])
+ * // => [1, 2]
  * ```
  */
 function intersection(...arrays) {
@@ -19,6 +19,6 @@ function intersection(...arrays) {
     return [...new Set(result)]
 }
 
-console.log(intersection([2, 1], [2, 3]))
-console.log(intersection([1, 2, 2], [1, 2, 2]))
-console.log(intersection([1, 2, 2], [1, 2, 2], [1, 2]))
+module.exports = {
+    intersection
+}

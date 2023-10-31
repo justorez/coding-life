@@ -31,4 +31,6 @@ function get(object, path, defaultValue) {
     return result === undefined ? defaultValue : result
 }
 
-module.exports = get
+module.exports = {
+    get
+}

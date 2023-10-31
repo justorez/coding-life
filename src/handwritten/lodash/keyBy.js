@@ -15,3 +15,7 @@ const info = [
 ]
 //=> { '1': { id: 1, name: 'Tom' }, '2': { id: 2, name: 'Jack' } }
 console.log(keyBy(info, (x) => x.id))
+
+module.exports = {
+    keyBy
+}

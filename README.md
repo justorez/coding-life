@@ -59,6 +59,7 @@ pnpm start:cache
 
 ## 手写题
 
+### ES API
 - [new](./src/handwritten/fake-new.js)
 - [instanceof](./src/handwritten/instance-of.js)
 - [call/apply](./src/handwritten/es/call.js)
@@ -66,14 +67,27 @@ pnpm start:cache
 - [sleep/sleepSync/delay](./src/handwritten/es/sleep.js)
 - [array.reduce](./src/handwritten/es/array.reduce.js)
 - [array.flat](./src/handwritten/es/array.flat.js)
-- [数组方法：unique, map, etc](./src/handwritten/array.js)
+- [array: unique, map...](./src/handwritten/array.js)
 - [string.trim](./src/handwritten/es/string.trim.js)
+- [async 函数简易实现](./src/handwritten/es/async-func.js)
+
+### Lodash API
 - [防抖](./src/handwritten/lodash/debounce.js)
 - [节流](./src/handwritten/lodash/throttle.js)
 - [深拷贝](./src/handwritten/lodash/cloneDeep.js)
-- [深比较](./src/handwritten/lodash/isEqual.js)
+- [isEqual](./src/handwritten/lodash/isEqual.js)
 - [flowRight](./src/handwritten/lodash/compose.js)
-- [async/await 简易实现](./src/handwritten/async-await.js)
+- [shuffle](./src/handwritten/lodash/shuffle.js)
+- [sample/sampleSize](./src/handwritten/lodash/sample.js)
+- [get](./src/handwritten/lodash/get.js)
+- [keyBy](./src/handwritten/lodash/keyBy.js)
+- [maxBy](./src/handwritten/lodash/maxBy.js)
+- [groupBy](./src/handwritten/lodash/groupBy.js)
+- [omit/omitBy](./src/handwritten/lodash/omit.js)
+- [chunk](./src/handwritten/lodash/chunk.js)
+- [intersection](./src/handwritten/lodash/intersection.js)
+
+### 逻辑题
 - [函数柯里化](./src/handwritten/curry.js)
 - [LRU 缓存](./src/handwritten/LRU/v2.js)
 - [事件总线（发布订阅）](./src/handwritten/event-emitter.js)
@@ -86,7 +100,6 @@ pnpm start:cache
 - [检测循环引用](./src/handwritten/is-circular.js)
 - [对象扁平化](./src/handwritten/flatten.js)
 - [将列表还原成树](./src/handwritten/list2tree.js)
-- [打乱数组](./src/handwritten/shuffle.js)
 - [无限累加函数](./src/handwritten/sum.js)
 - [字符串压缩编码](./src/handwritten/string-compress.js)
 - [页面出现次数最多的标签](./src/handwritten/frequent-tags.js)
@@ -107,13 +120,9 @@ pnpm start:cache
 - [去除字符串中出现次数最少的字符](./src/handwritten/OJ/1.js)
 - [数字转汉字](./src/handwritten/OJ/2.js)
 - [数字千分位分隔](./src/handwritten/thousandify.js)
-- [lodash.get](./src/handwritten/lodash/get.js)
-- [lodash.chunk](./src/handwritten/lodash/chunk.js)
-- [lodash.keyBy](./src/handwritten/lodash/key-by.js)
-- [lodash.groupBy](./src/handwritten/lodash/groupBy.js)
-- [lodash.intersection](./src/handwritten/lodash/intersection.js)
-- [lodash.omit](./src/handwritten/lodash/omit.js)
 - [(a == 1 && a == 2 && a == 3)](./src/handwritten/auto-plus.js)
+
+### 算法与数据结构
 - [二叉树最大深度](https://www.nowcoder.com/practice/8a2b2bf6c19b4f23a9bdb9b233eefa73?tpId=295)
 - [合并两个有序数组](https://www.nowcoder.com/practice/89865d4375634fc484f3a24b7fe65665?tpId=295)
 - [两数之和](https://www.nowcoder.com/practice/20ef0972485e41019e39543e8e895b7f?tpId=295)

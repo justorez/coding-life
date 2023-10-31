@@ -41,7 +41,7 @@ const getData = () =>
     new Promise((resolve) => setTimeout(() => resolve(Date.now()), 1000))
 
 /**
- * async 函数会被编译成 generator函数 (babel 会编译成更本质的形态，这里我们直接用 generator)
+ * async 函数会被编译成 generator 函数 (babel 会编译成更本质的形态，这里我们直接用 generator)
  * 
  * @example
  * ```js
