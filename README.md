@@ -148,6 +148,7 @@ pnpm start:cache
 - [CSS 魔方](https://codepen.io/justorez/pen/rNqWeGj)
 - [CSS 暗黑模式](https://lea.verou.me/2021/03/inverted-lightness-variables/)
 - [CSS 主题切换](./src/style/theme-switch.html)
+- [CSS 防挡弹幕](./src/style/mask-image/index.html)
 
 ## 性能优化
 
