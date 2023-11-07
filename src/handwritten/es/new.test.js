@@ -1,7 +1,7 @@
-const fakeNew = require('../fake-new')
+const newFn = require('./new')
 
 describe('new 操作符模拟实现', () => {
-    test('fakeNew 基本使用', () => {
+    test('基本使用', () => {
         const Person = function(name) {
             this.name = name
             this.hi = function() {
@@ -16,7 +16,7 @@ describe('new 操作符模拟实现', () => {
             return `Test-${this.age}`
         }
     
-        let p = fakeNew(Person, 'leo')
+        let p = newFn(Person, 'leo')
         expect(p.name).toBe('leo')
         expect(p.age).toBe(23)
         expect(p.hi()).toBe('Hi!leo')

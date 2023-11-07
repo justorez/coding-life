@@ -5,9 +5,11 @@
  */
 function lowerCase(str) {
     let result = ''
+    const ZCode = 'Z'.charCodeAt()
+    const ACode = 'A'.charCodeAt()
     for (let char of str) {
         const code = char.charCodeAt()
-        if (code <= 'Z'.charCodeAt() && code >= 'A'.charCodeAt()) {
+        if (code <= ZCode && code >= ACode) {
             char = String.fromCharCode(code + 32)
         }
         result += char
@@ -15,8 +17,4 @@ function lowerCase(str) {
     return result
 }
 
-//=> 'hello!world'
-console.log(lowerCase('HELLO!world'))
-
-//=> '零度'
-console.log(lowerCase('零度'))
+module.exports = lowerCase

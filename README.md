@@ -60,7 +60,7 @@ pnpm start:cache
 ## 手写题
 
 ### ES API
-- [new](./src/handwritten/fake-new.js)
+- [new](./src/handwritten/es/new.js)
 - [instanceof](./src/handwritten/instance-of.js)
 - [call/apply](./src/handwritten/es/call.js)
 - [bind/softBind](./src/handwritten/es/bind.js)
@@ -69,6 +69,7 @@ pnpm start:cache
 - [array.flat](./src/handwritten/es/array.flat.js)
 - [array: unique, map...](./src/handwritten/array.js)
 - [string.trim](./src/handwritten/es/string.trim.js)
+- [string.toLowerCase](./src/handwritten/es/string.lowerCase.js)
 - [async 函数简易实现](./src/handwritten/es/async-func.js)
 
 ### Lodash API
@@ -85,6 +86,9 @@ pnpm start:cache
 - [groupBy](./src/handwritten/lodash/groupBy.js)
 - [omit/omitBy](./src/handwritten/lodash/omit.js)
 - [chunk](./src/handwritten/lodash/chunk.js)
+- [template](./src/handwritten/lodash/template.js)
+- [camelCase](./src/handwritten/lodash/namingCase.js)
+- [kebabCase](./src/handwritten/lodash/namingCase.js)
 - [intersection](./src/handwritten/lodash/intersection.js)
 
 ### 逻辑题
@@ -109,9 +113,6 @@ pnpm start:cache
 - [解析 URL 参数](./src/handwritten/querystring.js)
 - [异步 sum/add](./src/handwritten/sum-async.js)
 - [随机六位数字验证码：重复/不可重复](./src/handwritten/sms-code.js)
-- [驼峰和横线命名风格互转](./src/handwritten/naming-case.js)
-- [lowerCase](./src/handwritten/lower-case.js)
-- [模板渲染](./src/handwritten/template.js)
 - [二进制和十进制互转](./src/handwritten/bin-dec.js)
 - [数值的 IEEE-754 表示](./src/handwritten/IEEE-754.js)
 - [带过期时间的 localStorage](./src/handwritten/localstorage.html)
