@@ -184,6 +184,7 @@ pnpm start:cache
 ## 网络
 
 - [HTTP 缓存](./src/network/cache/readme.md)
+- [HTTP 缓存配置实践](./src/network/cache/config.md)
 - [301 和 302 的区别](https://zhuanlan.zhihu.com/p/93031392)
 - [GET 可以有 body 吗？](https://zhuanlan.zhihu.com/p/456921996)
 
@@ -209,4 +210,3 @@ pnpm start:cache
 - [Hello 算法](https://www.hello-algo.com)
 - [尤雨溪讲解 Vue 核心实现](https://www.bilibili.com/video/BV1d4411v7UX)
 - [玩转 Vue 3 全家桶](https://time.geekbang.org/column/intro/100094401?code=p5I8okGnRHfR67OkuyktunHxGUUgxaVlm02vdhIdVa4%3D&source=app_share&page=A)
-- [2021前端面试题整理](https://juejin.cn/post/6991724298197008421)

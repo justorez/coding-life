@@ -1,0 +1,24 @@
+<div class="box">
+    <button onclick="query()">GET 无缓存</button>
+    <h2></h2><hr>
+    <button onclick="queryWithCache()">GET 缓存</button>
+    <h2></h2>
+    <!-- 
+        总结：以 Chrome 内核浏览器为例，
+            GET 请求不会被自动缓存。
+            在服务端设置相应的响应头后，GET 请求可以被缓存。
+    -->
+</div>
+<script>
+    const result = document.querySelectorAll('h2')
+    async function query() {
+        const res = await fetch('/query', { method: 'get' })
+        const json = await res.json()
+        result[0].innerHTML = JSON.stringify(json)
+    }
+    async function queryWithCache() {
+        const res = await fetch('/cache/query', { method: 'get' })
+        const json = await res.json()
+        result[1].innerHTML = JSON.stringify(json)
+    }
+</script>
