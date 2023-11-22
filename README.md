@@ -186,6 +186,7 @@ pnpm start:cache
 - [HTTP 缓存](./src/network/cache/readme.md)
 - [HTTP 缓存配置实践](./src/network/cache/config.md)
 - [301 和 302 的区别](https://zhuanlan.zhihu.com/p/93031392)
+- [Server-Send Events](./src/network/sse/readme.md)
 - [GET 可以有 body 吗？](https://zhuanlan.zhihu.com/p/456921996)
 
 ## 安全

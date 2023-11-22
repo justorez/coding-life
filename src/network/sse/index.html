@@ -1,0 +1,57 @@
+<body>
+    <button onclick="send()">发送</button>
+    <div id="msg"></div>
+    <button onclick="stop()">停止响应</button>
+</body>
+<script>
+    let source 
+    const msgElem = document.querySelector('#msg')
+
+    function send() {
+        source = new EventSource('http://localhost:8848/stream')
+        source.onopen = function (event) {
+            msgElem.innerHTML += '<p>Connection open...</p>'
+        }
+        source.onerror = function (event) {
+            msgElem.innerHTML += '<p>Connection error.</p>';
+        }
+
+        source.onmessage = function (event) {
+            msgElem.innerHTML += `<p>Ping: ${event.data}</p>`
+        }
+        // 自定义事件，不触发 message event
+        source.addEventListener('foo', event => {
+            msgElem.innerHTML += `<p>Start time: ${event.data}</p>`
+        })
+    }
+
+    function stop() {
+        if (source) {
+            source.close()
+            source = null
+            msgElem.innerHTML += '<p>Connection close.</p>';
+        }
+    }
+
+    // 消息框自动滚动到底部
+    const observer = new MutationObserver((mutations, observer) => {
+        for (const { addedNodes, target } of mutations) {
+            if (addedNodes.length) {
+                target.scrollTop = Number.MAX_SAFE_INTEGER
+            }
+        }
+    })
+    observer.observe(msgElem, { childList: true })
+</script>
+<style>
+    #msg {
+        margin: 10px;
+        padding: 0 1em;
+        min-height: 50px;
+        max-height: 300px;
+        width: 300px;
+        border-radius: 8px;
+        border: 2px dashed #a7a4a4;
+        overflow-y: auto;
+    }
+</style>
