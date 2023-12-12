@@ -135,15 +135,16 @@ pnpm start:cache
 
 ## HTML & Style
 
-- [BFC（Block Formatting Context）](src/style/BFC/readme.md)
+- [Block Formatting Context](src/style/BFC/readme.md)
 - [clientTop, clientWidth, scrollHeight, offsetTop, etc](./src/style/rect/index.html)
 - [层叠上下文](./src/style/z-index.html)
+- [Flex 布局](./src/style/flex.md)
+- [Grid 自适应布局](./src/style/grid/auto.html)
+- [响应式适配不同尺寸的移动设备](./src/style/responsive/rem.less)
 - [控制元素的显示和隐藏](https://codepen.io/justorez/pen/XWxNPLm)
-- [响应式适配不同尺寸的移动设备](./src/style/responsive-by-rem/rem.less)
 - [高度始终为宽度的一半](./src/style/height-half-width.html)
 - [可拖拽元素](https://codepen.io/justorez/pen/eYPBdWa)
 - [瀑布流布局](./src/style/waterfall/js.html)
-- [Grid 自适应布局](./src/style/grid/auto.html)
 - [SVG Loading](https://codepen.io/justorez/pen/eYPBZrv)
 - [CSS 方格背景](https://codepen.io/justorez/pen/yLRVOqa)
 - [CSS 魔方](https://codepen.io/justorez/pen/rNqWeGj)
