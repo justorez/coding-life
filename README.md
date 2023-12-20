@@ -147,10 +147,8 @@ pnpm start:cache
 - [可拖拽元素](https://codepen.io/justorez/pen/eYPBdWa)
 - [瀑布流布局](./src/style/waterfall/js.html)
 - [SVG Loading](https://codepen.io/justorez/pen/eYPBZrv)
-- [CSS 方格背景](https://codepen.io/justorez/pen/yLRVOqa)
-- [CSS 魔方](https://codepen.io/justorez/pen/rNqWeGj)
-- [CSS 暗黑模式](https://lea.verou.me/2021/03/inverted-lightness-variables/)
 - [CSS 主题切换](https://codepen.io/justorez/pen/rNPXXew)
+- [CSS 暗黑模式](https://lea.verou.me/2021/03/inverted-lightness-variables/)
 - [CSS 防挡弹幕](./src/style/mask-image/index.html)
 
 ## 性能优化
