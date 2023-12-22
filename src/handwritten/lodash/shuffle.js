@@ -1,5 +1,5 @@
 /**
- * @link [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).
+ * @see https://en.wikipedia.org/wiki/Fisher-Yates_shuffle
  */
 function shuffle(arr) {
     arr = Array.from(arr)

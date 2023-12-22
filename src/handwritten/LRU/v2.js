@@ -12,7 +12,7 @@ class DoubleLinkedListNode {
  * 
  * 1. 首先使用哈希表进行定位，找出缓存项在双向链表中的位置，
  * 2. 随后将其移动到双向链表的头部，即可在 O(1) 的时间内完成 get 或者 put 操作。
- * @link https://leetcode.cn/problems/lru-cache/solution/lruhuan-cun-ji-zhi-by-leetcode-solution/
+ * @see https://leetcode.cn/problems/lru-cache/solution/lruhuan-cun-ji-zhi-by-leetcode-solution/
  */
 class LRUCache {
     /**

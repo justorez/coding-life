@@ -9,7 +9,7 @@ const isArray = (val) => typeOf(val) === 'Array'
  * structuredClone API 可实现深拷贝，不过支持的浏览器不多
  * 
  * @param {Object} target 
- * @link https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone
  */
 function cloneDeep(target, map = new WeakMap()) {
     // 基本类型

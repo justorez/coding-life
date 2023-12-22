@@ -36,7 +36,7 @@ const arr = [
  * 数组去重：RegExp、object、Date 无效
  *
  * @returns new array
- * @link https://github.com/mqyqingfeng/Blog/issues/27
+ * @see https://github.com/mqyqingfeng/Blog/issues/27
  */
 Array.prototype.unique = function () {
     return [...new Set(this)]
@@ -74,7 +74,7 @@ Array.prototype._forEach = function (callback, thisArg) {
 
 /**
  * 该实现没有兼容稀疏数组，详情查看链接
- * @link https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections#%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections#%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84
  */
 Array.prototype._map = function (callback, thisArg) {
     if (typeof callback !== 'function') {

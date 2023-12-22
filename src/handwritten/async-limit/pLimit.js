@@ -1,5 +1,5 @@
 /**
- * @link https://github.com/sindresorhus/p-limit
+ * @see https://github.com/sindresorhus/p-limit
  */
 class pLimit {
     constructor(concurrency = Infinity) {

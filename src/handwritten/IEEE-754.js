@@ -6,8 +6,8 @@ const { binToDec } = require('./bin-dec')
  * V = (-1)^S * (1 + M) * 2^E
  * 
  * @param {number} num 十进制数值
- * @link https://github.com/mqyqingfeng/Blog/issues/155
- * @link https://www.h-schmidt.net/FloatConverter/IEEE754.html
+ * @see https://github.com/mqyqingfeng/Blog/issues/155
+ * @see https://www.h-schmidt.net/FloatConverter/IEEE754.html
  */
 function decTobinexp(num) {
     let sign, exponent, mantissa
