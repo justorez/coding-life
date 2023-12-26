@@ -13,14 +13,10 @@ class Scheduler {
         return new Promise((resolve, reject) => {
             this.queue.push(() => {
                 Promise.resolve(promiseCreator(...args))
-                    .then(res => {
+                    .then(resolve)
+                    .catch(reject)
+                    .finally(() => {
                         this.activeCount--
-                        resolve(res)
-                        this.next()
-                    })
-                    .catch(err => {
-                        this.activeCount--
-                        reject(err)
                         this.next()
                     })
             })
@@ -36,7 +32,8 @@ class Scheduler {
     }
 }
 
-const { sleep } = require('../../js/sleep')
+const { sleep } = require('shared')
+
 function test() {
     const scheduler = new Scheduler(2)
     for (let i = 1; i <= 10; i++) {

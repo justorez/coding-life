@@ -18,10 +18,11 @@ class UserCard extends HTMLElement {
 
         const shadow = this.attachShadow({ mode: 'closed' })
         shadow.appendChild(content)
+        templateElem.remove()
     }
 }
 
-const template = `
+const template = /*template*/`
 <template id="userCardTemplate">
     <img class="avatar" />
     <div class="container">
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.createElement('div')
     el.innerHTML = template
     document.body.appendChild(el.firstElementChild)
-    el.removeChild(el.childNodes[0])
+    // el.removeChild(el.childNodes[0])
 
     window.customElements.define('user-card', UserCard)
 })

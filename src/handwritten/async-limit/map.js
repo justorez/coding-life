@@ -1,5 +1,3 @@
-const { sleep } = require('../../js/sleep')
-
 /**
  * 实现一个 `promise.map`，进行并发数控制
  * 
@@ -40,6 +38,8 @@ Promise.map = function (array, mapper, concurrency = Infinity) {
         }
     })
 }
+
+const { sleep } = require('shared')
 
 async function test() {
     const mapper = (x) => sleep(1000).then(() => x * 2)

@@ -61,7 +61,8 @@ class pLimit {
     }
 }
 
-const { sleep } = require('../../js/sleep')
+const { sleep } = require('shared')
+
 function test() {
     const scheduler = new pLimit(2)
     for (let i = 1; i <= 10; i++) {
