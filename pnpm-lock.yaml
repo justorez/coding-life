@@ -11,6 +11,12 @@ importers:
       node-fetch:
         specifier: ^3.3.1
         version: 3.3.1
+      shared:
+        specifier: workspace:*
+        version: link:src/shared
+      ws:
+        specifier: ^8.15.1
+        version: 8.15.1
     devDependencies:
       '@types/jest':
         specifier: ^27.4.1
@@ -56,15 +62,6 @@ importers:
         specifier: ^4.0.1
         version: 4.0.3
 
-  src/browser/how-js-and-css-block-dom:
-    devDependencies:
-      koa:
-        specifier: ^2.3.0
-        version: 2.13.4
-      koa-static:
-        specifier: ^4.0.1
-        version: 4.0.3
-
   src/network/cache:
     devDependencies:
       koa:
@@ -73,6 +70,10 @@ importers:
       mime-types:
         specifier: ^2.1.35
         version: 2.1.35
+
+  src/network/method: {}
+
+  src/network/sse: {}
 
   src/node/babel:
     dependencies:
@@ -101,11 +102,7 @@ importers:
         specifier: ^7.20.7
         version: 7.20.7
 
-  src/security:
-    dependencies:
-      he:
-        specifier: ^1.2.0
-        version: 1.2.0
+  src/shared: {}
 
   src/vue:
     dependencies:
@@ -3419,6 +3416,7 @@ packages:
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
+    dev: true
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -6041,6 +6039,19 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
+
+  /ws@8.15.1:
+    resolution: {integrity: sha512-W5OZiCjXEmk0yZ66ZN82beM5Sz7l7coYxpRkzS+p9PP+ToQry8szKh+61eNktr7EA9DOwvFGhfC605jDHbP6QQ==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
 
   /xml-name-validator@3.0.0:
     resolution: {integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==}
