@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "description": "全局共享工具方法",
   "main": "index.js",
+  "bin": {
+    "fake": "./fake-server/app.mjs"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "progress": "^2.0.3"
+  }
 }

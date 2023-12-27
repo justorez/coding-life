@@ -1,0 +1,79 @@
+<style>
+    .upload-progress {
+        border: 1px solid #efefef;
+    }
+</style>
+<div class="box">
+    <input type="file" id="file" accept="video/*" />
+    <button onclick="upload()">上传</button>
+    <p id="progress"></p>
+    <h3 id="msg"></h3>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>
+<script>
+    const api = axios.create({
+        baseURL: 'http://127.0.0.1:3333',
+        maxBodyLength: 2 * 1024 * 1024 * 1024,
+        maxContentLength: 2 * 1024 * 1024 * 1024
+    })
+    api.interceptors.response.use(
+        (response) => response.data,
+        (error) => Promise.reject(error.message)
+    )
+
+    const fileElem = document.querySelector('#file')
+    const msgElem = document.querySelector('#msg')
+    const setTips = (msg) => msgElem.innerHTML = msg
+
+    function upload() {
+        setTips('')
+
+        /** @type {File} */
+        const file = fileElem.files[0]
+        if (!file) {
+            return alert('请选择文件')
+        }
+
+        const bar = createThrobber()
+        api.post(`/up/${file.name}`, file, {
+            onUploadProgress(event) {
+                // console.log(event)
+                bar.update(event.progress)
+            },
+            headers: {
+                'Content-Type': file.type
+            }
+        }).then(setTips, setTips)
+    }
+
+    const progressElem = document.querySelector('#progress')
+    function createThrobber() {
+        if (progressElem.firstChild) {
+            progressElem.removeChild(progressElem.firstChild)
+        }
+        const throbberWidth = 299
+        const throbberHeight = 10
+        const throbber = document.createElement('canvas')
+        throbber.classList.add('upload-progress')
+        throbber.setAttribute('width', throbberWidth)
+        throbber.setAttribute('height', throbberHeight)
+        progressElem.appendChild(throbber)
+        throbber.ctx = throbber.getContext('2d')
+        throbber.ctx.fillStyle = 'orange'
+        throbber.update = (percent) => {
+            throbber.ctx.fillRect(
+                0,
+                0,
+                throbberWidth * percent,
+                throbberHeight
+            )
+            console.log(percent)
+            if (percent === 1) {
+                throbber.ctx.fillStyle = 'green'
+                throbber.ctx.fillRect(0, 0, throbberWidth, throbberHeight)
+            }
+        }
+        throbber.update(0)
+        return throbber
+    }
+</script>
