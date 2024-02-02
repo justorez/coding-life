@@ -19,7 +19,8 @@
 function get(object, path, defaultValue) {
     // a[3].b -> a.3.b -> [a, 3, b]
     // 正则三合一：/\[["']?(\w+)['"]?\]/g
-    const paths = path
+    const paths = !Array.isArray(path) ? path :
+    path
         .replace(/\[(\w+)\]/g, '.$1')
         .replace(/\["(\w+)"\]/g, '.$1')
         .replace(/\['(\w+)'\]/g, '.$1')

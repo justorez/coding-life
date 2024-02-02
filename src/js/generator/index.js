@@ -7,9 +7,9 @@ function* test() {
 // 上述代码经过 babel 编译后
 function _test() {
     let a
-    return generator(function(context) {
-        while(1) {
-            switch((context.prev = context.next)) {
+    return generator(function (context) {
+        for (;;) {
+            switch ((context.prev = context.next)) {
                 case 0:
                     a = 1 + 2
                     context.next = 4
@@ -30,14 +30,14 @@ function _test() {
  * @param {Function} cb 回调函数
  */
 function generator(cb) {
-    return (function() {
+    return (function () {
         let obj = {
             next: 0,
-            stop: function() {}
+            stop: function () {}
         }
 
         return {
-            next: function() {
+            next: function () {
                 let ret = cb(obj)
                 if (ret === undefined) {
                     return {
@@ -56,10 +56,11 @@ function generator(cb) {
 }
 
 // 测试
-// let g = _test()
-// console.log(g.next())
-// console.log(g.next())
-// console.log(g.next())
+let g = _test()
+console.log(g.next())
+console.log(g.next())
+console.log(g.next())
+console.log()
 
 function* test2() {
     let x = yield 1
