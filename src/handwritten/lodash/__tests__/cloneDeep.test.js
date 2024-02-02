@@ -13,7 +13,7 @@ describe('深拷贝', () => {
             str: 'abc',
             arr: [1, 2, 3, 'abc', { name: 'array' }],
             now: new Date(),
-            reg: /cloneDeep/ig,
+            reg: /cloneDeep/gi,
             data: {
                 id: '123456',
                 value: 'clone result'

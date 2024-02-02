@@ -5,7 +5,7 @@ const router = createRouter({
     routes: [
         { path: '/', redirect: '/maxlength' },
         ...generateRoutes(['intro', 'virtualList/:type'], 'components'),
-        ...generateRoutes(['maxlength', 'moreline', 'zoom', 'lazyload']),
+        ...generateRoutes(['maxlength', 'moreline', 'zoom', 'lazyload'])
     ]
 })
 

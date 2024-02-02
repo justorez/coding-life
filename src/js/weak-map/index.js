@@ -19,40 +19,40 @@ class WeakMap {
             }
         }
     }
-    
+
     set(key, value) {
         if (!isObject(key)) {
             throw new TypeError('Invalid value used as weak map key')
         }
-        
+
         if (Reflect.has(key, this.uid)) {
             const entry = key[this.uid]
             entry[1] = value
             return this
         }
-        
+
         Reflect.defineProperty(key, this.uid, {
             value: [key, value],
             configurable: true,
             writable: false,
             enumerable: false
         })
-        
+
         return this
     }
-    
+
     has(key) {
         if (!isObject(key)) return false
         if (Reflect.has(key, this.uid)) return true
         return false
     }
-    
+
     get(key) {
         if (!isObject(key)) return undefined
         const entry = key[this.uid]
         return entry && entry[1]
     }
-    
+
     delete(key) {
         if (!isObject(key)) return false
         if (!Reflect.has(key, this.uid)) return false

@@ -40,13 +40,11 @@ class Loading {
 let globalId = 0
 function query(keyword) {
     let curId = ++globalId
-    return axios
-        .post('/list', { keyword })
-        .then((res) => {
-            if (globalId === curId) {
-                return res
-            } else {
-                return Promse.reject('无用的请求响应')
-            }
-        })
+    return axios.post('/list', { keyword }).then((res) => {
+        if (globalId === curId) {
+            return res
+        } else {
+            return Promse.reject('无用的请求响应')
+        }
+    })
 }

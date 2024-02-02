@@ -3,7 +3,7 @@
  *
  * @param {string} s
  */
-function isValid(s) {
+function _isValid(s) {
     const stack = []
     stack.top = () => stack[stack.length - 1]
     for (const ch of s) {

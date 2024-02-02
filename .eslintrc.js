@@ -16,7 +16,9 @@ module.exports = {
         'prettier/prettier': 'warn',
         'no-unref': 'off',
         'no-undef': 'off',
-        'no-unused-vars': 'off'
+        'no-unused-vars': 'off',
+        'no-sparse-arrays': 'off',
+        'no-extra-semi': 'off'
     },
     overrides: [
         {

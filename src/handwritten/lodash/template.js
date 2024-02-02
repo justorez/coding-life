@@ -1,6 +1,6 @@
 /**
  * 版本一：简易字符串模板渲染
- * 
+ *
  * ```js
  * let template = '我是{{name}}，年龄{{age}}，性别{{sex}}'
  * ```
@@ -10,15 +10,15 @@ function _template(tpl) {
     // 如果正则表达式设置了全局标志，reg.test 的执行会改变正则表达式 lastIndex 属性。
     // 连续的执行 reg.test，后续的执行将会从 lastIndex 处开始匹配字符串
     const reg = /\{\{(\w+)\}\}/g
-    const groups = [ ...tpl.matchAll(reg) ]
-    
+    const groups = [...tpl.matchAll(reg)]
+
     return function (data) {
         if (groups.length <= 0) {
             return tpl
         }
 
         for (const group of groups) {
-            const value = data[ group[1] ] || ''
+            const value = data[group[1]] || ''
             tpl = tpl.replace(group[0], value)
         }
         return tpl
@@ -27,7 +27,7 @@ function _template(tpl) {
 
 /**
  * 版本二：支持深层取值
- * 
+ *
  * @param {string} tpl 模板字符串
  * @example
  * ```js
@@ -54,7 +54,9 @@ function template(tpl) {
         // return tpl.replace(/{{\s*(['"\[\]\.\w\d]+)\s*}}/g, (_, path) => get(data, path))
 
         // 写法2：对模板预处理，不用每次都在 get 方法处理模板
-        return tpl.replace(/{{\s*([\.\w\d]+)\s*}}/g, (_, path) => get(data, path))
+        return tpl.replace(/{{\s*([.\w\d]+)\s*}}/g, (_, path) =>
+            get(data, path)
+        )
     }
 }
 

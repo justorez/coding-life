@@ -1,7 +1,7 @@
 /**
  * 大数加法
- * @param {string} x 
- * @param {string} y 
+ * @param {string} x
+ * @param {string} y
  */
 function bigAdd(x, y) {
     if (x === '') return x
@@ -17,7 +17,7 @@ function bigAdd(x, y) {
         let val = n + m + carry
         // carry = val >= 10 ? 1 : 0
         carry = ~~(val / 10) // 两次按位取反：取整数部分
-        res = val % 10 + res
+        res = (val % 10) + res
     }
 
     return carry ? '1' + res : res

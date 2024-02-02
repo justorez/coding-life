@@ -18,7 +18,7 @@ function binToDec(num) {
 
 /**
  * 十进制转二进制
- * 
+ *
  * @param {number} num 十进制数值
  */
 function decToBin(num) {
@@ -30,7 +30,7 @@ function decToBin(num) {
         }
         return result
     }
-    
+
     function fractionToBin(num) {
         const result = []
         let i = 0
@@ -45,8 +45,8 @@ function decToBin(num) {
 
     const [int, fraction] = String(num)
         .split(/(?=\.)/)
-        .map((x, i) => i === 0 ? intToBin(x) : fractionToBin(x))
-        .map(x => x.join(''))
+        .map((x, i) => (i === 0 ? intToBin(x) : fractionToBin(x)))
+        .map((x) => x.join(''))
     return `${int || 0}${fraction ? '.' + fraction : ''}`
 }
 

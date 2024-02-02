@@ -1,4 +1,4 @@
-function A() { }
+function A() {}
 function B(a) {
     this.a = a
 }

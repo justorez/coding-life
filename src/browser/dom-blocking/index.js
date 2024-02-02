@@ -38,5 +38,7 @@ app.listen(3000, () => {
     console.log(`示例2：CSS 阻塞 DOM 渲染 http://localhost:3000/2.html`)
     console.log(`示例3：JS 阻塞 DOM 解析 http://localhost:3000/3.html`)
     console.log(`示例4：<script> 会触发页面渲染 http://localhost:3000/4.html`)
-    console.log(`示例5：空 <script> 不会触发页面渲染 http://localhost:3000/5.html`)
+    console.log(
+        `示例5：空 <script> 不会触发页面渲染 http://localhost:3000/5.html`
+    )
 })

@@ -1,4 +1,4 @@
-let charsetRegExp = /^[\d\.]+$/ // 校验是否为数字
+let charsetRegExp = /^[\d.]+$/ // 校验是否为数字
 let defaultOption = {
     thousandSeparator: ',', // 千分位分隔符
     decimalSeparator: '.', // 小数分隔符
@@ -30,16 +30,17 @@ function thousandify(amount, option) {
     if (isNumber(decimalDigits)) {
         decimalStr = decimalStr.substring(0, decimalDigits)
     }
-    return !!decimalStr
+    return decimalStr
         ? [intPartStr, decimalStr].join(decimalSeparator)
         : intPartStr
 }
 
 // 正则太复杂？用循环实现
 function fn(s) {
-    let res = '', len = s.length
+    let res = '',
+        len = s.length
     for (let i = len - 1; i >= 0; i--) {
-        const sep = (len - i - 1) % 3 ? '' : ',';
+        const sep = (len - i - 1) % 3 ? '' : ','
         res = s[i] + sep + res
     }
     return res.slice(0, -1)

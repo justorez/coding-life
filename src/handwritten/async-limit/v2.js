@@ -44,8 +44,11 @@ function test() {
             return sleep(500).then(() => i)
         }
 
-        scheduler.add(task, i)
-            .then(res => console.log(res, scheduler.activeCount, scheduler.pendingCount))
+        scheduler
+            .add(task, i)
+            .then((res) =>
+                console.log(res, scheduler.activeCount, scheduler.pendingCount)
+            )
             .catch(console.error)
     }
 }

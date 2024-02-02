@@ -10,20 +10,22 @@ const server = http.createServer((req, res) => {
     if (req.url === '/') {
         res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
         fs.createReadStream('./index.html').pipe(res)
-    }
-    else if (req.method === 'GET' && req.url === '/query') {
+    } else if (req.method === 'GET' && req.url === '/query') {
         res.writeHead(200, { 'Content-Type': 'application/json' })
-        res.write(JSON.stringify({
-            count: ++count
-        }))
+        res.write(
+            JSON.stringify({
+                count: ++count
+            })
+        )
         res.end()
-    }
-    else if (req.method === 'GET' && req.url === '/cache/query') {
+    } else if (req.method === 'GET' && req.url === '/cache/query') {
         res.setHeader('Cache-Control', 'max-age=5')
         res.writeHead(200, { 'Content-Type': 'application/json' })
-        res.write(JSON.stringify({
-            count: ++count2
-        }))
+        res.write(
+            JSON.stringify({
+                count: ++count2
+            })
+        )
         res.end()
     }
 })

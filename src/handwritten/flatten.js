@@ -1,4 +1,4 @@
-const isObject = (val) =>  typeof val === "object" && val !== null
+const isObject = (val) => typeof val === 'object' && val !== null
 const isArray = (val) => Array.isArray(val)
 /**
  * 对象扁平化
@@ -8,12 +8,10 @@ function flatten(obj) {
     function dfs(o, prefix = '') {
         if (isArray(o)) {
             o.forEach((x, i) => dfs(x, `${prefix}[${i}]`))
-
         } else if (isObject(o)) {
             for (const k in o) {
                 dfs(o[k], `${prefix}${prefix ? '.' : ''}${k}`)
             }
-
         } else {
             res[prefix] = o
         }

@@ -1,7 +1,7 @@
 /**
  * 8 种数据类型：基本类型 + Object
  * 7 种基本类型：null、undefined、number、string、boolean、bigint、symbol
- * 
+ *
  * typeof null === 'object' ?
  * JS 最初版本中，使⽤ 32 位系统，为了性能考虑使⽤低位存储变量的类型信息，
  * 000 开头代表对象，然⽽ null 表示为全零，所以将它错误的判断为 object 。
@@ -34,8 +34,7 @@ function isBoolean(val) {
 }
 
 function isFunction(val) {
-    return typeOf(val) === 'Function'
-        || isGeneratorFunction(val)
+    return typeOf(val) === 'Function' || isGeneratorFunction(val)
 }
 
 function isArray(val) {
@@ -63,8 +62,7 @@ function isPromise(val) {
 }
 
 function isThenable(val) {
-    return (isObject(val) || isFunction(val)) &&
-        isFunction(val.then)
+    return (isObject(val) || isFunction(val)) && isFunction(val.then)
 }
 
 function isGenerator(val) {

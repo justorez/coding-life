@@ -2,16 +2,16 @@ const { binToDec } = require('./bin-dec')
 
 /**
  * 以下是双精度 64 位浮点数标准
- * 
+ *
  * V = (-1)^S * (1 + M) * 2^E
- * 
+ *
  * @param {number} num 十进制数值
  * @see https://github.com/mqyqingfeng/Blog/issues/155
  * @see https://www.h-schmidt.net/FloatConverter/IEEE754.html
  */
 function decTobinexp(num) {
     let sign, exponent, mantissa
-    let [int, fraction='0'] = String(Math.abs(num))
+    let [int, fraction = '0'] = String(Math.abs(num))
         .split(/(?=\.)/)
         .map((x) => Number(x).toString(2))
     // console.log(int, fraction)
@@ -24,7 +24,7 @@ function decTobinexp(num) {
         exponent = (int.length - 1 + 1023).toString(2)
         mantissa = (int.slice(1) + fraction.slice(2)).padEnd(52, 0)
     }
-    
+
     return {
         sign, // 符号位 1bit
         exponent, // 指数位 11bits
@@ -38,7 +38,7 @@ function binexpToDec(exp, bias = 1023) {
     const e = Number('0b' + exp.exponent) - bias
     const m = binToDec('0.' + exp.mantissa)
     // console.log(s, e, m)
-    return (-1)**s * (1 + m) * (2**e)
+    return (-1) ** s * (1 + m) * 2 ** e
 }
 
 exp = decTobinexp(0.1)

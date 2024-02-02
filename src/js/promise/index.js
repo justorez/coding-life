@@ -45,7 +45,7 @@ class JPromise {
 
     /**
      * 构造下一个 promise 的 result
-     * 
+     *
      * @param {function} onFulfilled
      * @param {function} onRejected
      * @returns next promise
@@ -87,7 +87,7 @@ class JPromise {
     /**
      * 所有 promise 都 resolve，则 resolve 结果数组；
      * 任一个 promise reject，则 reject 第一个错误。
-     * 
+     *
      * @param {Promise[]} promises
      */
     static all(promises = []) {
@@ -136,20 +136,22 @@ class JPromise {
     }
     /**
      * 借助 all 实现
-     * 
+     *
      * @param {Promise[]} promises
      */
     static allSettled2 = (promises = []) => {
-        const onFulfilled = (value) => ({ status: "fulfilled", value })
-        const onRejected = (reason) => ({ status: "rejected", reason })
+        const onFulfilled = (value) => ({ status: 'fulfilled', value })
+        const onRejected = (reason) => ({ status: 'rejected', reason })
         return Promise.all(
-            promises.map(promise => Promise.resolve(promise).then(onFulfilled, onRejected))
+            promises.map((promise) =>
+                Promise.resolve(promise).then(onFulfilled, onRejected)
+            )
         )
     }
 
     /**
      * 任一个 promise resolve/reject，返回的 promise resolve/reject。
-     * 
+     *
      * @param {Promise[]} promises
      */
     static race(promises = []) {
@@ -167,7 +169,7 @@ class JPromise {
     /**
      * 任一个 promise resolve，返回的 promise resolve；
      * 所有 promise reject，返回的 promise reject AggregateError。
-     * 
+     *
      * @param {Promise[]} promises
      */
     static any(promises = []) {

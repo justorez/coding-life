@@ -63,8 +63,11 @@ class LazyMan {
 function test() {
     const lazyMan = (name) => new LazyMan(name)
     lazyMan('Leo')
-        .eat('breakfast').sleep(2)
-        .eat('lunch').sleepFirst(1).sleep(2)
+        .eat('breakfast')
+        .sleep(2)
+        .eat('lunch')
+        .sleepFirst(1)
+        .sleep(2)
         .eat('dinner')
 }
 test()

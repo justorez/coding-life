@@ -1,7 +1,7 @@
 const slice = Array.prototype.slice
 const toString = Object.prototype.toString
 
-if(typeof module === 'object') {
+if (typeof module === 'object') {
     module.exports = co
 }
 
@@ -61,8 +61,10 @@ function co(gen) {
                 return value.then(onFulfilled, onRejected)
             }
             return onRejected(
-                new TypeError('You may only yield a function, promise, generator, array, or object, '
-                    + `but the following object was passed: "${String(ret.value)}"`)
+                new TypeError(
+                    'You may only yield a function, promise, generator, array, or object, ' +
+                        `but the following object was passed: "${String(ret.value)}"`
+                )
             )
         }
     })
@@ -150,7 +152,7 @@ function objectToPromise(obj) {
         // predefine the key in the result
         results[key] = undefined
         promises.push(
-            promise.then(res => {
+            promise.then((res) => {
                 results[key] = res
             })
         )
@@ -192,7 +194,7 @@ function isGeneratorFunction(obj) {
 
 /**
  * Check for plain object.
- * 
+ *
  * @param {*} val
  * @return {Boolean}
  * @api private

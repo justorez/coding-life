@@ -1,4 +1,4 @@
-var F = function () { }
+var F = function () {}
 
 Object.prototype.a = function () {
     return 'a'

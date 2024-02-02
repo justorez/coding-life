@@ -1,7 +1,7 @@
 /**
  * 实现 `String.prototype.toLowerCase`
- * 
- * @param {string} str 
+ *
+ * @param {string} str
  */
 function lowerCase(str) {
     let result = ''

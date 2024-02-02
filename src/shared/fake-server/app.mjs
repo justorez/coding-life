@@ -16,9 +16,9 @@ const server = createServer((req, res) => {
         return
     }
 
-    res.setHeader("access-control-allow-origin", "*")
-    res.setHeader("access-control-allow-headers", "*")
-    res.setHeader("access-control-allow-methods", "*")
+    res.setHeader('access-control-allow-origin', '*')
+    res.setHeader('access-control-allow-headers', '*')
+    res.setHeader('access-control-allow-methods', '*')
 
     if (req.url.includes('/up')) {
         const filename = decodeURIComponent(path.parse(req.url).base)

@@ -57,7 +57,7 @@ Array.prototype.unique4 = function () {
         const key =
             Object.prototype.toString.call(item) +
             (item instanceof RegExp ? item.toString() : JSON.stringify(item))
-        return obj.hasOwnProperty(key) ? false : (obj[key] = true)
+        return Reflect.has(obj, key) ? false : (obj[key] = true)
     })
 }
 

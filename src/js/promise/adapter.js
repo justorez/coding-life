@@ -1,7 +1,7 @@
-const Promise = require("./index")
+const Promise = require('./index')
 
-const resolved = value => Promise.resolve(value)
-const rejected = reason => Promise.reject(reason)
+const resolved = (value) => Promise.resolve(value)
+const rejected = (reason) => Promise.reject(reason)
 const deferred = () => {
     let promise, resolve, reject
     promise = new Promise(($resolve, $reject) => {
@@ -12,8 +12,8 @@ const deferred = () => {
 }
 
 // adapter for promises-aplus-tests
-module.exports = { 
-    resolved, 
-    rejected, 
-    deferred 
+module.exports = {
+    resolved,
+    rejected,
+    deferred
 }

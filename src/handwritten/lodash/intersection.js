@@ -1,15 +1,15 @@
 /**
  * 数组取交集
- * 
+ *
  * @param  {...number[]} arrays
  * @example
  * ```js
  * intersection([2, 1], [2, 3])
  * // => [2]
- * 
+ *
  * intersection([1, 2, 2], [1, 2, 2])
  * // => [1, 2]
- * 
+ *
  * intersection([1, 2, 2], [1, 2, 2], [1, 2])
  * // => [1, 2]
  * ```

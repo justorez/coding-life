@@ -1,6 +1,6 @@
 /**
  * 第 k 大的数
- * 
+ *
  * @param {array} arr
  * @param {number} k
  */

@@ -27,7 +27,7 @@ describe('call/apply 模拟实现', () => {
         let obj = {
             value: 1
         }
-        
+
         function bar(name, age) {
             return {
                 value: this.value,

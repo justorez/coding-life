@@ -1,5 +1,5 @@
 var foo = {},
-    F = function () { }
+    F = function () {}
 Object.prototype.a = 'a'
 Function.prototype.b = 'b'
 

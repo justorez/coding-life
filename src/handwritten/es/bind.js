@@ -30,12 +30,10 @@ Function.prototype._bind = function (context, ...args) {
     return fBound
 }
 
-
-
 /**
  * 软绑定：绑定后 this 指向还可以被修改
  */
-Function.prototype.softBind = function(context, ...args) {
+Function.prototype.softBind = function (context, ...args) {
     if (typeof this !== 'function') {
         throw new TypeError(
             'Function.prototype.bind called on incompatible target'
@@ -45,7 +43,7 @@ Function.prototype.softBind = function(context, ...args) {
     const self = this
     const fBound = function (...bindArgs) {
         return self.apply(
-            (!this || (this === globalThis)) ? context : this,
+            !this || this === globalThis ? context : this,
             args.concat(bindArgs)
         )
     }

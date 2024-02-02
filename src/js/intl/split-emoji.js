@@ -5,10 +5,7 @@ function splitEmoji(text) {
         granularity: 'grapheme' // 默认值
     })
     console.log(segmenter.segment(text))
-    return Array.from(
-        segmenter.segment(text),
-        s => s.segment
-    )
+    return Array.from(segmenter.segment(text), (s) => s.segment)
 }
 
 const emojiText = '表情文字👉🤣。'

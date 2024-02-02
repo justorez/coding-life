@@ -13,9 +13,9 @@ function listToTree(list, rootId = null) {
 
     for (const node of list) {
         const newNode = { ...node }
-        const { id, pid:parentId } = newNode
+        const { id, pid: parentId } = newNode
         newNode.children = record[id] ? record[id] : (record[id] = [])
-        
+
         if (parentId === rootId) {
             root.push(newNode)
         } else {

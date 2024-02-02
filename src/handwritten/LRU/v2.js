@@ -9,14 +9,14 @@ class DoubleLinkedListNode {
 
 /**
  * 双向链表 + 哈希表
- * 
+ *
  * 1. 首先使用哈希表进行定位，找出缓存项在双向链表中的位置，
  * 2. 随后将其移动到双向链表的头部，即可在 O(1) 的时间内完成 get 或者 put 操作。
  * @see https://leetcode.cn/problems/lru-cache/solution/lruhuan-cun-ji-zhi-by-leetcode-solution/
  */
 class LRUCache {
     /**
-     * @param {number} capacity 
+     * @param {number} capacity
      */
     constructor(capacity) {
         const head = new DoubleLinkedListNode()
@@ -41,8 +41,8 @@ class LRUCache {
 
     /**
      * 缓存满时，移除链表尾节点
-     * @param {*} key 
-     * @param {*} value 
+     * @param {*} key
+     * @param {*} value
      */
     put(key, value) {
         if (this.data.has(key)) {
@@ -71,7 +71,7 @@ class LRUCache {
 
     /**
      * 若 key 存在，则把节点移动到表头
-     * @param {*} key 
+     * @param {*} key
      */
     visit(key) {
         if (this.data.has(key)) {

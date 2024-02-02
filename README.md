@@ -82,6 +82,7 @@ pnpm start:cache
 - [shuffle](./src/handwritten/lodash/shuffle.js)
 - [sample/sampleSize](./src/handwritten/lodash/sample.js)
 - [get](./src/handwritten/lodash/get.js)
+- [set](./src/handwritten/lodash/set.js)
 - [keyBy](./src/handwritten/lodash/keyBy.js)
 - [maxBy](./src/handwritten/lodash/maxBy.js)
 - [groupBy](./src/handwritten/lodash/groupBy.js)

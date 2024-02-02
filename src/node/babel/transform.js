@@ -22,7 +22,7 @@ traverse(originAST, {
             var newNode = t.memberExpression(
                 t.identifier('document'),
                 t.identifier('getElementById')
-            ) 
+            )
             // 创建目标节点
             path.replaceWith(newNode) // 替换原始节点
             path.stop()
@@ -37,6 +37,6 @@ const targetCode = generate(
         /* options */
     },
     orginCode
-) 
+)
 
 console.log(targetCode)

@@ -24,7 +24,7 @@ class Subject {
     }
     notify(task) {
         console.log('>>> 发布五星任务')
-        this.observerList.forEach(observer => observer.update(task))
+        this.observerList.forEach((observer) => observer.update(task))
     }
 }
 

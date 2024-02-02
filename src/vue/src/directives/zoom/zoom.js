@@ -32,22 +32,22 @@ const directive = {
         function onTouchStart(event) {
             const { touches } = event
             // console.log(touches[0])
-        
+
             if (touches.length === 1 && scale !== 1) {
                 startMove(event)
             } else if (touches.length === 2) {
                 startZoom(event)
             }
         }
-        
+
         function startMove(event) {
             const { currentTarget, touches } = event
             const el = currentTarget
             const rect = el.getBoundingClientRect()
-        
+
             startX = touches[0].clientX
             startY = touches[0].clientY
-        
+
             moving = true
             zooming = false
             moveX = moveX === 0 ? parentPadding.left : moveX
@@ -57,9 +57,15 @@ const directive = {
 
             if (expired) {
                 const topGap = parentRect.y - rect.y
-                maxMoveX = (rect.width - parentRect.width) / 2 + parentPadding.left
+                maxMoveX =
+                    (rect.width - parentRect.width) / 2 + parentPadding.left
                 maxMoveY.max = topGap + parentPadding.top
-                maxMoveY.min = -(rect.height - topGap - parentRect.height + parentPadding.top)
+                maxMoveY.min = -(
+                    rect.height -
+                    topGap -
+                    parentRect.height +
+                    parentPadding.top
+                )
                 expired = false
 
                 console.log('rect:', JSON.stringify(rect))
@@ -68,7 +74,7 @@ const directive = {
                 console.log('maxMoveY.max: ', maxMoveY.max)
             }
         }
-        
+
         function startZoom(event) {
             expired = true
             moving = false
@@ -76,7 +82,7 @@ const directive = {
             startScale = scale
             startDistance = getDistance(event.touches)
         }
-        
+
         function onTouchMove(event) {
             if (!moving && !zooming) return
 
@@ -84,7 +90,7 @@ const directive = {
             if (moving || zooming) {
                 preventDefault(event, true)
             }
-        
+
             if (moving) {
                 const touch = touches[0]
                 const deltaX = touch.clientX - startX
@@ -94,25 +100,25 @@ const directive = {
                 moveX = range(_moveX, -maxMoveX, maxMoveX)
                 moveY = range(_moveY, maxMoveY.min, maxMoveY.max)
             }
-        
+
             if (zooming && touches.length === 2) {
                 const distance = getDistance(touches)
                 const _scale = (startScale * distance) / startDistance
                 scale = range(_scale, minZoom, maxZoom)
             }
-        
+
             render()
         }
-        
+
         function onTouchEnd(event) {
             if (!moving && !zooming) return
-        
+
             let stopPropagation = true
-        
+
             if (moving && startMoveX === moveX && startMoveY === moveY) {
                 stopPropagation = false
             }
-            
+
             if (!event.touches.length) {
                 moving = false
                 zooming = false
@@ -125,7 +131,7 @@ const directive = {
                     render()
                 }
             }
-        
+
             if (stopPropagation) {
                 preventDefault(event, true)
             }
@@ -136,11 +142,11 @@ const directive = {
             moveX = 0
             moveY = 0
         }
-        
+
         function render() {
             requestAnimationFrame(() => {
                 el.style.transformOrigin = 'center top'
-                el.style.transition = (zooming || moving) ? '' : '.3s all'
+                el.style.transition = zooming || moving ? '' : '.3s all'
 
                 const translateX = Number(moveX / scale).toFixed(2)
                 const translateY = Number(moveY / scale).toFixed(2)

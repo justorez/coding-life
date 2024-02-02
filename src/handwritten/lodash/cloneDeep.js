@@ -4,11 +4,10 @@ const isDate = (val) => typeOf(val) === 'Date'
 const isRegExp = (val) => typeOf(val) === 'RegExp'
 const isArray = (val) => typeOf(val) === 'Array'
 
-
 /**
  * structuredClone API 可实现深拷贝，不过支持的浏览器不多
- * 
- * @param {Object} target 
+ *
+ * @param {Object} target
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone
  */
 function cloneDeep(target, map = new WeakMap()) {
@@ -31,8 +30,8 @@ function cloneDeep(target, map = new WeakMap()) {
 
     // 数组类型
     const result = isArray(target) ? [] : {}
-    map.set(target, result)  // 缓存循环引用的拷贝结果
-    
+    map.set(target, result) // 缓存循环引用的拷贝结果
+
     /**
      * for...in 迭代除 Symbol 以外的可枚举属性，包括继承的可枚举属性。
      * 若使用 for...in 则要用 Object.hasOwn 过滤继承属性。

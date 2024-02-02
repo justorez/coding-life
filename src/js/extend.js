@@ -25,7 +25,6 @@ function byPrototype() {
 }
 // byPrototype()
 
-
 /**
  * 构造函数继承
  * 1. 避免了引用类型的属性被所有实例共享；
@@ -36,7 +35,7 @@ function byConstructor() {
     function Parent(name) {
         this.name = name
         this.colors = ['black']
-        this.go = function() {
+        this.go = function () {
             console.log('go!', this.name)
         }
     }
@@ -66,7 +65,7 @@ function compose() {
         this.name = name
         this.colors = ['black']
     }
-    Parent.prototype.go = function() {
+    Parent.prototype.go = function () {
         console.log('go!', this.name)
     }
 
@@ -97,7 +96,7 @@ function parasiticCompostion() {
         this.name = name
         this.colors = ['black']
     }
-    Parent.prototype.go = function() {
+    Parent.prototype.go = function () {
         console.log('go!', this.name)
     }
 
@@ -117,7 +116,6 @@ function parasiticCompostion() {
 }
 // parasiticCompostion()
 
-
 // 将寄生组合式继承封装一下
 function objectCreate(o) {
     function F() {}
@@ -128,5 +126,3 @@ function prototype(Child, Parent) {
     Child.prototype = Object.create(Parent.prototype) // 和 objectCreate() 功能相同
     Child.prototype.constructor = Child
 }
-
-

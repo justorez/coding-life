@@ -36,6 +36,6 @@ const result = []
 for (let i = 0; i < 1000; i++) {
     result.push(rand(peoples))
 }
-console.log(result.filter(x => x === 'p1').length)
-console.log(result.filter(x => x === 'p2').length)
-console.log(result.filter(x => x === 'p3').length)
+console.log(result.filter((x) => x === 'p1').length)
+console.log(result.filter((x) => x === 'p2').length)
+console.log(result.filter((x) => x === 'p3').length)

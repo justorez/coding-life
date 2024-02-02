@@ -1,8 +1,8 @@
 /**
  * 无限累加
- * 
+ *
  * 实现 sum 相加，可覆写 `valueOf`、`toString` 或 `Symbol.toPrimitive`
- * 
+ *
  * @example
  * ```js
  * sum(1)(2)(3)() = 6
@@ -11,7 +11,8 @@
  * ```
  */
 function sum(...args) {
-    const f = (...fArgs) => !fArgs.length ? f.valueOf() : sum(...args, ...fArgs)
+    const f = (...fArgs) =>
+        !fArgs.length ? f.valueOf() : sum(...args, ...fArgs)
     f.valueOf = () => args.reduce((cur, next) => cur + next)
     return f
 }

@@ -30,7 +30,7 @@ describe('bind 模拟实现', () => {
             return this.value
         }
 
-        const bindFoo = foo.softBind({value: 'foo'})
+        const bindFoo = foo.softBind({ value: 'foo' })
         const obj = {
             value: 'obj',
             fn: bindFoo

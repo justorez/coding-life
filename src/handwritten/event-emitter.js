@@ -1,11 +1,11 @@
 // 事件总线：发布-订阅模式
-class EventEmitter  {
+class EventEmitter {
     constructor() {
         this.cache = {}
     }
 
     indexOf(name, fn) {
-        return (this.cache[name] || []).findIndex(f => f === fn)
+        return (this.cache[name] || []).findIndex((f) => f === fn)
     }
 
     /**
@@ -26,7 +26,7 @@ class EventEmitter  {
         if (this.cache[name]) {
             this.cache[name].push(fn)
         } else {
-            this.cache[name] = [ fn ]
+            this.cache[name] = [fn]
         }
     }
 

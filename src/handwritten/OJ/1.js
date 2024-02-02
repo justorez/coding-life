@@ -1,6 +1,6 @@
 /**
  * 去除字符串中出现次数最少的字符，不改变原字符串的顺序
- * 
+ *
  * @example
  * ababac => ababa
  * aaabbbcceeff => aaabbb
@@ -12,8 +12,11 @@ function fn(str) {
     }
 
     const entries = Object.entries(map)
-    const min = entries.reduce((x, y) => x[1] < y[1] ? x[1] : y[1])
-    const minChars = entries.reduce((r, [c, n]) => n === min ? r.concat(c) : r, [])
+    const min = entries.reduce((x, y) => (x[1] < y[1] ? x[1] : y[1]))
+    const minChars = entries.reduce(
+        (r, [c, n]) => (n === min ? r.concat(c) : r),
+        []
+    )
 
     let res = ''
     for (const char of str) {

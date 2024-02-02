@@ -9,16 +9,17 @@ function debounce(func, wait, immediate) {
     let timer, context, args, result
 
     // 延迟执⾏函数
-    const later = () => setTimeout(() => {
-        // 延迟函数执⾏完毕，清空缓存的定时器序号
-        timer = null
-        // 延迟执⾏的情况下，函数会在延迟函数中执⾏
-        // 使⽤到之前缓存的参数和上下⽂
-        if (!immediate) {
-            result = func.apply(context, args)
-            context = args = null
-        }
-    }, wait)
+    const later = () =>
+        setTimeout(() => {
+            // 延迟函数执⾏完毕，清空缓存的定时器序号
+            timer = null
+            // 延迟执⾏的情况下，函数会在延迟函数中执⾏
+            // 使⽤到之前缓存的参数和上下⽂
+            if (!immediate) {
+                result = func.apply(context, args)
+                context = args = null
+            }
+        }, wait)
 
     let debounced = function (...params) {
         // 如果没有创建延迟执⾏函数（later），就创建⼀个
@@ -40,7 +41,7 @@ function debounce(func, wait, immediate) {
         return result
     }
 
-    debounced.cancel = function() {
+    debounced.cancel = function () {
         clearTimeout(timer)
         timer = context = args = null
     }
@@ -51,7 +52,7 @@ function debounce(func, wait, immediate) {
 // 简易版
 function simple(func, wait) {
     let timer
-    return function(...args) {
+    return function (...args) {
         clearTimeout(timer)
         timer = setTimeout(() => {
             func.apply(this, args)

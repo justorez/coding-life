@@ -28,7 +28,7 @@ function fileUpload() {
             console.log(event) // node 环境下进度不是真实的
         },
         headers: {
-            "Content-Type": 'video/mp4'
+            'Content-Type': 'video/mp4'
         }
     }).then(console.log, console.error)
 }

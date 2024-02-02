@@ -16,7 +16,7 @@ function throttle(func, wait, options) {
     trailing = typeof trailing === 'boolean' ? trailing : true
 
     // 定时器回调函数
-    let later = function() {
+    let later = function () {
         previous = !leading ? 0 : Date.now()
         timer = null
         result = func.apply(context, args)
@@ -25,16 +25,16 @@ function throttle(func, wait, options) {
         }
     }
 
-    let throttled = function(..._args) {
+    let throttled = function (..._args) {
         context = this
         args = _args
-        
+
         let now = Date.now()
         if (!previous && !leading) {
             previous = now
         }
         let remaining = wait - (now - previous)
-        
+
         // 如果当前调用已经大于上次调用时间 + wait
         // 如果设置了 trailing，只会进入这个条件
         // 如果设置了 leading，那么第一次会进入这个条件
@@ -57,7 +57,7 @@ function throttle(func, wait, options) {
         return result
     }
 
-    throttled.cancel = function() {
+    throttled.cancel = function () {
         clearTimeout(timer)
         previous = 0
         timer = context = args = null

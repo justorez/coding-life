@@ -17,11 +17,15 @@ let data = {
 }
 
 let obj = { a: 1 }
-let p = watch(obj, (v) => {
-    data.value = v
-}, (target, property) => {
-    console.log(`Get '${property}' = ${target[property]}`)
-})
+let p = watch(
+    obj,
+    (v) => {
+        data.value = v
+    },
+    (target, property) => {
+        console.log(`Get '${property}' = ${target[property]}`)
+    }
+)
 
 p.a = 2
 console.log(p.a, data)

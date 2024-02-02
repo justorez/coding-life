@@ -7,7 +7,7 @@ babel.transform(
     code,
     {
         // '@babel/preset-env' 可简写
-        presets: ['@babel/env'] 
+        presets: ['@babel/env']
     },
     function (err, result) {
         if (err) return console.error(err)

@@ -3,7 +3,8 @@ const ZipPlugin = require('zip-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const appName = 'dist'
-const { NODE_ENV, VUE_APP_UIAP_HOST, VUE_APP_HOST, VUE_APP_DEBUGGER } = process.env
+const { NODE_ENV, VUE_APP_UIAP_HOST, VUE_APP_HOST, VUE_APP_DEBUGGER } =
+    process.env
 const debugging = VUE_APP_DEBUGGER !== 'true' && NODE_ENV === 'production'
 const themeFilePath = path.join(__dirname, './src/styles/theme.less')
 
@@ -52,18 +53,20 @@ module.exports = {
             })
         ],
         optimization: {
-            // if the environment is development then optimization.chunkIds is set to 'named', 
+            // if the environment is development then optimization.chunkIds is set to 'named',
             // while in production it is set to 'deterministic'
             chunkIds: 'deterministic',
             minimizer: [
                 new TerserPlugin({
                     terserOptions: {
-                        compress: debugging ? {
-                            warnings: false,
-                            drop_console: true,
-                            drop_debugger: true,
-                            pure_funcs: ['console.log']
-                        } : {}
+                        compress: debugging
+                            ? {
+                                  warnings: false,
+                                  drop_console: true,
+                                  drop_debugger: true,
+                                  pure_funcs: ['console.log']
+                              }
+                            : {}
                     }
                 })
             ],

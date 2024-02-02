@@ -1,6 +1,6 @@
 /**
- * @param {object[]} array 
- * @param {function} by 
+ * @param {object[]} array
+ * @param {function} by
  */
 function groupBy(array, by) {
     return array.reduce((res, o) => {

@@ -5,7 +5,7 @@
  */
 class LRUCache {
     /**
-     * @param {Number} capacity 
+     * @param {Number} capacity
      */
     constructor(capacity) {
         this.capacity = capacity

@@ -1,6 +1,6 @@
 /**
  * 实现一个 `promise.map`，进行并发数控制
- * 
+ *
  * @param {Array} array
  * @param {Function} mapper
  * @param {Number} concurrency

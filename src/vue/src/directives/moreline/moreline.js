@@ -5,7 +5,7 @@ const directive = {
         if (row <= maxRow) {
             return
         }
-        
+
         let rawContent = el.innerText
         let newContent = el.innerText
 
@@ -54,9 +54,8 @@ function getRowCount(el) {
 
     // 获取行高
     let style = window.getComputedStyle(lineNode)
-    let lineHeight = style.lineHeight === 'normal'
-        ? lineNode.offsetHeight
-        : style.lineHeight
+    let lineHeight =
+        style.lineHeight === 'normal' ? lineNode.offsetHeight : style.lineHeight
     if (typeof lineHeight === 'string') {
         lineHeight = Number(lineHeight.replace('px', ''))
     }
@@ -70,7 +69,8 @@ function getRowCount(el) {
 // 仅针对行内元素 display:inline
 function getRowCount2(el) {
     let rects = el.getClientRects()
-    let row = 0, lastBottom = 0
+    let row = 0,
+        lastBottom = 0
     for (const rect of rects) {
         if (rect.bottom === lastBottom) {
             continue

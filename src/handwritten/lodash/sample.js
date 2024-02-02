@@ -1,9 +1,9 @@
 /**
  * 从数组随机取一个元素
- * @param {Array} array 
+ * @param {Array} array
  */
 function sample(array) {
-    return array[ Math.floor(Math.random() * array.length) ]
+    return array[Math.floor(Math.random() * array.length)]
 }
 
 function sampleSize(array, size = 1) {
@@ -15,7 +15,7 @@ function shuffle(array) {
     let lastIndex = arr.length
     while (--lastIndex) {
         const index = Math.floor(Math.random() * lastIndex)
-        ;[ arr[lastIndex], arr[index] ] = [ arr[index], arr[lastIndex] ]
+        ;[arr[lastIndex], arr[index]] = [arr[index], arr[lastIndex]]
     }
     return arr
 }

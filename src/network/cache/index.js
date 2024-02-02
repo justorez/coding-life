@@ -26,7 +26,7 @@ app.use(async (ctx) => {
     } else {
         const filePath = path.resolve(__dirname, `.${url}`)
         const fileBuffer = await parseStatic(filePath)
-        
+
         ctx.set('Content-Type', mime.lookup(url)) // 设置类型
 
         /** 强缓存 */
@@ -59,7 +59,11 @@ app.use(async (ctx) => {
         const etag = `"${hash.digest('hex')}"`
         console.log(`[${url}]`, '[if-none-match etag]', noneMatch, etag)
         // 对比 hash 值
-        if (noneMatch === etag || noneMatch === `W/${etag}` || `W/${noneMatch}` === etag) {
+        if (
+            noneMatch === etag ||
+            noneMatch === `W/${etag}` ||
+            `W/${noneMatch}` === etag
+        ) {
             ctx.status = 304
         } else {
             ctx.set('ETag', etag)

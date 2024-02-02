@@ -1,7 +1,7 @@
 /**
  * 数字转汉字，输入为不超过10000亿的数字
- * 
- * @param {number} num 
+ *
+ * @param {number} num
  */
 function trans(num) {
     const name = '零一二三四五六七八九十'.split('')

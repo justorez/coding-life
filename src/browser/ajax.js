@@ -13,7 +13,7 @@ const { isObject, isBoolean } = require('../js/types')
 function fetch({ method, url, params, headers, withCredentials } = {}) {
     method = method.toUpperCase()
     withCredentials = isBoolean(withCredentials) ? withCredentials : true
-    
+
     if (method === 'GET') {
         const query = new URLSearchParams(params)
         url = `${url}?${query}`
@@ -27,7 +27,7 @@ function fetch({ method, url, params, headers, withCredentials } = {}) {
         const xhr = new XMLHttpRequest()
         xhr.open(type, url, true)
         xhr.withCredentials = withCredentials
-        Object.keys(headers).forEach(key => {
+        Object.keys(headers).forEach((key) => {
             xhr.setRequestHeader(key, headers[key])
         })
         xhr.onreadystatechange = function () {

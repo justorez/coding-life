@@ -1,6 +1,6 @@
 /**
  * Promise.all
- * @param {Promise[]} promises 
+ * @param {Promise[]} promises
  */
 function pAll(promises = []) {
     return new Promise((resolve, reject) => {
@@ -8,7 +8,7 @@ function pAll(promises = []) {
         const len = promises.length
         const values = new Array(len)
 
-        const collect = index => value => {
+        const collect = (index) => (value) => {
             values[index] = value
             ++count === len && resolve(values)
         }

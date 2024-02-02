@@ -11,8 +11,8 @@ class EventHub {
     }
     /**
      * 订阅
-     * @param {string} type 
-     * @param {Function} cb 
+     * @param {string} type
+     * @param {Function} cb
      */
     subscribe(type, cb) {
         if (!this.events[type]) {
@@ -22,8 +22,8 @@ class EventHub {
     }
     /**
      * 发布
-     * @param {string} type 
-     * @param  {...any} args 
+     * @param {string} type
+     * @param  {...any} args
      */
     publish(type, ...args) {
         if (this.events[type]) {
@@ -32,8 +32,8 @@ class EventHub {
     }
     /**
      * 取消订阅
-     * @param {string} type 
-     * @param {Function} cb 
+     * @param {string} type
+     * @param {Function} cb
      */
     unsubscribe(type, cb) {
         const cbList = this.events[type]
@@ -48,7 +48,7 @@ class EventHub {
         }
     }
     /**
-     * @param {string} type 
+     * @param {string} type
      */
     unsubscribeAll(type) {
         if (this.events[type]) {
@@ -59,15 +59,15 @@ class EventHub {
 
 class Publisher {
     /**
-     * @param {EventHub} eventHub 
+     * @param {EventHub} eventHub
      */
     constructor(eventHub) {
         this.eventHub = eventHub
     }
 
     /**
-     * @param {string} event 
-     * @param  {...any} args 
+     * @param {string} event
+     * @param  {...any} args
      */
     publish(event, ...args) {
         this.eventHub.publish(event, ...args)
@@ -76,15 +76,15 @@ class Publisher {
 
 class Subscriber {
     /**
-     * @param {EventHub} eventHub 
+     * @param {EventHub} eventHub
      */
-     constructor(eventHub) {
+    constructor(eventHub) {
         this.eventHub = eventHub
     }
 
     /**
-     * @param {string} event 
-     * @param {Function} handler 
+     * @param {string} event
+     * @param {Function} handler
      */
     subscribe(event, handler) {
         this.eventHub.subscribe(event, handler)

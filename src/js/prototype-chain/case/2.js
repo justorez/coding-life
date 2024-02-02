@@ -1,5 +1,5 @@
 function test1() {
-    let A = function () { }
+    let A = function () {}
     A.prototype.n = 1
     let b = new A()
     A.prototype = {
@@ -16,7 +16,7 @@ function test1() {
 }
 
 function test2() {
-    let A = function () { }
+    let A = function () {}
     A.prototype.n = 1
     let b = new A()
 

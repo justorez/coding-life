@@ -22,7 +22,7 @@ class UserCard extends HTMLElement {
     }
 }
 
-const template = /*template*/`
+const template = /*template*/ `
 <template id="userCardTemplate">
     <img class="avatar" />
     <div class="container">

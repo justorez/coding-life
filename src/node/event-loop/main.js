@@ -80,7 +80,7 @@ const timeout = setInterval(() => {
         logger.info('Max interval count exceeded. Goodbye.', 'TIMERS PHASE')
         clearInterval(timeout)
     }
-    
+
     logger.info('END iteration ' + iteration + ': setInterval', 'TIMERS PHASE')
     iteration++
 }, 0)

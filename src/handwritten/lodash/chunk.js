@@ -1,6 +1,6 @@
 /**
  * 每 n 个元素分为一组
- * 
+ *
  * @param {number} size
  * @example
  * ```js

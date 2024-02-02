@@ -6,7 +6,9 @@ class Scheduler {
      * @param {number} concurrency 最大并发数
      */
     constructor(concurrency = Infinity) {
-        const isInteger = Number.isInteger(concurrency) || concurrency === Number.POSITIVE_INFINITY
+        const isInteger =
+            Number.isInteger(concurrency) ||
+            concurrency === Number.POSITIVE_INFINITY
         if (!(isInteger && concurrency > 0)) {
             throw new TypeError('concurrency 应为大于 0 的整数')
         }
@@ -38,7 +40,7 @@ class Scheduler {
             this.run()
         }
     }
-    
+
     async run() {
         if (this.pendingCount <= 0) {
             return
@@ -78,7 +80,8 @@ function test() {
                 return sleep(500).then(() => i)
             },
             args: [i],
-            onSuccess: res => console.log(res, scheduler.activeCount, scheduler.pendingCount),
+            onSuccess: (res) =>
+                console.log(res, scheduler.activeCount, scheduler.pendingCount),
             onError: console.error
         }
         scheduler.add(task)

@@ -1,7 +1,7 @@
 /**
  * Run a function exactly one time
- * 
- * @param {Function} fn 
+ *
+ * @param {Function} fn
  * @returns once function
  */
 function once(fn) {

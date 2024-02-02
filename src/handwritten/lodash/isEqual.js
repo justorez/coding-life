@@ -95,7 +95,12 @@ function deepEq(a, b, aStack, bStack) {
         if (Object.keys(b).length !== length) return false
         while (length--) {
             key = keys[length]
-            if (!(b.hasOwnProperty(key) && eq(a[key], b[key], aStack, bStack)))
+            if (
+                !(
+                    Object.prototype.hasOwnProperty.call(b, key) &&
+                    eq(a[key], b[key], aStack, bStack)
+                )
+            )
                 return false
         }
     }
