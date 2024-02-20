@@ -1,7 +1,6 @@
 ## Usage
 
 ```sh
-
 pnpm i              # 安装依赖
 pnpm start          # 预览静态 HTML 示例
 pnpm start:jsonp    # JSONP 示例
@@ -25,9 +24,10 @@ pnpm start:cache    # HTTP 缓存示例
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
 - [DOMContentLoaded 和 load](./src/browser/DCL.html)
 - [检测是否支持 Webp](./src/browser/check-webp.js)
-- [Web Components](./src/browser/web-components/index.html)
 - [JSONP](./src/browser/cross-origin/jsonp/client.html)
 - [反向代理](./src/browser/cross-origin/reverse-proxy/conf/nginx.conf)
+- [跨标签页通信](./src/browser/cross-tab-communication/index.html)
+- [Web Components](./src/browser/web-components/index.html)
 - [Copy, Paste, Selection, Clipboard](https://codepen.io/justorez/pen/XWxNPwb)
 - [DOM 绘制成图片](./src/browser/dom-to-img/index.html)
 - [浏览器指纹](./src/browser/fingerprint.html)

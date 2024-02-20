@@ -18,7 +18,8 @@ module.exports = {
         'no-undef': 'off',
         'no-unused-vars': 'off',
         'no-sparse-arrays': 'off',
-        'no-extra-semi': 'off'
+        'no-extra-semi': 'off',
+        '@typescript-eslint/no-unused-vars': 'off'
     },
     overrides: [
         {
