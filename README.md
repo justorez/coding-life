@@ -132,6 +132,7 @@ pnpm start:cache    # HTTP 缓存示例
 - [clientTop, clientWidth, scrollHeight, offsetTop, etc](./src/style/rect/index.html)
 - [层叠上下文](https://codepen.io/justorez/pen/YzBmmNd)
 - [Flex 布局](./src/style/flex.md)
+- [Grid 布局](./src/style/grid/readme.md)
 - [Grid 自适应布局](./src/style/grid/auto.html)
 - [响应式适配不同尺寸的移动设备](./src/style/responsive/rem.less)
 - [控制元素的显示和隐藏](https://codepen.io/justorez/pen/XWxNPLm)
