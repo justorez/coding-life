@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ES2020"],
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "resolveJsonModule": true,
+    "sourceMap": false,
+    "types": ["node"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "src/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

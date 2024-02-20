@@ -10,8 +10,8 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 'latest'
     },
-    plugins: ['prettier'],
-    extends: ['eslint:recommended'],
+    plugins: ['@typescript-eslint', 'prettier'],
+    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
     rules: {
         'prettier/prettier': 'warn',
         'no-unref': 'off',
@@ -22,7 +22,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/*.mjs', 'src/vue/**/*.js'],
+            files: ['**/*.mjs', 'src/vue/**/*.js', '**/*.ts'],
             parserOptions: {
                 sourceType: 'module'
             }

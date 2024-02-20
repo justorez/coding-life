@@ -1,23 +1,14 @@
 ## Usage
 
 ```sh
-# 安装依赖
-pnpm i
 
-# 预览静态 HTML 示例
-pnpm start
-
-# 启动 JSONP 示例
-pnpm start:jsonp
-
-# 启动 DOM 阻塞示例
-pnpm start:dom
-
-# 预览 vue 相关示例
-pnpm start:vue
-
-# 启动 HTTP 缓存示例
-pnpm start:cache
+pnpm i              # 安装依赖
+pnpm start          # 预览静态 HTML 示例
+pnpm start:jsonp    # JSONP 示例
+pnpm start:proxy    # 反向代理示例
+pnpm start:dom      # DOM 阻塞示例
+pnpm start:vue      # 预览 vue 相关示例
+pnpm start:cache    # HTTP 缓存示例
 ```
 
 ## Browser
