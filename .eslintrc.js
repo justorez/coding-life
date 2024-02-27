@@ -10,8 +10,8 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 'latest'
     },
-    plugins: ['@typescript-eslint', 'prettier'],
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+    plugins: ['prettier'],
+    extends: ['eslint:recommended'],
     rules: {
         'prettier/prettier': 'warn',
         'no-unref': 'off',
@@ -27,6 +27,14 @@ module.exports = {
             parserOptions: {
                 sourceType: 'module'
             }
+        },
+        {
+            files: ['**/*.ts'],
+            plugins: ['@typescript-eslint', 'prettier'],
+            extends: [
+                'eslint:recommended',
+                'plugin:@typescript-eslint/recommended'
+            ]
         }
     ]
 }

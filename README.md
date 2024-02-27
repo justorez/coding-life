@@ -36,12 +36,12 @@ pnpm start:cache    # HTTP 缓存示例
 ## JavaScript
 
 - [原型链](./src/js/prototype-chain/readme.md)
+- [继承](./src/js/extend.js)
 - [块级作用域](./src/js/scope/block.md)
 - [作用域链](./src/js/scope/chain.md)
 - [闭包](./src/js/scope/closure.md)
 - [this](./src/js/this/readme.md)
 - [类型判断](./src/js/types.js)
-- [继承](./src/js/extend.js)
 - [Number 最大数、最大安全整数、EPSILON](./src/js/number.md)
 - [解决 0.1 + 0.2 不等于 0.3](./src/js/float.js)
 - [Promises/A+ 规范实现](./src/js/promise/index.js)
