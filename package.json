@@ -22,8 +22,7 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "commit-msg": "pnpm commitlint --edit $1",
-    "pre-push": "pnpm sync"
+    "commit-msg": "pnpm commitlint --edit $1"
   },
   "lint-staged": {
     "*.{json,yml,yaml}": [
