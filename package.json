@@ -5,6 +5,7 @@
   "packageManager": "pnpm@8.15.3",
   "main": "index.js",
   "scripts": {
+    "postinstall": "simple-git-hooks",
     "start": "http-server src -p 2333 -c-1 -o",
     "start:dom": "pnpm --filter=dom-blocking dev",
     "start:jsonp": "pnpm --filter=jsonp dev",
@@ -21,7 +22,8 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "commit-msg": "pnpm commitlint --edit $1"
+    "commit-msg": "pnpm commitlint --edit $1",
+    "pre-push": "pnpm sync"
   },
   "lint-staged": {
     "*.{json,yml,yaml}": [

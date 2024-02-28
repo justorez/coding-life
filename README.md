@@ -48,6 +48,7 @@ pnpm start:cache    # HTTP 缓存示例
 - [Generator+Promise 模拟 async/await](./src/js/generator/co.js)
 - [Generator Babel](./src/js/generator/index.js)
 - [Intl.Segmenter](./src/js/intl/split-emoji.js)
+- [Proxy](./src/js/proxy.js)
 
 ## 手写题
 
