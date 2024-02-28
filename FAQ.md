@@ -1,25 +1,59 @@
-## JavaScript
+## JS
 
-### [1. 接口响应后，自动中断该接口的其它重复请求](./src/js/fetch-abort.js)
+### 原型
+
+原型是一种实现对象属性继承和共享机制，它是一个关联到构造函数的`.prototype`属性的对象，新创建的对象实例会隐式链接到其构造函数的原型，形成了 js 中的原型链继承结构。
+
+### 原型链
+
+原型链是 js 中由对象的原型及其原型的原型逐级向上连接形成的链式结构，用于在对象自身没有某个属性或方法时，按照链式顺序搜索继承的属性和方法。
+
+### [接口响应后，自动中断该接口的其它重复请求](./src/js/fetch-abort.js)
+
+## HTTP
+
+### 缓存最佳实践
+
+1. 文件路径中带有 hash 值：一年的强缓存。因为该文件的内容发生变化时，会生成一个带有新的 hash 值的 URL。前端将会发起一个新的 URL 的请求。配置响应头 `Cache-Control: public,max-age=31536000,immutable`
+2. 文件路径中不带有 hash 值：协商缓存。大部分为 public 下文件。配置响应头 `Cache-Control: no-cache` 与 `etag/last-modified`
+3. 当处理长久缓存时，不能打包为一个大的 `bundle.js`，因为一行业务代码的改变，将导致整个项目的长久缓存失效，需要按代码更新频率分为多个 `chunk` 进行打包，细粒度的控制缓存。
+
+### [Websocket 断开重连](./src/network/websocket/reconnect.html)
+
+## Vue
+
+### vue3 diff
+
+双端比较，相同的节点不动，遇到不同的节点，生成一个数组记录 newChildren 节点在 oldChildren 节点中的索引，如果是新增节点则记为 -1，求出数组的最长递增子序列，这些节点意味着无需移动，仅移动剩余节点和插入新增节点即可。
+
+## Webpack
+
+### 构建流程
+
+1.  **初始化参数**：Webpack 从配置文件（如 `webpack.config.js`）和命令行参数中读取配置信息，并合并这些参数以创建最终的构建配置。
+2.  **实例化 Compiler 对象**：根据上一步得到的最终配置，Webpack 创建一个 Compiler 对象，这个对象负责整个构建流程的控制。
+3.  **注册插件**：Compiler 对象会注册所有配置中指定的插件，这些插件将会监听构建过程中的各种事件钩子（hooks），并在相应阶段执行自定义的逻辑。
+4.  **编译开始**：调用 Compiler 对象的 `run` 方法启动编译流程。
+5.  **解析入口文件**：根据配置中的 `entry` 属性，Webpack 找到项目的入口起点文件。
+6.  **递归解析依赖**：从入口文件开始，Webpack 递归地解析和追踪模块间的依赖关系，这包括 CommonJS、AMD、ES6 模块导入等形式的导入语句。
+7.  **编译模块**：对每个模块，Webpack 会按照配置中的 loader 规则，通过调用对应 loader 进行编译转换。Loader 可以用来处理不同类型文件的内容，比如将 TypeScript 转换为 JavaScript，或将 LESS/SCSS 转换成 CSS。
+8.  **生成依赖图**：Webpack 将解析到的所有模块及其依赖关系组成一个内部的依赖图，这个图包含了项目中所有模块如何相互关联的信息。
+9.  **优化模块**：在依赖图生成之后，Webpack 进行一系列的优化操作，例如代码分割、摇树优化（Tree Shaking）、公共代码提取（CommonsChunkPlugin 或者 SplitChunksPlugin）等。
+10. **生成 Chunk**：根据依赖关系和优化策略，Webpack 将相关模块组合成一个个 Chunk（也就是最终要输出的文件）。
+11. **输出资源**：最后，Webpack 将每个 Chunk 转换成实际的文件内容，并根据配置的 `output` 设置，将这些文件内容写入到磁盘上的指定位置。
+
+### hash、chunkhash、contenthash
+
+- hash：与整个项目有关，项目里有文件修改，所有文件的哈希值都会变化。
+- chunkhash：与入口有关，同一入口的文件被视为一个整体，当其中一个文件修改时，同入口的所有文件哈希值发生改变。chunk 有两种，一种是起始入口的 main chunk，另一种是延迟加载的 chunk（动态导入或者 splitChunks 配置）。
+- contenthash：只与文件内容有关，文件内容发生改变，才会更改该文件的哈希值。
 
 ## CSS
 
-### 1. `font-family` 字体类型
+### `font-family` 字体类型
 
 - `serif`：衬线字体，就是边角有特殊修饰的字体，比如：宋体。Serif 表示在字的笔划开始及结束的地方有额外的装饰，而且笔划的粗细会因直横的不同而有不同。不适合在线阅读，但打印效果好，适用于页面打印版。
 - `sans-serif`：无衬线字体，无特殊修饰的字体。sans 是法语，意思是“没有”。黑体字就是无衬线字体。Sans Serif 则没有这些额外的装饰，笔划粗细大致差不多。网页首选，在线阅读更好辨认。
 - `monospace`：等宽字体，每个字母都一样宽的字体。代码编辑器首选。
 - `cursive`：手写字体，通常用在图片或标题。
 - `fantasy`：艺术字体，通常用在图片或标题。
-
-## HTTP
-
-### [1. Websocket 断开重连](./src/network/websocket/reconnect.html)
-
-## Webpack
-
-### 1. hash、chunkhash、contenthash
-
-- hash：与整个项目有关，项目里有文件修改，所有文件的哈希值都会变化。
-- chunkhash：与入口有关，同一入口的文件被视为一个整体，当其中一个文件修改时，同入口的所有文件哈希值发生改变。chunk 有两种，一种是起始入口的 main chunk，另一种是延迟加载的 chunk（动态导入或者 splitChunks 配置）。
-- contenthash：只与文件内容有关，文件内容发生改变，才会更改该文件的哈希值。
