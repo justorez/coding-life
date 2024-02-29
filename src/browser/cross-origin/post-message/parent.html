@@ -1,0 +1,41 @@
+<div>
+    <h2>Parent</h2>
+    <button onclick="post('set')">localStorage set</button>
+    <button onclick="post('get', 'token')">localStorage get</button>
+    <h2 class="msg"></h2>
+    <iframe src="http://127.0.0.1:2334"></iframe>
+</div>
+<script>
+    localStorage.clear()
+
+    const CHILD_ORIGIN = 'http://127.0.0.1:2334'
+    const msg = document.querySelector('.msg')
+    const childWin = document.querySelector('iframe').contentWindow
+    const json = (v) => JSON.stringify(v)
+    const read = () => msg.textContent = json(localStorage)
+
+    window.onmessage = (e) => {
+        if (e.origin === CHILD_ORIGIN) {
+            const payload = JSON.parse(e.data)
+            localStorage.setItem(`child:${payload.key}`, payload.data)
+            read()
+        }
+    }
+
+    localStorage.setItem('date', new Date().toLocaleString())
+    read()
+    
+    function post(key, data) {
+        data ||= new Date().toLocaleString()
+        childWin.postMessage(json({key, data}), '*')
+    }
+</script>
+<style>
+    iframe {
+        width: 400px;
+        height: 200px;
+        border: 1px dashed gray;
+        border-radius: 10px;
+        background-color: #efefef;
+    }
+</style>

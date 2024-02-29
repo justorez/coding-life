@@ -1,0 +1,38 @@
+<div style="overflow: hidden;">
+    <h3>Child</h3>
+    <h3 class="msg" style="word-wrap: break-word;"></h3>
+</div>
+<script>
+    localStorage.clear()
+
+    const PARENT_ORIGIN = 'http://127.0.0.1:2333'
+    const msg = document.querySelector('.msg')
+    const read = () => (msg.textContent = JSON.stringify(localStorage))
+    
+    window.onmessage = (e) => {
+        console.log(e.origin, e.data)
+        if (e.origin !== PARENT_ORIGIN) return
+
+        const payload = JSON.parse(e.data)
+        switch (payload.key) {
+            case 'set':
+                localStorage.setItem('parent', payload.data)
+                break
+            case 'get':
+                const parent = window.parent // or e.source
+                const data = {
+                    key: payload.data,
+                    data: localStorage.getItem(payload.data)
+                }
+                parent.postMessage(JSON.stringify(data), PARENT_ORIGIN)
+                break
+            case 'remove':
+                localStorage.removeItem(payload.data)
+                break
+        }
+        read()
+    }
+
+    localStorage.setItem('token', Date.now())
+    read()
+</script>
