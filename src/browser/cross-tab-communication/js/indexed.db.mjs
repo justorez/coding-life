@@ -1,5 +1,5 @@
 // Storage: Indexed DB
-import { openStore, saveData, query } from './db.js'
+import { openStore, saveData, query } from './db.mjs'
 
 const $header = document.getElementById('js-header')
 const $container = document.getElementById('storage2')

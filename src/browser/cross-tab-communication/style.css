@@ -40,22 +40,11 @@ main {
     align-self: end;
 }
 
-/* main::after {
-    content: '';
-    display: block;
-    height: 0;
-    font-size: 0;
-    line-height: 0;
-    clear: both;
-} */
-
 section {
-    /* float: left; */
-    /* width: 480px; */
     padding: 0 20px;
-    box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 section:hover {

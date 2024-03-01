@@ -8,12 +8,7 @@
     const $btn = $container.querySelector('button')
     const $info = $container.querySelector('p')
 
-    const sharedWorker = new SharedWorker('./worker/shared.js', 'ctc')
-
-    // setInterval(function () {
-    //     sharedWorker.port.postMessage({ get: true })
-    // }, 1000)
-
+    const sharedWorker = new SharedWorker('js/sharedw.js', 'ctc')
     sharedWorker.port.onmessage = (e) => {
         const data = e.data
         if ($header.dataset.tab === data.from) {

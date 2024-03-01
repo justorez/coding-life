@@ -152,10 +152,10 @@ pnpm start:cache    # HTTP 缓存示例
 
 ## 性能优化
 
+- [**前端优化之旅**](https://justorez.gitee.io/fe-performance-journey)
 - [简述](./src/performance/readme.md)
 - [性能指标计算](./src/performance/timing.html)
 - [async 和 defer](./src/performance/async-vs-defer.md)
-- [**前端优化之旅**](https://www.alienzhou.com/projects/fe-performance-journey/)
 - [原生图片懒加载](./src/performance/img-lazy.html)
 - [响应式图片](./src/performance/img-responsive.html)
 

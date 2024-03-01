@@ -8,7 +8,14 @@
     const $info = $container.querySelector('p')
 
     let childWins = []
-    document.getElementById('js-link').addEventListener('click', function () {
+    if (childWins.length === 0 && !window.opener) {
+        $input.disabled = true
+        $btn.disabled = true
+        $container.classList.add('disabled')
+        $title.textContent = $title.textContent + ' (no open)'
+    }
+
+    document.getElementById('js-link').onclick = () => {
         const win = window.open('./?new=1')
         childWins.push(win)
 
@@ -16,9 +23,9 @@
         $btn.disabled = false
         $container.classList.remove('disabled')
         $title.textContent = $title.textContent.replace(' (no open)', '')
-    })
+    }
 
-    window.addEventListener('message', function (e) {
+    window.onmessage = (e) => {
         const data = e.data
         if ($header.dataset.tab === data.from) {
             return
@@ -39,13 +46,6 @@
         if (childWins && !data.fromOpenner) {
             childWins.forEach((w) => w.postMessage(data)) // send to children
         }
-    })
-
-    if (childWins.length === 0 && !window.opener) {
-        $input.disabled = true
-        $btn.disabled = true
-        $container.classList.add('disabled')
-        $title.textContent = $title.textContent + ' (no open)'
     }
 
     on($input, $btn, function () {
