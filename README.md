@@ -13,13 +13,13 @@ pnpm start:cache    # HTTP 缓存示例
 ## Browser
 
 - [事件循环](./src/browser/event-loop/readme.md)
-- [事件循环图解](http://latentflip.com/loupe/?code=)
+- [事件循环图解](http://latentflip.com/loupe)
 - [事件委托](./src/browser/event-delegation/readme.md)
 - [事件捕获和冒泡](./src/browser/event-delegation/bubble-capture.html)
 - [setTimeout 原理](./src/browser/event-loop/setTimeout.md)
 - [setTimeout 的最小时延](https://q.shanyue.tech/fe/js/708.html)
 - [V8 垃圾回收](./src/browser/garbage-collection/readme.md)
-- [输入 URL 后发生了什么](./src/browser/input-url/readme.md)
+- [输入 URL 后发生了什么](./src/browser/input-url/index.md)
 - [JS 和 CSS 是如何阻塞 DOM 解析和渲染的](./src/browser/dom-blocking/readme.md)
 - [重排和重绘](./src/browser/reflow-and-repaint/readme.md)
 - [DOMContentLoaded 和 load](./src/browser/DCL.html)
