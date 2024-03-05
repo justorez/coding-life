@@ -1,7 +1,7 @@
 <body>
     <button onclick="send()">发送</button>
-    <div id="msg"></div>
     <button onclick="stop()">停止响应</button>
+    <div id="msg"></div>
 </body>
 <script>
     let source 
@@ -17,6 +17,7 @@
         }
 
         source.onmessage = function (event) {
+            console.log(event)
             msgElem.innerHTML += `<p>Ping: ${event.data}</p>`
         }
         // 自定义事件，不触发 message event
@@ -29,7 +30,7 @@
         if (source) {
             source.close()
             source = null
-            msgElem.innerHTML += '<p>Connection close.</p>';
+            msgElem.innerHTML += '<p>Connection closed.</p>';
         }
     }
 
@@ -45,11 +46,11 @@
 </script>
 <style>
     #msg {
-        margin: 10px;
+        width: 300px;
+        margin: 1em 0;
         padding: 0 1em;
         min-height: 50px;
         max-height: 300px;
-        width: 300px;
         border-radius: 8px;
         border: 2px dashed #a7a4a4;
         overflow-y: auto;
