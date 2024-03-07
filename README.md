@@ -198,6 +198,7 @@ pnpm start:cache    # HTTP 缓存示例
 
 ## 推荐阅读
 
+- [FAQ](./FAQ.md)
 - [前端知识路线图](https://roadmap.sh/frontend)
 - [前端工程师自检清单](https://juejin.cn/post/6844903830887366670#heading-1)
 - [字节前端面试手册](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?from=from_copylink)

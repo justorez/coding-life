@@ -12,10 +12,10 @@ function foo() {
     let test1 = 1
     const test2 = 2
     var innerBar = { 
-        setName:function(newName){
+        setName(newName) {
             myName = newName
         },
-        getName:function(){
+        getName() {
             console.log(test1)
             return myName
         }
