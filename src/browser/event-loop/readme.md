@@ -1,6 +1,6 @@
 ## 事件循环
 
-> 简述：JS 是单线程的，意味着任务需要排队，前一个任务结束，才会执行后一个任务。为了解决排除等待问题，JS 任务分为同步任务（synchronous）和异步任务（asynchronous）。所有同步任务都在主线程上执行，形成一个执行栈）。异步任务（ajax/setTimeout）不进入主线程，而是进入另一 Callback Queue。只有执行栈中的同步任务执行完了，系统才回读取任务队列中可以执行的异步任务，才会把此异步任务从事件队列中放入执行栈中执行，如此循环，直至所有任务执行完毕。
+> 简述：JS 是单线程的，意味着任务需要排队，前一个任务结束，才会执行后一个任务。为了解决排除等待问题，JS 任务分为同步任务（synchronous）和异步任务（asynchronous）。所有同步任务都在主线程上执行，形成一个执行栈。异步任务（ajax/setTimeout）不进入主线程，而是进入另一 Callback Queue。只有执行栈中的同步任务执行完了，系统才回读取任务队列中可以执行的异步任务，才会把此异步任务从事件队列中放入执行栈中执行，如此循环，直至所有任务执行完毕。
 
 之所以称为 `事件循环`，是因为它经常按照类似如下的方式来被实现：
 
@@ -47,6 +47,7 @@ XMLHttpRequest 运行机制
 
 微任务（microtask）
 - Promise.resolve/reject/then/catch
+- MutationObserver
 - queueMicrotask
 - process.nextTick（Node）
 
