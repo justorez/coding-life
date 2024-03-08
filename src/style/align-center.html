@@ -1,0 +1,149 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 表格布局 */
+        .box:nth-of-type(1) {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .box:nth-of-type(1) .ball {
+            margin: 0 auto;
+        }
+    
+        /* 定位 */
+        .box:nth-of-type(2) {
+            position: relative;
+        }
+        .box:nth-of-type(2) .ball {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        /* 弹性布局 */
+        .box:nth-of-type(3) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        /* 网格布局 */
+        .box:nth-of-type(4) {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+    
+        .box {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: #efefef;
+            border: 1px solid #000;
+        }
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .code {
+            position: fixed;
+            top: 8px;
+            left: 220px;
+            right: 8px;
+            min-height: 436px;
+            font-size: 22px;
+            background-color: #282c34;
+            pointer-events: none;
+            opacity: 0;
+        }
+        .code > pre {
+            margin: 0;
+        }
+
+        .box::before {
+            position: absolute;
+            content: attr(title);
+            font-size: 14px;
+            top: 8px;
+            left: 8px;
+            line-height: 1;
+            font-weight: 800px;
+        }
+        .box:hover .code {
+            opacity: 1;
+            z-index: 10;
+        }
+    </style>
+    <title>居中对齐</title>
+</head>
+
+<div class="box" title="TableCell">
+    <div class="ball bg-pink"></div>
+    <div class="code">
+    /* 表格布局 */
+    .box {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .box .ball {
+        margin: 0 auto;
+    }
+    </div>
+</div>
+<div class="box mt-10" title="Position">
+    <div class="ball bg-blue"></div>
+    <div class="code">
+    /* 定位 */
+    .box {
+        position: relative;
+    }
+    .box .ball {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    </div>
+</div>
+<div class="box" title="Flex">
+    <div class="ball bg-green"></div>
+    <div class="code">
+    /* 弹性布局 */
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </div>
+</div>
+<div class="box" title="Grid">
+    <div class="ball bg-purple"></div>
+    <div class="code">
+    /* 网格布局 */
+    .box {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+    </div>
+</div>
+<h2>Hover to show code.</h2>
+
+<script type="module">
+    import { codeToHtml } from 'https://esm.sh/shiki'
+
+    const codeList = document.querySelectorAll('.code')
+    for (const code of codeList) {
+        code.innerHTML = await codeToHtml(code.textContent, {
+            lang: 'css',
+            theme: 'one-dark-pro'
+        })
+        
+    }
+    codeList[0].style.opacity = 1
+</script>

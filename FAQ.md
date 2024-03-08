@@ -73,10 +73,41 @@
 
 ## CSS
 
-### `font-family` 字体类型
+### [居中对齐](./src/style/align-center.html)
 
-- `serif`：衬线字体，就是边角有特殊修饰的字体，比如：宋体。Serif 表示在字的笔划开始及结束的地方有额外的装饰，而且笔划的粗细会因直横的不同而有不同。不适合在线阅读，但打印效果好，适用于页面打印版。
-- `sans-serif`：无衬线字体，无特殊修饰的字体。sans 是法语，意思是“没有”。黑体字就是无衬线字体。Sans Serif 则没有这些额外的装饰，笔划粗细大致差不多。网页首选，在线阅读更好辨认。
-- `monospace`：等宽字体，每个字母都一样宽的字体。代码编辑器首选。
-- `cursive`：手写字体，通常用在图片或标题。
-- `fantasy`：艺术字体，通常用在图片或标题。
+```css
+/* 表格布局 */
+.box {
+    display: table-cell;
+    vertical-align: middle;
+}
+.box .ball {
+    margin: 0 auto;
+}
+
+/* 定位 */
+.box {
+    position: relative;
+}
+.box .ball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 弹性布局 */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 网格布局 */
+.box {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+```

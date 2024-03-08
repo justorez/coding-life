@@ -2,7 +2,8 @@
     --color-blue: skyblue;
     --color-green: seagreen;
     --color-pink: palevioletred;
-    --color-gray: #efefef
+    --color-gray: #efefef;
+    --color-purple: rgb(208, 78, 208);
 }
 
 .w500 {
@@ -34,7 +35,14 @@
 .bg-green {
     background-color: var(--color-green);
 }
+.bg-purple {
+    background-color: var(--color-purple);
+}
 
 .b2 {
     border: 2px solid black;
+}
+
+.mt-10 {
+    margin-top: 10px;
 }
