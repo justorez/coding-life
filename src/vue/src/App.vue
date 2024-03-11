@@ -1,5 +1,8 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+
+const router = useRouter()
+console.log(router.getRoutes())
 </script>
 
 <template>
@@ -19,6 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
                 <RouterLink to="/moreline">文本展开收起</RouterLink>
                 <RouterLink to="/zoom">缩放拖动</RouterLink>
                 <RouterLink to="/lazyload">图片懒加载</RouterLink>
+                <RouterLink to="/clickOutside">元素外部点击</RouterLink>
                 <RouterLink to="/virtualList/fixed">虚拟列表-固定高度</RouterLink>
                 <RouterLink to="/virtualList/dynamic">虚拟列表-动态高度</RouterLink>
             </nav>
@@ -82,7 +86,6 @@ nav a:first-of-type {
 
     header .wrapper {
         display: flex;
-        place-items: center;
         flex-wrap: wrap;
     }
 

@@ -162,15 +162,16 @@ pnpm start:cache    # HTTP 缓存示例
 ## Vue
 
 - [Vue3 运行机制](./src/vue/docs/v3/index.md)
-- [Vue2 迷你实现](https://github.com/vue-hotel/mini-vue-2)
+- [Vue2 迷你实现](https://github.com/vuemini/mini-vue-2)
 - [Vue3 迷你实现](https://github.com/cuixiaorui/mini-vue)
 - [nextTick 原理](./src/vue/docs/nextTick/readme.md)
-- [组件：引导页](./src/vue/src/components/intro/intro.js)
-- [组件：虚拟列表](./src/vue/src/components/virtualList/demo.vue)
-- [指令：限制输入框长度，中文字符占 2 位](./src/vue/src/directives/maxlength.js)
-- [指令：文本行数超限，展开和收起](./src/vue/src/directives/moreline.js)
-- [指令：双指放大，单指拖动](./src/vue/src/directives/zoom.js)
-- [指令：图片懒加载](./src/vue/src/directives/lazyload.js)
+- [组件：引导页](./src/vue/src/components/intro/intro.vue)
+- [组件：虚拟列表](./src/vue/src/components/virtualList.vue)
+- [指令：限制输入框长度，中文字符占 2 位](./src/vue/src/directives/maxlength/maxlength.js)
+- [指令：文本行数超限，展开和收起](./src/vue/src/directives/moreline/moreline.js)
+- [指令：双指放大，单指拖动](./src/vue/src/directives/zoom/zoom.js)
+- [指令：图片懒加载](./src/vue/src/directives/lazyload/lazyload.js)
+- [指令：元素外部点击](./src/vue/src/directives/clickOutside/clickOutside.js)
 
 ## 工程化
 
