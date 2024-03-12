@@ -1,7 +1,9 @@
-<!-- img srcset sizes 只响应一次
-    比如以视口 300px 加载网页，根据 sizes 规则匹配 400px 的图片，srcset 没有 400w，
-    那么加载第一个大于 400w 的，即 480w 的图片生效。
-    当视口大于 500px 时（不包括等于），将加载 960w 的源，此时再去变化视口，图片不再改变。
+<!-- <img> srcset sizes
+    比如以视口 300px 加载网页：根据 sizes 规则小于等于 500px，匹配 400px 的图片，
+    srcset 没有 400w，那么加载第一个大于 400w 的，即 480w 的图源生效。
+    当视口大于 500px 时，匹配 960px 的图片，即 srcset 中 960w 的图源。
+    经过实际测试 srcset + sizes 的响应式效果不稳定，无法保证每次都展示符合预期的图片，
+    <picture> + <source> 的响应式效果很稳定。
 -->
 <img 
     srcset="https://cdn.pixabay.com/photo/2023/02/02/13/27/cat-7762887_960_720.jpg 480w, 
@@ -10,8 +12,26 @@
     src=""
 />
 
+<!-- 根据分辨率（window.devicePixelRatio）展示图片
+    不支持的浏览器展示 src
+    1 倍分辨率展示 srcset 1x（默认可略写）
+    2 倍分辨率展示 srcset 2x
+    3 倍分辨率展示 srcset 3x
+-->
+<img 
+    class="gap"
+    srcset="https://cdn.pixabay.com/photo/2023/02/05/17/25/leaves-7770035_960_720.jpg,
+            https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_1280.jpg 2x,
+            https://cdn.pixabay.com/photo/2023/02/02/13/27/cat-7762887_960_720.jpg 3x"
+    src="https://cdn.pixabay.com/photo/2023/01/21/13/39/night-sky-7733876_960_720.jpg"
+/>
+
 <!-- https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
     响应式图片和上面不同的是：图片随着视口的变化而变化。
+    下面的示例：
+        1. 窗口宽度大于等于 700px 时，展示图片一
+        2. 窗口宽度小于等于 500px 时，展示图片二
+        3. 窗口宽度大于 500px 小于 700px 时，展示图片三
 -->
 <picture>
     <source
