@@ -15,8 +15,11 @@ const watch = (obj, track, trigger) => {
     }
     const proxy = new Proxy(obj, {
         get(target, prop, receiver) {
+            // console.log(receiver === proxy) // true
             track(target, prop)
-            const res = Reflect.get(target, prop, receiver)
+            // 如果传入了 receiver 且 target[prop] 是一个 getter，
+            // 那么 receiver 就会作为这个 getter 的 this
+            const res = Reflect.get(target, prop)
             return res && typeof res === 'object'
                 ? watch(res, track, trigger) // 递归处理深层次对象
                 : res

@@ -35,7 +35,7 @@ function throttle(func, wait, options) {
         }
         let remaining = wait - (now - previous)
 
-        // 如果当前调用已经大于上次调用时间 + wait
+        // 如果没有剩余的时间了或者你改了系统时间
         // 如果设置了 trailing，只会进入这个条件
         // 如果设置了 leading，那么第一次会进入这个条件
         if (remaining <= 0 || remaining > wait) {
