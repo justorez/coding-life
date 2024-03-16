@@ -18,6 +18,7 @@ function byPrototype() {
     let child1 = new Child('xx')
     console.log(child1)
     console.log(child1.name) // xx
+    console.log(Object.keys(child1)) // [ 'name' ]
 
     child1.colors.push('white')
     let child2 = new Child('yy')
