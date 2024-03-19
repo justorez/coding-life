@@ -12,7 +12,7 @@ export default defineConfig({
     },
     plugins: [
         VueRouter({
-            routesFolder: ['src/directives', 'src/components'],
+            routesFolder: ['src/pages', 'src/directives', 'src/components'],
             dts: false
         }),
         vue()

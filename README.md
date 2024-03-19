@@ -162,8 +162,9 @@ pnpm start:cache    # HTTP 缓存示例
 ## Vue
 
 - [Vue3 运行机制](./src/vue/docs/v3/index.md)
-- [Vue2 迷你实现](https://github.com/vuemini/mini-vue-2)
-- [Vue3 迷你实现](https://github.com/cuixiaorui/mini-vue)
+- [Vue2 简易实现](https://github.com/vuemini/mini-vue-2)
+- [Vue3 简易实现](https://github.com/cuixiaorui/mini-vue)
+- [Vuex 简易实现](./src/vue/src/store/mvuex.js)
 - [nextTick 原理](./src/vue/docs/nextTick/readme.md)
 - [组件：引导页](./src/vue/src/components/intro/intro.vue)
 - [组件：虚拟列表](./src/vue/src/components/virtualList.vue)

@@ -25,6 +25,7 @@ console.log(router.getRoutes())
                 <RouterLink to="/clickOutside">元素外部点击</RouterLink>
                 <RouterLink to="/virtualList/fixed">虚拟列表-固定高度</RouterLink>
                 <RouterLink to="/virtualList/dynamic">虚拟列表-动态高度</RouterLink>
+                <RouterLink to="/vuex">简易版 Vuex</RouterLink>
             </nav>
         </div>
     </header>
