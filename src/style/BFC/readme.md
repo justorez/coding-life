@@ -1,5 +1,7 @@
 > [MDN: Block Formatting Context](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
 
+BFC，全称为 Block Formatting Context（块级格式化上下文）：它定义了一个独立的渲染区域，在这个区域内，内部的盒子（Box）将会按照一套特定的渲染规则进行布局。
+
 BFC 的用处：
 1. 包含内部浮动：让浮动内容和周围的内容等高。
 2. 排除外部浮动：正常文档流中建立的 BFC 不得与元素本身所在的 BFC 中的任何浮动的外边距重叠。
@@ -7,7 +9,10 @@ BFC 的用处：
 
 如何创建 BFC：
 1. `float` 不为 `none`
-2. `position` 为 `absolute` 或 `fixed`
-3. `display` 为 `inline-block`、`table-cell`、`table-caption` 等
-4. `overflow` 为 `auto`、`scroll` 或 `hidden`
-5. Flexbox 或 Grid 的直接子元素
+2. `position: absolute / fixed`
+3. `display: inline-block`
+3. `display: flow-root`
+4. `display: table-cell`
+5. `display: table-caption`
+6. `overflow: auto/scroll/hidden`
+7. Flexbox 或 Grid 的直接子元素

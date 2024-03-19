@@ -43,6 +43,8 @@
 
 ## HTTP
 
+### [强制缓存和协商缓存](./src/network/cache/readme.md)
+
 ### 缓存最佳实践
 
 1. 文件路径中带有 hash 值：一年的强缓存。因为该文件的内容发生变化时，会生成一个带有新的 hash 值的 URL。前端将会发起一个新的 URL 的请求。配置响应头 `Cache-Control: public,max-age=31536000,immutable`
@@ -104,6 +106,15 @@ Vue3 使用 Proxy 来监控数据的变化
 - contenthash：只与文件内容有关，文件内容发生改变，才会更改该文件的哈希值。
 
 ## CSS
+
+### [BFC](./src/style/BFC/readme.md)
+
+全称为 Block Formatting Context（块级格式化上下文）：它定义了一个独立的渲染区域，在这个区域内，内部的盒子（Box）将会按照一套特定的渲染规则进行布局。
+
+BFC 可以用来：
+- 包含内部浮动
+- 排除外部浮动
+- 阻止外边距重叠
 
 ### [居中对齐](./src/style/align-center.html)
 

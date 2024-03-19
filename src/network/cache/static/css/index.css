@@ -1,17 +1,22 @@
 .box {
     width: 500px;
     height: 300px;
-    background-image: url('../image/1.jpg');
+    background-image: url('../image/1.jpg?c=time');
     background-size: 100% 100%;
     color: #000;
+}
+
+img {
+    width: 500px;
+    margin-top: 10px;
 }
 
 html {
     background-color: #fff;
     color: #000;
-    font-size: 12px
+    font-size: 12px;
 }
- 
+
 body,
 ul,
 ol,
@@ -37,9 +42,9 @@ td,
 pre,
 xmp {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
- 
+
 body,
 input,
 textarea,
@@ -52,9 +57,9 @@ code,
 kbd,
 samp {
     line-height: 1.5;
-    font-family: tahoma, arial, "Hiragino Sans GB", simsun, sans-serif
+    font-family: tahoma, arial, 'Hiragino Sans GB', simsun, sans-serif;
 }
- 
+
 h1,
 h2,
 h3,
@@ -67,18 +72,19 @@ input,
 textarea,
 button,
 select {
-    font-size: 100%
+    font-size: 100%;
 }
- 
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: tahoma, arial, "Hiragino Sans GB", "微软雅黑", simsun, sans-serif
+    font-family: tahoma, arial, 'Hiragino Sans GB', '微软雅黑', simsun,
+        sans-serif;
 }
- 
+
 h1,
 h2,
 h3,
@@ -87,9 +93,9 @@ h5,
 h6,
 b,
 strong {
-    font-weight: normal
+    font-weight: normal;
 }
- 
+
 address,
 cite,
 dfn,
@@ -97,40 +103,40 @@ em,
 i,
 optgroup,
 var {
-    font-style: normal
+    font-style: normal;
 }
- 
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    text-align: left
+    text-align: left;
 }
- 
+
 caption,
 th {
-    text-align: inherit
+    text-align: inherit;
 }
- 
+
 ul,
 ol,
 menu {
-    list-style: none
+    list-style: none;
 }
- 
+
 fieldset,
 img {
-    border: 0
+    border: 0;
 }
- 
+
 img,
 object,
 input,
 textarea,
 button,
 select {
-    vertical-align: middle
+    vertical-align: middle;
 }
- 
+
 article,
 aside,
 footer,
@@ -142,29 +148,28 @@ figcaption,
 hgroup,
 details,
 menu {
-    display: block
+    display: block;
 }
- 
+
 audio,
 canvas,
 video {
     display: inline-block;
-    *display: inline;
-    *zoom: 1
+    zoom: 1;
 }
- 
+
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "\0020"
+    content: '\0020';
 }
- 
+
 textarea {
     overflow: auto;
-    resize: vertical
+    resize: vertical;
 }
- 
+
 input,
 textarea,
 button,
@@ -173,52 +178,53 @@ a {
     outline: 0 none;
     border: none;
 }
- 
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
     padding: 0;
-    border: 0
+    border: 0;
 }
- 
+
 mark {
-    background-color: transparent
+    background-color: transparent;
 }
- 
+
 a,
 ins,
 s,
 u,
 del {
-    text-decoration: none
+    text-decoration: none;
 }
- 
+
 sup,
 sub {
-    vertical-align: baseline
+    vertical-align: baseline;
 }
- 
+
 html {
     overflow-x: hidden;
     height: 100%;
     font-size: 50px;
     -webkit-tap-highlight-color: transparent;
 }
- 
+
 body {
-    font-family: Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
+    font-family: Arial, 'Microsoft Yahei', 'Helvetica Neue', Helvetica,
+        sans-serif;
     color: #333;
-    font-size: .28em;
+    font-size: 0.28em;
     line-height: 1;
     -webkit-text-size-adjust: none;
 }
- 
+
 hr {
-    height: .02rem;
-    margin: .1rem 0;
+    height: 0.02rem;
+    margin: 0.1rem 0;
     border: medium none;
-    border-top: .02rem solid #cacaca;
+    border-top: 0.02rem solid #cacaca;
 }
- 
+
 a {
     color: #25a4bb;
     text-decoration: none;
