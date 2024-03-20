@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router/auto'
+import {
+    createRouter,
+    createWebHistory,
+    createWebHashHistory
+} from 'vue-router/auto'
 import store from './store'
 import App from './App.vue'
 import utils from './utils'

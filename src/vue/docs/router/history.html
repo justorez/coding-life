@@ -1,0 +1,26 @@
+<body>
+    <ul>
+        <li><a href="#/home">哈希跳转 1</a></li>
+        <li><a href="#/user">哈希跳转 2</a></li>
+    </ul>
+    <button onclick="history.go(-1)">← 后退</button>
+    <button onclick="history.go(1)">前进 →</button>
+    <h3></h3>
+    <h3></h3>
+</body>
+
+<script>
+    window.onpopstate = (event) => {
+        document.querySelectorAll('h3')[0].innerHTML = `popstate<br>位置：${location}，状态：${JSON.stringify(event.state)}`
+    }
+    window.onhashchange = (event) => {
+        document.querySelectorAll('h3')[1].innerHTML = `hashchange<br>newURL: ${event.newURL}<br>old:URL: ${event.oldURL}`
+    }
+
+    history.pushState({ page: 1 }, '标题 1', '?page=1')
+    history.pushState({ page: 2 }, '标题 2', '?page=2')
+    history.replaceState({ page: 3 }, '标题 3', '?page=3')
+    // history.back() // 显示警告 "位置：http://xxx/history.html?page=1，状态：{"page":1}"
+    // history.back() // 显示警告 "位置：http://xxx/history.html，状态：null"
+    // history.go(2) // 显示警告 "位置：http://xxx/history.html?page=3，状态：{"page":3}"
+</script>
