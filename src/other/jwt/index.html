@@ -1,0 +1,82 @@
+<body>
+    <div>
+        <label>username:</label>
+        <input type="text" id="username" value="leo"><br>
+        <label>password:</label>
+        <input type="password" id="password" value="123"><br>
+        <button onclick="login()">登录</button>
+        <button onclick="getUser()">验证</button>
+    </div>
+    <h2 class="msg-box"></h2>
+</body>
+<script>
+    const usernameInput = document.querySelector('#username')
+    const passwordInput = document.querySelector('#password')
+    const msgBox = document.querySelector('.msg-box')
+    
+    let token
+
+    async function login() {
+        try {
+            token = null
+            const params = {
+                username: usernameInput.value,
+                password: passwordInput.value
+            }
+            token = (await post('/login', params)).token
+            showMsg(`Login successfully: ${token}`)
+        } catch (error) {
+            console.error(error)
+            showMsg(error, true)
+        }
+    }
+
+    async function getUser() {
+        try {
+            const { user } = await post('/user')
+            showMsg(`userId: ${user.userId}, username: ${user.username}`)
+        } catch (error) {
+            console.error(error)
+            showMsg(error, true)
+        }
+    }
+
+    async function post(url, data) {
+        const headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        if (token) {
+            headers.append('Authorization', `Bearer ${token}`)
+        }
+
+        const response = await fetch(url, {
+            method: 'post',
+            headers,
+            body: JSON.stringify(data)
+        })
+        const json = await response.json()
+        if (response.ok) return json
+        else return Promise.reject(json.message)
+    }
+
+    function showMsg(msg, error = false) {
+        if (error) {
+            msgBox.classList.add('error')
+            msgBox.classList.remove('success')
+        } else {
+            msgBox.classList.remove('error')
+            msgBox.classList.add('success')
+        }
+        msgBox.innerHTML = `${msg}`
+    }
+</script>
+<style>
+    .msg-box {
+        word-break: break-all;
+    }
+    .success {
+        color: #2ecc71;
+    }
+    .error {
+        color: #e74c3c;
+    }
+</style>

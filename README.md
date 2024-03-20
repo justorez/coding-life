@@ -198,6 +198,7 @@ pnpm start:cache    # HTTP 缓存示例
 ## 实践问题
 
 - [前端竞态](./src/other/race-problem.js)
+- [JSON Web Token](https://jwt.io/introduction)：[示例](./src/other/jwt/app.js)
 
 ## 推荐阅读
 
