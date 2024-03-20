@@ -39,7 +39,20 @@
 3. 箭头函数不能用作构造函数，没有 `prototype` 属性，无法访问 `new.target`。使用 `new` 调用它们会引发 TypeError。
 4. 箭头函数不能在其主体中使用 `yield`，也不能作为生成器函数创建。
 
-### TODO 单点登录
+### [单点登录（Single Sign On）](https://juejin.cn/post/6898630134530752520#heading-7)
+
+1. 用户访问 A 系统，没有登录凭证（ticket），自动跳转到 SSO 并附带回调地址<br>
+   [https://sso.com?redirect=a.com/callback](#)
+2. 输入账号密码登录 SSO，账号密码验证成功
+    1. 记录用户在 SSO 的登录状态（cookie 或 token 等方式）
+    2. 下发一个 ticket
+3. 浏览器被重定向到系统 A 的回调地址，并附带一个 code<br>
+   [https://a.com/callback?code=xxx](#)<br>
+   系统 A 通过 code 去 SSO 换取 ticket（code 一次性，可以暴露在 URL 中，换完 ticket 就失效）
+4. A 系统拿到 ticket 后，将 ticket 设置到自己域名下的 cookie 里
+5. A 系统后续请求只需携带 cookie，后台取出 ticket 去 SSO 校验，校验成功后正常处理业务请求
+6. 然后用户第一次访问 B 系统，没有 ticket，自动跳转到 SSO 并附带回调地址
+7. SSO 已登录过，直接下发 ticket，步骤同 3-5
 
 ### [接口响应后，自动中断该接口的其它重复请求](./src/js/fetch-abort.js)
 
