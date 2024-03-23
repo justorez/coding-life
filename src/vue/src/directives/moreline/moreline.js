@@ -11,7 +11,6 @@ const directive = {
 
         // 循环删除文本内容的最后一个字符，并与预设的行数比对
         // 直到找到符合条件的字符串
-        // TODO 不断的重排，待优化
         while (row > maxRow) {
             newContent = newContent.slice(0, -1)
             el.innerText = newContent + '...查看更多'

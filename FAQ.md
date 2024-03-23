@@ -39,6 +39,8 @@
 3. 箭头函数不能用作构造函数，没有 `prototype` 属性，无法访问 `new.target`。使用 `new` 调用它们会引发 TypeError。
 4. 箭头函数不能在其主体中使用 `yield`，也不能作为生成器函数创建。
 
+### TODO 图片懒加载
+
 ### [单点登录（Single Sign On）](https://juejin.cn/post/6898630134530752520#heading-7)
 
 1. 用户访问 A 系统，没有登录凭证（ticket），自动跳转到 SSO 并附带回调地址<br>
@@ -58,6 +60,8 @@
 
 ## HTTP
 
+### [输入 URL 到页面加载的过程](./src/browser/input-url/index.md)
+
 ### [强制缓存和协商缓存](./src/network/cache/readme.md)
 
 ### 缓存最佳实践
@@ -65,6 +69,10 @@
 1. 文件路径中带有 hash 值：一年的强缓存。因为该文件的内容发生变化时，会生成一个带有新的 hash 值的 URL。前端将会发起一个新的 URL 的请求。配置响应头 `Cache-Control: public,max-age=31536000,immutable`
 2. 文件路径中不带有 hash 值：协商缓存。大部分为 public 下文件。配置响应头 `Cache-Control: no-cache` 与 `etag/last-modified`
 3. 当处理长久缓存时，不能打包为一个大的 `bundle.js`，因为一行业务代码的改变，将导致整个项目的长久缓存失效，需要按代码更新频率分为多个 `chunk` 进行打包，细粒度的控制缓存。
+
+### [HTTPS 握手过程](./src/network/https/readme.md)
+
+### TODO 解决跨域
 
 ### [Websocket 断开重连](./src/network/websocket/reconnect.html)
 
@@ -124,9 +132,9 @@ Vue3 使用 Proxy 来监控数据的变化
 
 ## CSS
 
-### [BFC](./src/style/BFC/readme.md)
+### [BFC (Block Formatting Context)](./src/style/BFC/readme.md)
 
-全称为 Block Formatting Context（块级格式化上下文）：它定义了一个独立的渲染区域，在这个区域内，内部的盒子（Box）将会按照一套特定的渲染规则进行布局。
+区块格式化上下文：它定义了一个独立的渲染区域，在这个区域内，内部的盒子（Box）将会按照一套特定的渲染规则进行布局。
 
 BFC 可以用来：
 - 包含内部浮动
@@ -171,3 +179,8 @@ BFC 可以用来：
     align-items: center;
 }
 ```
+
+### meta viewport 标签的作用
+
+- 控制视口宽度：`width=device-width` 表示视口宽度应等于设备的屏幕宽度，即以 CSS 像素（设备独立像素）为单位来设定网页的宽度。在高分辨率的设备上，1px 的 CSS 像素将由大于 1 的物理像素绘制，从而避免出现页面元素缩小的情况。
+- 初始缩放比例：`initial-scale=1.0` 指定页面加载时的初始缩放级别为1.0，也就是说网页加载后原始尺寸将与设备屏幕分辨率保持一致，不进行额外的缩放。
