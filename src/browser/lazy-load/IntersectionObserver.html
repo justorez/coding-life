@@ -1,0 +1,45 @@
+<style>
+    body {
+        height: 100vh;
+    }
+    img {
+        display: block;
+        width: 600px;
+        min-height: 400px;
+        margin-bottom: 10px;
+    }
+</style>
+<body></body>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(change => {
+            if (change.isIntersecting) {
+                const img = change.target
+                if (img.dataset.src) {
+                    img.src = img.dataset.src
+                    observer.unobserve(img)
+                }
+            }
+        })
+    })
+
+    const imgList = [
+        'https://cdn.pixabay.com/photo/2016/03/23/04/01/woman-1274056_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2017/03/26/21/54/yoga-2176668_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2017/08/07/16/39/girl-2605526_1280.jpg',
+        'https://cdn.pixabay.com/photo/2017/03/30/18/17/girl-2189247_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2016/12/19/21/36/woman-1919143_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'
+    ]
+    imgList.forEach(url => {
+        const img = document.createElement('img')
+        img.src = 'https://www.icegif.com/wp-content/uploads/loading-icegif-1.gif'
+        img.dataset.src = url
+        document.body.append(img)
+        observer.observe(img)
+    })
+</script>

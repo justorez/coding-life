@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "simple-git-hooks",
+    "sync": "node scripts/sync.js",
     "start": "http-server src -p 2333 -c-1 -o",
     "start:dom": "pnpm --filter=dom-blocking dev",
     "start:jsonp": "pnpm --filter=jsonp dev",
@@ -17,8 +18,7 @@
     "test:coverage": "jest ./src --coverage",
     "test:promise": "promises-aplus-tests src/js/promise/adapter.js",
     "lint": "eslint --cache --ignore-path .gitignore .",
-    "lint:fix": "eslint --fix --cache --ignore-path .gitignore .",
-    "sync": "node scripts/sync.js"
+    "lint:fix": "eslint --fix --cache --ignore-path .gitignore ."
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",

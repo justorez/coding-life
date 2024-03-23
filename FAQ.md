@@ -39,7 +39,22 @@
 3. 箭头函数不能用作构造函数，没有 `prototype` 属性，无法访问 `new.target`。使用 `new` 调用它们会引发 TypeError。
 4. 箭头函数不能在其主体中使用 `yield`，也不能作为生成器函数创建。
 
-### TODO 图片懒加载
+### [图片懒加载](./src/browser/lazy-load/IntersectionObserver.html)
+
+```js
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(change => {
+        if (change.isIntersecting) {
+            const img = change.target
+            if (img.dataset.src) {
+                img.src = img.dataset.src
+                observer.unobserve(img)
+            }
+        }
+    })
+})
+observer.observe(img)
+```
 
 ### [单点登录（Single Sign On）](https://juejin.cn/post/6898630134530752520#heading-7)
 
