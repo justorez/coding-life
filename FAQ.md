@@ -87,8 +87,6 @@ observer.observe(img)
 
 ### [HTTPS 握手过程](./src/network/https/readme.md)
 
-### TODO 解决跨域
-
 ### [Websocket 断开重连](./src/network/websocket/reconnect.html)
 
 ## Vue

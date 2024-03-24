@@ -1,0 +1,22 @@
+<div>
+    <button onclick="request()">Request</button>
+    <h2></h2>
+</div>
+<script>
+    const base = 'http://127.0.0.1:2333'
+    const msg = document.querySelector('h2')
+    async function request() {
+        const response = await fetch(`${base}/api/user`, {
+            mode: 'cors',
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            // credentials: 'include', // Access-Control-Allow-Origin must not be "*"
+            body: JSON.stringify({ username: 'leo' })
+        })
+        console.log(response)
+        const user = await response.json()
+        msg.textContent = JSON.stringify(user)
+    }
+</script>

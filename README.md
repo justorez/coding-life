@@ -27,6 +27,7 @@ pnpm start:cache    # HTTP 缓存示例
 - [跨域：postMessage](./src/browser/cross-origin/post-message/server.js)
 - [跨域：JSONP](./src/browser/cross-origin/jsonp/client.html)
 - [跨域：反向代理](./src/browser/cross-origin/reverse-proxy/conf/nginx.conf)
+- [跨域：CORS](./src/browser/cross-origin/resource-sharing/server.js)
 - [跨标签页通信](./src/browser/cross-tab-communication/index.html)
 - [Web Components](./src/browser/web-components/index.html)
 - [Copy, Paste, Selection, Clipboard](https://codepen.io/justorez/pen/XWxNPwb)

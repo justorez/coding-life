@@ -9,8 +9,5 @@
     "server": "nodemon server.js",
     "dev": "run-p nginx client server",
     "stop": "pnpm exec ./nginx -s stop"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

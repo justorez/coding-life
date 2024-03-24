@@ -7,8 +7,5 @@
     "client:": "opener client.html",
     "server": "nodemon server.js",
     "dev": "run-p client server"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
