@@ -16,10 +16,10 @@
                 :key="item.id"
                 :style="{
                     height: itemSize + 'px',
-                    lineHeight: itemSize + 'px'
+                    // lineHeight: itemSize + 'px'
                 }"
             >
-                {{ item.value }}
+                <slot ref="slot" :item="item"></slot>
             </div>
         </div>
     </div>
@@ -92,6 +92,10 @@ export default {
             // 模拟滚动效果的关键点：如果相对滚动距离小于 itemSize 是不需要额外偏移量的，
             // 让滚动条控制滚动即可，营造一种滚动上去了的感觉
             this.startOffset = scrollTop - (scrollTop % this.itemSize)
+
+            if (this.end >= this.listData.length) {
+                this.$emit('scrollToBottom')
+            }
         }
     }
 }
@@ -119,12 +123,5 @@ export default {
     left: 0;
     right: 0;
     text-align: center;
-}
-
-.infinite-list-item {
-    padding: 10px;
-    color: #555;
-    box-sizing: border-box;
-    border-bottom: 1px solid #efefef;
 }
 </style>

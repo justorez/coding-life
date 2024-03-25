@@ -103,6 +103,8 @@ importers:
 
   src/browser/cross-origin/post-message: {}
 
+  src/browser/cross-origin/resource-sharing: {}
+
   src/browser/cross-origin/reverse-proxy: {}
 
   src/browser/dom-blocking:
@@ -181,9 +183,9 @@ importers:
 
   src/vue:
     dependencies:
-      faker:
-        specifier: 5.0.0
-        version: 5.0.0
+      '@faker-js/faker':
+        specifier: ^8.4.1
+        version: 8.4.1
       vue:
         specifier: ^3.4.21
         version: 3.4.21(typescript@5.4.2)
@@ -2339,6 +2341,14 @@ packages:
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
     dev: true
+
+  /@faker-js/faker@8.4.1:
+    resolution:
+      {
+        integrity: sha512-XQ3cU+Q8Uqmrbf2e0cIC/QN43sTBSC8KF12u29Mb47tWrt2hAgBXSgpZMj4Ao8Uk0iJcU99QsOCaIL8934obCg==
+      }
+    engines: { node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13' }
+    dev: false
 
   /@humanwhocodes/config-array@0.11.14:
     resolution:
@@ -4906,6 +4916,7 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
+    dev: false
 
   /debug@4.3.4(supports-color@5.5.0):
     resolution:
@@ -5642,13 +5653,6 @@ packages:
       iconv-lite: 0.4.24
       tmp: 0.0.33
     dev: true
-
-  /faker@5.0.0:
-    resolution:
-      {
-        integrity: sha512-wBY77PYhJOqq2cji+l8Gc8HWW7rKlwJvJgV/fbanGlm92/MImBGX51VLQN/DbDvzexmt+EFjQ4SeytCb45AJ1g==
-      }
-    dev: false
 
   /fast-deep-equal@3.1.3:
     resolution:
@@ -7915,7 +7919,7 @@ packages:
       content-disposition: 0.5.4
       content-type: 1.0.5
       cookies: 0.9.1
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@5.5.0)
       delegates: 1.0.0
       depd: 2.0.0
       destroy: 1.2.0

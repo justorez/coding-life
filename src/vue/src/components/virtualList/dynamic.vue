@@ -10,9 +10,9 @@
             <div
                 class="infinite-list-item"
                 ref="items"
-                :id="item._index"
-                :key="item._index"
                 v-for="item in visibleData"
+                :id="item._index"
+                :key="item.id"
             >
                 <slot ref="slot" :item="item.item"></slot>
             </div>
@@ -50,6 +50,7 @@ export default {
     },
     data() {
         return {
+            positions: [], // 列表子元素的位置信息：索引、高度、
             screenHeight: 0, // 可视区域高度
             start: 0, // 起始索引
             end: 0 // 结束索引
@@ -83,8 +84,11 @@ export default {
         }
     },
     created() {
-        this.initPositions()
-        window.vm = this
+        this.$watch(
+            () => this.listData.length,
+            () => this.initPositions(),
+            { immediate: true }
+        )
     },
     mounted() {
         this.screenHeight = this.$el.clientHeight
@@ -108,21 +112,25 @@ export default {
     },
     methods: {
         initPositions() {
-            this.positions = this.listData.map((_, index) => ({
-                index,
-                height: this.estimatedItemSize,
-                top: index * this.estimatedItemSize,
-                bottom: (index + 1) * this.estimatedItemSize
-            }))
+            this.positions = this.listData.map((_, index) => {
+                const pos = this.positions[index] || {
+                    index,
+                    height: this.estimatedItemSize,
+                    top: index * this.estimatedItemSize,
+                    bottom: (index + 1) * this.estimatedItemSize
+                }
+                return pos
+            })
         },
         // 获取列表项的当前尺寸
         updateItemsSize() {
             let nodes = this.$refs.items
             nodes.forEach((node) => {
-                let rect = node.getBoundingClientRect()
-                let height = rect.height
-                let index = +node.id.slice(1)
-                if (!this.positions[index]) return
+                let { height } = node.getBoundingClientRect()
+                let index = Number(node.id.slice(1))
+                if (!this.positions[index]) {
+                    return
+                }
                 let oldHeight = this.positions[index].height
                 let dValue = oldHeight - height
                 // 存在差值
@@ -161,6 +169,10 @@ export default {
             this.end = this.start + this.visibleCount
             // 此时的偏移量
             this.setStartOffset()
+
+            if (this.end + 1 >= this.listData.length) {
+                this.$emit('scrollToBottom')
+            }
         },
         // 获取列表起始索引
         getStartIndex(scrollTop = 0) {

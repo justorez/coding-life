@@ -1,12 +1,7 @@
 import { createApp } from 'vue'
-import {
-    createRouter,
-    createWebHistory,
-    createWebHashHistory
-} from 'vue-router/auto'
+import { createRouter, createWebHistory } from 'vue-router/auto'
 import store from './store'
 import App from './App.vue'
-import utils from './utils'
 import './assets/main.css'
 
 const router = createRouter({
@@ -17,8 +12,4 @@ const router = createRouter({
     }
 })
 
-const app = createApp(App)
-app.use(router)
-app.use(store)
-app.use(utils)
-app.mount('#app')
+createApp(App).use(router).use(store).mount('#app')
