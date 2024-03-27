@@ -5,7 +5,6 @@
     2. 对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息
     
     若在生产环境使用，可以使用 https://github.com/fingerprintjs/fingerprintjs
-    测试网站：https://browserleaks.com/canvas
 -->
 <div class="box">
     <div class="line">
@@ -16,10 +15,13 @@
         <span>FingerprintJS</span>
         <h3 id="fpjs"></h3>
     </div>
+    <a href="https://browserleaks.com/canvas" target="_blank">
+        测试网站：browserleaks
+    </a>
 </div>
 <script type="module">
-    import FingerprintJS from 'https://openfpcdn.io/fingerprintjs/v3'
-    import SparkMD5 from 'https://cdn.skypack.dev/spark-md5'
+    import FingerprintJS from 'https://esm.sh/@fingerprintjs/fingerprintjs'
+    import SparkMD5 from 'https://esm.sh/spark-md5'
 
     function fpCanvas() {
         console.time('fpCanvas')
