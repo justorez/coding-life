@@ -1,5 +1,5 @@
 /**
- * 最近最少使用
+ * Least Recently Used 最近最少使用
  * 偷懒版：利用 map 自身键值有序
  * 访问过的数据放到末尾；缓存满时，移除首数据
  */
@@ -24,8 +24,8 @@ class LRUCache {
 
     put(key, value) {
         if (this.map.size === this.capacity) {
-            const head = this.map.keys().next()
-            this.map.delete(head.value)
+            const headKey = this.map.keys().next().value
+            this.map.delete(headKey)
         }
         this.map.set(key, value)
     }
