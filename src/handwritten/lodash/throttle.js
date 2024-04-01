@@ -1,11 +1,22 @@
 /**
  * 节流函数，返回函数连续调⽤时，func 执⾏频率限定为 次 / wait
+ *
+ * 确保在一段连续的时间段内，回调函数以固定的频率执行。
+ *
+ * 应用场景：
+ * - 滚动事件监听：在网页或长列表滚动过程中，scroll事件会高频触发。
+ *   如果不做处理，每次滚动都将触发相应的函数执行，可能导致页面卡顿或响应慢。
+ *   通过节流，我们可以确保无论滚动多快，函数在一定时间内（比如每100毫秒）只会被执行一次，
+ *   这样既能够及时更新界面状态，又不至于过于频繁。
+ * - 地图拖拽实时更新标记位置：在地图应用中，用户拖拽地图时可能产生连续的mousemove或touchmove事件。
+ *   为了实时显示当前位置但又不过度消耗资源，可以使用节流策略，
+ *   在用户拖动过程中的每隔固定时间段更新一次标记位置，而不是对每一次微小的位置变化都做出响应。
+ *
  * @param {Function} func 回调函数
  * @param {Number} wait 时间窗口的间隔
- * @param {Object} options 如果想忽略开始函数的的调⽤，传⼊ {leading:false}。
- *                         如果想忽略结尾函数的调⽤，传⼊ {trailing:false}。
+ * @param {Object} options 如果想忽略开始函数的的调⽤，传⼊ `{leading:false}`。
+ *                         如果想忽略结尾函数的调⽤，传⼊ `{trailing:false}`。
  *                         两者不能共存，否则函数不能执⾏
- * @returns {Function} 返回客户调用函数
  */
 function throttle(func, wait, options) {
     let context, args, result

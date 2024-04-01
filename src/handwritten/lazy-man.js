@@ -45,10 +45,8 @@ class LazyMan {
 
     sleepWrapper(time, first = false) {
         const task = () => {
-            // console.log(`Wake up after ${time}s.`)
-            setTimeout(() => {
-                this.next()
-            }, time * 1000)
+            console.log(`Wake up after ${time}s.`, first)
+            setTimeout(() => this.next(), time * 1000)
         }
         if (first) {
             const intro = this.tasks.shift()
@@ -61,8 +59,7 @@ class LazyMan {
 }
 
 function test() {
-    const lazyMan = (name) => new LazyMan(name)
-    lazyMan('Leo')
+    new LazyMan('Leo')
         .eat('breakfast')
         .sleep(2)
         .eat('lunch')
