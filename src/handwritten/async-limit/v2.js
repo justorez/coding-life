@@ -32,24 +32,4 @@ class Scheduler {
     }
 }
 
-const { sleep } = require('shared')
-
-function test() {
-    const scheduler = new Scheduler(2)
-    for (let i = 1; i <= 10; i++) {
-        let task = async (i) => {
-            if (i === 5) {
-                throw new Error('Test Case ' + i)
-            }
-            return sleep(500).then(() => i)
-        }
-
-        scheduler
-            .add(task, i)
-            .then((res) =>
-                console.log(res, scheduler.activeCount, scheduler.pendingCount)
-            )
-            .catch(console.error)
-    }
-}
-test()
+module.exports = Scheduler

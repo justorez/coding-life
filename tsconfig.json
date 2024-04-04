@@ -11,6 +11,7 @@
     "declaration": false,
     "resolveJsonModule": true,
     "sourceMap": false,
+    "noEmit": true,
     "types": ["node"],
     "paths": {
       "@/*": ["./src/*"],
