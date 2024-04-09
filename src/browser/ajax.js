@@ -1,16 +1,18 @@
-const { isObject, isBoolean } = require('../js/types')
+const typeOf = (val) => Object.prototype.toString.call(val).slice(8, -1)
+const isBoolean = (val) => typeOf(val) === 'Boolean'
+const isObject = (val) => val !== null && typeof val === 'object'
 
 /**
- * ajax fetch
+ * ajax
  * @param {Object} options 配置项
  * @param {string} options.method 请求方法
  * @param {string} options.url 请求地址
  * @param {Object} options.params 请求参数
  * @param {array} options.headers 自定义请求头
- * @param {array} options.withCredentials 跨域携带授权信息
+ * @param {boolean} options.withCredentials 跨域携带授权信息
  * @returns Request Promise
  */
-function fetch({ method, url, params, headers, withCredentials } = {}) {
+function ajax({ method, url, params, headers, withCredentials } = {}) {
     method = method.toUpperCase()
     withCredentials = isBoolean(withCredentials) ? withCredentials : true
 

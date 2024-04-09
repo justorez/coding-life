@@ -71,7 +71,7 @@ observer.observe(img)
 6. 然后用户第一次访问 B 系统，没有 ticket，自动跳转到 SSO 并附带回调地址
 7. SSO 已登录过，直接下发 ticket，步骤同 3-5
 
-### [接口响应后，自动中断该接口的其它重复请求](./src/js/fetch-abort.js)
+### [接口响应后，自动中断该接口的其它重复请求](./src/js/fetch/abort.ts)
 
 ## HTTP
 
