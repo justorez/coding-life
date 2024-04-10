@@ -4,4 +4,4 @@ VueRouter 两种常用的路由模式，Hash 和 History，底层都是借助了
 
 当调用 `router.push()` 跳转路由时，底层调用 `history.pushState()`，实现修改地址栏地址但不刷新页面，同时修改 `router` 内部维护的当前路由，这是一个响应式变量，`RouterView` 组件会监听当前路由的变化，根据路由配置，渲染对应的组件。
 
-另外，针对浏览器前进、后退和 a 标签跳转等行为，VueRouter 监听 `popstate` 事件进行相应的路由跳转。之前版本的 hash 模式会监听 `hashchange` 事件，目前最新版改为了都监听 `popstate` 事件。
+另外，针对浏览器前进、后退和 `<a>` 标签跳转等行为，VueRouter 会监听 `popstate` 事件进行相应的路由跳转。之前版本的 hash 模式会监听 `hashchange` 事件，目前最新版已改为统一监听 `popstate` 事件。
