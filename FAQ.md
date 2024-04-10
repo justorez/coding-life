@@ -121,6 +121,32 @@ Vue3 使用 Proxy 来监控数据的变化
 
 ### [VueRouter 实现原理](./src/vue/docs/router/readme.md)
 
+### 父Child生命周期执行顺序
+
+1. Parent `setup`
+2. Parent `beforeCreate`
+3. Parent `created`
+4. Parent `beforeMount`
+    - Child `setup`
+    - Child `beforeCreate`
+    - Child `created`
+    - Child `beforeMount`
+    - Child `mounted`
+5. Parent `mounted`
+7. Parent `beforeUnmount`
+    - Child `beforeUnmount`
+    - Child `unmounted`
+9. Parent `unmounted`
+
+如果使用了 `KeepAlive`
+1. `mounted`
+2. Child `activated`
+3. Parent `activated`
+4. `beforeUnmount`
+5. Child `deactivated`
+6. Parent `deactivated`
+7. `unmounted`
+
 ## Webpack
 
 ### 构建流程
@@ -136,6 +162,11 @@ Vue3 使用 Proxy 来监控数据的变化
 9.  **优化模块**：在依赖图生成之后，Webpack 进行一系列的优化操作，例如代码分割、摇树优化（Tree Shaking）、公共代码提取（CommonsChunkPlugin 或者 SplitChunksPlugin）等。
 10. **生成 Chunk**：根据依赖关系和优化策略，Webpack 将相关模块组合成一个个 Chunk（也就是最终要输出的文件）。
 11. **输出资源**：最后，Webpack 将每个 Chunk 转换成实际的文件内容，并根据配置的 `output` 设置，将这些文件内容写入到磁盘上的指定位置。
+
+### loader 和 plugin 的区别
+
+- Loader 专注于源文件的转换，应用于单个文件级别，处理模块内容，使其符合模块化标准或转换为另一种格式。
+- Plugin 则着眼于整体构建过程的控制与扩展，能够影响多个文件甚至整体构建结果，执行跨模块或与模块无关的操作，如资源管理、优化、环境变量注入、自定义输出等。
 
 ### hash、chunkhash、contenthash
 
