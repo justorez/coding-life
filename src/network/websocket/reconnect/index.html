@@ -1,0 +1,39 @@
+<button onclick="closeWS()">关闭 WebSocket</button>
+<script>
+    let ws = null
+    let reconnectTimer = null
+    const closeWS = () => ws && ws.send('cmd:close')
+
+    function connect() {
+        ws = new WebSocket('ws://localhost:3000')
+        
+        ws.onopen = () => {
+            console.log('[Open] WebSocket connected!')
+            clearTimeout(reconnectTimer)
+        }
+        ws.onmessage = (event) => {
+            console.log('[Message]', event.data)
+        }
+        ws.onclose = (event) => {
+            console.log('[Close]', event.code, event.reason)
+            reconnect()
+        }
+        ws.onerror = (error) => {
+            console.error('[Error]', error)
+            reconnect()
+        }
+    }
+
+    function reconnect() {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            return
+        }
+        clearTimeout(reconnectTimer)
+        reconnectTimer = setTimeout(function () {
+            console.log('Reconnecting WebSocket...')
+            connect()
+        }, 3000) // 等待 3 秒后尝试重新连接
+    }
+
+    connect() // 初始连接
+</script>

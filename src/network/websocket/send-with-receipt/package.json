@@ -1,0 +1,10 @@
+{
+  "name": "ws-send-with-receipt",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "app": "nodemon app.js",
+    "client": "opener index.html",
+    "dev": "run-p client app"
+  }
+}

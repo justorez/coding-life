@@ -1,5 +1,5 @@
 test/
-.*.md
+.local/
 
 # Logs
 logs

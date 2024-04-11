@@ -1,0 +1,72 @@
+<button onclick="sendMsg()">发送消息</button>
+<button onclick="sendMsg({testError:true})">测试超时</button>
+<script>
+    class MessageHub {
+        constructor() {
+            this.ws = new WebSocket('ws://localhost:3000')
+            this.ws.onmessage = this.handleMessage.bind(this)
+            this.ws.onclose = (event) => console.log('[Close]', event.code, event.reason)
+            this.ws.onerror = (error) => console.error('[Error]', error)
+            this.callbackMap = new Map()
+        }
+
+        send(msg) {
+            return new Promise((resolve, reject) => {
+                msg ||= {}
+                msg.id = crypto.randomUUID()
+
+                let timer
+                this.on(msg.id, (res) => {
+                    clearTimeout(timer)
+                    timer = null
+                    resolve(res)
+                })
+
+                this.ws.send(JSON.stringify(msg))
+
+                timer = setTimeout(() => {
+                    clearTimeout(timer)
+                    timer = null
+                    this.remove(msg.id)
+                    reject(new Error('response timeout'))
+                }, 2000)
+            })
+        }
+
+        handleMessage(event) {
+            const msg = JSON.parse(event.data)
+            this.emit(msg.id, msg)
+        }
+
+        on(id, callback) {
+            this.callbackMap.set(id, callback)
+        }
+
+        remove(id) {
+            this.callbackMap.delete(id)
+        }
+
+        emit(id, args) {
+            if (!this.callbackMap.has(id)) return
+
+            const callback = this.callbackMap.get(id)
+            this.callbackMap.delete(id)
+
+            if (typeof callback !== 'function') return
+
+            callback(args)
+        }
+    }
+
+    const msghub = new MessageHub()
+    const sendMsg = async (msg) => {
+        try {
+            const res = await msghub.send(msg)
+            console.log(res)
+            alert(JSON.stringify(res))
+        } catch (error) {
+            console.error(error)
+            alert(error.message)
+        }
+    }
+</script>

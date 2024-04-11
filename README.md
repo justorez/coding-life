@@ -151,6 +151,8 @@ pnpm start:cache    # HTTP 缓存示例
 - [301 和 302 的区别](https://zhuanlan.zhihu.com/p/93031392)
 - [Server-Send Events](./src/network/sse/readme.md)
 - [GET 可以有 body 吗？](https://zhuanlan.zhihu.com/p/456921996)
+- [Websocket 断开重连](./src/network/websocket/reconnect/index.html)
+- [Websocket 接收消息回执](./src/network/websocket/send-with-receipt/index.html)
 
 ## 性能优化
 
