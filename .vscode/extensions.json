@@ -1,3 +1,6 @@
 {
-  "recommendations": ["ritwickdey.LiveServer"]
+  "recommendations": [
+    "ritwickdey.LiveServer",
+    "folke.vscode-monorepo-workspace"
+  ]
 }
