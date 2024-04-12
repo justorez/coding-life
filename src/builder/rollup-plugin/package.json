@@ -1,5 +1,5 @@
 {
-  "name": "rollup-plugin-demo",
+  "name": "@rollup/plugin-demo",
   "version": "1.0.0",
   "scripts": {
     "test": "rollup -c rollup.config.mjs && node dist/index.mjs"

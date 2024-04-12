@@ -1,13 +1,10 @@
 {
-  "name": "dom-blocking",
+  "name": "@browser/dom-blocking",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "koa": "^2.3.0",
     "koa-static": "^4.0.1"

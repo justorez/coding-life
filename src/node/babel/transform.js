@@ -4,9 +4,9 @@ const t = require('@babel/types') // 操作单个 AST 节点
 const { default: traverse } = require('@babel/traverse') // 遍历 AST，实现批量操作
 
 /**
- * 将代码里的 findEleById 替换为 document.getElementById
+ * 将代码里的 findElemById 替换为 document.getElementById
  */
-var orginCode = `findEleById("jz")` // 原始代码
+var orginCode = `findElemById("#jz")` // 原始代码
 
 // 生成原始 AST
 var originAST = parse(orginCode, {
@@ -17,8 +17,8 @@ var originAST = parse(orginCode, {
 traverse(originAST, {
     Identifier(path) {
         var { node } = path
-        // 找到 findEleById，将其替换成为目标节点
-        if (node && node.name === 'findEleById') {
+        // 找到 findElemById，将其替换成为目标节点
+        if (node && node.name === 'findElemById') {
             var newNode = t.memberExpression(
                 t.identifier('document'),
                 t.identifier('getElementById')

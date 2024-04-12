@@ -1,7 +1,2 @@
 packages:
-  - src/browser/cross-origin/*
-  - src/browser/dom-blocking
-  - src/network/*
-  - src/node/babel
-  - src/shared
-  - src/vue
+  - src/**

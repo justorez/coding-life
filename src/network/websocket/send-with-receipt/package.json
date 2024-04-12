@@ -1,5 +1,5 @@
 {
-  "name": "ws-send-with-receipt",
+  "name": "@websocket/send-with-receipt",
   "version": "1.0.0",
   "private": "true",
   "scripts": {

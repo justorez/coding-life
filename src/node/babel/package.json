@@ -1,11 +1,7 @@
 {
-  "name": "babel-demo",
+  "name": "@node/babel",
   "version": "1.0.0",
   "description": "what is babel?",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/generator": "^7.20.14",

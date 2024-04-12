@@ -1,16 +1,16 @@
 const path = require('path')
-const ZipPlugin = require('./zip-plugin')
+const ZipPlugin = require('./plugin')
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: './src.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
     plugins: [
         new ZipPlugin({
-            filename: 'offline'
+            filename: 'dist'
         })
     ]
 }

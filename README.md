@@ -1,15 +1,3 @@
-## Usage
-
-```sh
-pnpm i              # 安装依赖
-pnpm start          # 预览静态 HTML 示例
-pnpm start:jsonp    # JSONP 示例
-pnpm start:proxy    # 反向代理示例
-pnpm start:dom      # DOM 阻塞示例
-pnpm start:vue      # 预览 vue 相关示例
-pnpm start:cache    # HTTP 缓存示例
-```
-
 ## Browser
 
 - [事件循环](./src/browser/event-loop/readme.md)

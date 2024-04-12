@@ -1,8 +1,7 @@
 {
-  "name": "jwt",
+  "name": "json-web-token",
   "version": "1.0.0",
   "description": "json-web-token demo",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js"
   },

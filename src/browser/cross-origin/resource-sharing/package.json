@@ -1,5 +1,5 @@
 {
-  "name": "resource-sharing",
+  "name": "@cross-origin/resource-sharing",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
