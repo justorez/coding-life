@@ -77,6 +77,7 @@ export default {
                 this.bufferScale * this.visibleCount
             )
         },
+        // 真实渲染的数据，包括不可见的上部缓冲区和下部缓冲区
         visibleData() {
             let start = this.start - this.aboveCount
             let end = this.end + this.belowCount
@@ -176,6 +177,7 @@ export default {
         },
         // 获取列表起始索引
         getStartIndex(scrollTop = 0) {
+            // return this.positions.find(p => p && p.bottom > scrollTop).index
             return this.binarySearch(this.positions, scrollTop)
         },
         // 二分法查找

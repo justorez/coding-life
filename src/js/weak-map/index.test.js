@@ -1,4 +1,4 @@
-const JWeakMap = require('.')
+const JWeakMap = require('./')
 
 describe('My WeakMap', () => {
     test('basic test', () => {

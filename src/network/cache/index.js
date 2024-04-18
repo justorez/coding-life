@@ -4,7 +4,7 @@ const path = require('path')
 const crypto = require('crypto')
 const mime = require('mime-types')
 
-const parseStatic = (dir) => fs.readFile(dir)
+const readFile = (dir) => fs.readFile(dir)
 const getFileStat = (path) => fs.stat(path)
 const now = () => new Date().toLocaleTimeString()
 
@@ -18,10 +18,10 @@ app.use(async (ctx) => {
     if (url === '/') {
         // 访问根路径返回 index.html
         ctx.set('Content-Type', 'text/html')
-        ctx.body = await parseStatic('./index.html')
+        ctx.body = await readFile('./index.html')
     } else {
         const filePath = path.resolve(__dirname, `.${url}`)
-        const fileBuffer = await parseStatic(filePath)
+        const fileBuffer = await readFile(filePath)
         ctx.set('Content-Type', mime.lookup(url)) // 设置类型
 
         // 强缓存
@@ -55,6 +55,7 @@ app.use(async (ctx) => {
         }
 
         // 协商缓存 etag/if-none-match
+        // 优先级高于 last-modified/if-modified-since
         if (cacheType === 'hash' || !cacheType) {
             // no-cache 指令不会阻止响应的存储，而是阻止在没有重新验证的情况下重用响应
             // 如果你不希望将响应存储在任何缓存中，请使用 no-store
