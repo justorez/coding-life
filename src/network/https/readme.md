@@ -1,5 +1,9 @@
 ## HTTPS
 
+### TLS 1.2 握手过程
+
+![](./TLS1.2.Handshake.png)
+
 ### TLS 1.3 握手过程
 
 ![](./TLS1.3.Msg.png)

@@ -32,7 +32,7 @@ app.use(async (ctx) => {
             ctx.set('Expires', date)
             // 设置 Cache-Control 响应头，单位：秒
             // max-age 优先级高于 expires
-            ctx.set('Cache-Control', 'max-age=60') // 20s
+            ctx.set('Cache-Control', 'max-age=20') // 20s
             ctx.body = fileBuffer // 设置传输
             return
         }

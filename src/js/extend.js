@@ -24,7 +24,7 @@ function byPrototype() {
     let child2 = new Child('yy')
     console.log(child2.colors) // ['black', 'white']
 }
-// byPrototype()
+byPrototype()
 
 /**
  * 构造函数继承
@@ -107,6 +107,7 @@ function parasiticCompostion() {
     }
 
     // 关键一步：构造新对象指向父类原型
+    // 这一步不会调用父类的构造方法，从而解决了组合式继承的缺点
     Child.prototype = Object.create(Parent.prototype)
     Child.prototype.constructor = Child
 

@@ -4,6 +4,7 @@
         <span>bbb</span>
     </li>
     <li>ccc</li>
+    <span>ddd</span>
 </ul>
 
 <script>
@@ -19,14 +20,16 @@
             // Event.target 事件触发的元素
             // Event.currentTarget 事件绑定的元素
             let el = event.target
+            // 用户可能点击了更深层的元素，逐级向上目标查找
             while (!el.matches(selector)) {
                 if (element === el) {
-                    el = null
+                    el = null // 没有找到目标元素
+                    console.warn('没有找到委托的目标元素')
                     break
                 }
                 el = el.parentNode
             }
-            el && callback.call(event, el)
+            el && callback(event, el)
         })
         return element
     }

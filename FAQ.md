@@ -1,3 +1,43 @@
+<!-- TOC -->
+
+- [HTML](#html)
+    - [为什么link放在头部，script放在尾部？](#%E4%B8%BA%E4%BB%80%E4%B9%88link%E6%94%BE%E5%9C%A8%E5%A4%B4%E9%83%A8script%E6%94%BE%E5%9C%A8%E5%B0%BE%E9%83%A8)
+- [JS](#js)
+    - [原型](#%E5%8E%9F%E5%9E%8B)
+    - [原型链](#%E5%8E%9F%E5%9E%8B%E9%93%BE)
+    - [闭包](#%E9%97%AD%E5%8C%85)
+    - [事件循环](#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF)
+    - [箭头函数和普通函数的区别](#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB)
+    - [图片懒加载](#%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD)
+    - [单点登录（Single Sign On）](#%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95single-sign-on)
+    - [接口响应后，自动中断该接口的其它重复请求](#%E6%8E%A5%E5%8F%A3%E5%93%8D%E5%BA%94%E5%90%8E%E8%87%AA%E5%8A%A8%E4%B8%AD%E6%96%AD%E8%AF%A5%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%85%B6%E5%AE%83%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82)
+- [HTTP](#http)
+    - [输入 URL 到页面加载的过程](#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B)
+    - [强制缓存和协商缓存](#%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98%E5%92%8C%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98)
+    - [缓存最佳实践](#%E7%BC%93%E5%AD%98%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5)
+    - [HTTPS 握手过程](#https-%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B)
+    - [Websocket 断开重连](#websocket-%E6%96%AD%E5%BC%80%E9%87%8D%E8%BF%9E)
+- [Vue](#vue)
+    - [Vue3 进行了哪些优化更新？](#vue3-%E8%BF%9B%E8%A1%8C%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8C%96%E6%9B%B4%E6%96%B0)
+    - [Vue2 和 Vue3 实现响应式的区别](#vue2-%E5%92%8C-vue3-%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB)
+    - [Vue3 Diff](#vue3-diff)
+    - [VueRouter 实现原理](#vuerouter-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)
+    - [父子组件生命周期执行顺序](#%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F)
+- [Webpack](#webpack)
+    - [构建流程](#%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B)
+    - [loader 和 plugin 的区别](#loader-%E5%92%8C-plugin-%E7%9A%84%E5%8C%BA%E5%88%AB)
+    - [hash、chunkhash、contenthash](#hashchunkhashcontenthash)
+- [CSS](#css)
+    - [BFC Block Formatting Context](#bfc-block-formatting-context)
+    - [居中对齐](#%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90)
+    - [meta viewport 标签的作用](#meta-viewport-%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%9C%E7%94%A8)
+
+<!-- /TOC -->
+
+## HTML
+
+### [为什么link放在头部，script放在尾部？](https://juejin.cn/post/6946781696725352479)
+
 ## JS
 
 ### 原型

@@ -1,5 +1,7 @@
 # Cross Site Scripting
 
+跨站脚本攻击
+
 ## 危害
 
 1. 窃取 Cookie：`document.cookie` 获取 cookie，ajax/fetch + CORS 将数据发送给攻击者服务器。攻击者可在其他电脑上模拟用户登录。
