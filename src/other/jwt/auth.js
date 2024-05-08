@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const SECERT = 'hellojwt!'
 
+// https://jwt.io/
 function generateToken(payload) {
     return jwt.sign(payload, SECERT, { expiresIn: '5s' })
 }

@@ -57,6 +57,7 @@
         // release reference when window closed
         childWins = childWins.filter((w) => !w.closed)
 
+        // send message to childs
         childWins.forEach((w) =>
             w.postMessage({
                 from: tab,
@@ -65,6 +66,7 @@
             })
         )
 
+        // send message to parent
         if (window.opener && !window.opener.closed) {
             window.opener.postMessage({
                 from: tab,
