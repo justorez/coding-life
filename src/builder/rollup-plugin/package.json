@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "fs-extra": "^11.2.0",
-    "rollup": "^4.13.0"
+    "rollup": "^4.22.4"
   },
   "dependencies": {
     "random": "^4.1.0"
