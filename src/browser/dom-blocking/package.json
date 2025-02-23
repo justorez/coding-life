@@ -6,7 +6,7 @@
     "dev": "nodemon index.js"
   },
   "devDependencies": {
-    "koa": "^2.3.0",
+    "koa": "^2.15.4",
     "koa-static": "^4.0.1"
   }
 }
